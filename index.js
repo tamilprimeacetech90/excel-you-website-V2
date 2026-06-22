@@ -110,7 +110,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
 
 // =====================
 // 📤 UPLOAD ROUTES
