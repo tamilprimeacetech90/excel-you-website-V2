@@ -93,7 +93,7 @@ router.get(
         req.session.studentId = req.user._id;
 
         res.redirect(
-            "/student-dashboard.html"
+            "/student.html"
         );
     }
 );
@@ -119,7 +119,7 @@ router.get(
         req.session.studentId = req.user._id;
 
         res.redirect(
-            "/student-dashboard.html"
+            "/student.html"
         );
     }
 );
@@ -172,6 +172,36 @@ router.post("/login", async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Server error"
+        });
+
+    }
+
+});
+// ======================
+// CURRENT LOGGED-IN STUDENT
+// ======================
+
+router.get("/me", async (req, res) => {
+
+    try {
+
+        if (!req.user) {
+
+            return res.status(401).json({
+                success: false
+            });
+
+        }
+
+        res.json({
+            success: true,
+            student: req.user
+        });
+
+    } catch (err) {
+
+        res.status(500).json({
+            success: false
         });
 
     }
