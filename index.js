@@ -327,6 +327,25 @@ app.get("/logout", (req, res) => {
 
 
 // =====================
+// 👤 CURRENT STUDENT API
+// =====================
+app.get("/api/current-user", (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ loggedIn: false });
+  }
+  res.json({
+    loggedIn: true,
+    user: {
+      id: req.user._id,
+      username: req.user.username,
+      email: req.user.email,
+      provider: req.user.provider
+    }
+  });
+});
+
+
+// =====================
 // ❌ 404 PAGE
 // =====================
 app.use((req, res) => {

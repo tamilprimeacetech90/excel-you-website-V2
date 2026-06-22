@@ -415,5 +415,38 @@
 
     <script src="/student/js/student.js"></script>
 
+
+
+<script>
+// Check student login status
+fetch('/api/current-user')
+  .then(res => {
+    if (!res.ok) throw new Error('Not logged in');
+    return res.json();
+  })
+  .then(data => {
+    if (data.loggedIn) {
+      // Show student menu, hide guest
+      document.getElementById('guestMenu').style.display = 'none';
+      document.getElementById('studentMenu').style.display = 'flex';
+      document.getElementById('studentName').innerText = data.user.username;
+      
+      // Hide the big "Become a Celestial Scholar" card
+      document.querySelector('.login-card').style.display = 'none';
+    }
+  })
+  .catch(() => {
+    console.log('Student not logged in');
+    // Keep guest menu showing
+  });
+
+// Logout
+document.getElementById('logoutBtn')?.addEventListener('click', async () => {
+  await fetch('/auth/logout', { method: 'POST' });
+  window.location.href = '/index.html';
+});
+</script>
+
 </body>
+
 </html>
