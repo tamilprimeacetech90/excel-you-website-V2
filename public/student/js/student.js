@@ -513,20 +513,51 @@ subjectSelect?.addEventListener(
 // LOGIN STATUS UI
 // =========================
 
-function updateStudentNavbar(){
+async function updateStudentNavbar(){
 
-    const studentData =
-        localStorage.getItem(
-            "student"
-        );
+    let student = null;
 
-    if(!studentData){
-        return;
+    // Try localStorage first
+    const studentData = localStorage.getItem("student");
+
+    if(studentData){
+
+        student = JSON.parse(studentData);
+
     }
 
-    const student =
-        JSON.parse(studentData);
+    // If not found, ask server (Google/GitHub login)
+    else{
 
+        try{
+
+            const response =
+                await fetch("/api/student/me");
+
+            const data =
+                await response.json();
+
+            if(data.success){
+
+                student = data.student;
+
+            }
+
+        }catch(err){
+
+            console.log(err);
+
+        }
+
+    }
+
+    if(!student){
+
+        return;
+
+    }
+
+    // Keep the rest of your existing code below...
     const guestMenu =
         document.getElementById(
             "guestMenu"

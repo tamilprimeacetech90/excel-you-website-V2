@@ -73,56 +73,6 @@ router.post("/signup", async (req, res) => {
 
 });
 
-//=====================
- //GOOGLE
-//======================
-router.get(
-    "/auth/google",
-    passport.authenticate("google", {
-        scope: ["profile", "email"]
-    })
-);
-
-router.get(
-    "/auth/google/callback",
-    passport.authenticate("google", {
-        failureRedirect: "/student"
-    }),
-    (req, res) => {
-
-        req.session.studentId = req.user._id;
-
-        res.redirect(
-            "/student.html"
-        );
-    }
-);
-
-//=====================
- //GitHub
-//======================
-
-router.get(
-    "/auth/github",
-    passport.authenticate("github", {
-        scope: ["user:email"]
-    })
-);
-
-router.get(
-    "/auth/github/callback",
-    passport.authenticate("github", {
-        failureRedirect: "/student"
-    }),
-    (req, res) => {
-
-        req.session.studentId = req.user._id;
-
-        res.redirect(
-            "/student.html"
-        );
-    }
-);
 
 // ======================
 // LOGIN

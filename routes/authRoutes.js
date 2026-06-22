@@ -17,6 +17,9 @@ router.get(
   }),
   (req, res) => {
 
+
+  console.log("USER:", req.user);
+    console.log("AUTH:", req.isAuthenticated());
     req.session.save(() => {
 
       res.redirect("/student.html");
@@ -33,6 +36,8 @@ router.get(
     failureRedirect: "/student-login.html"
   }),
   (req, res) => {
+  console.log("USER:", req.user);
+    console.log("AUTH:", req.isAuthenticated());
 
     req.session.save(() => {
 
