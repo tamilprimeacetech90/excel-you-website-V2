@@ -16,16 +16,16 @@ router.get(
     failureRedirect: "/student-login.html"
   }),
   (req, res) => {
-    res.redirect("/student.html");
+
+    req.session.save(() => {
+
+      res.redirect("/student.html");
+
+    });
+
   }
 );
 
-router.get(
-  "/github",
-  passport.authenticate("github", {
-    scope: ["user:email"]
-  })
-);
 
 router.get(
   "/github/callback",
@@ -33,8 +33,13 @@ router.get(
     failureRedirect: "/student-login.html"
   }),
   (req, res) => {
-    res.redirect("/student.html");
+
+    req.session.save(() => {
+
+      res.redirect("/student.html");
+
+    });
+
   }
 );
-
 module.exports = router;
