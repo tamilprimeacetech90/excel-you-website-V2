@@ -16,11 +16,7 @@ router.get(
     failureRedirect: "/student-login.html"
   }),
   (req, res) => {
-<<<<<<< HEAD
     res.redirect("/student.html");
-=======
-    res.redirect("/");
->>>>>>> 799f15b94b74c72d8083a19c38c2a063ae00ff3f
   }
 );
 
@@ -37,11 +33,7 @@ router.get(
     failureRedirect: "/student-login.html"
   }),
   (req, res) => {
-<<<<<<< HEAD
     res.redirect("/student.html");
-=======
-    res.redirect("/");
->>>>>>> 799f15b94b74c72d8083a19c38c2a063ae00ff3f
   }
 );
 
