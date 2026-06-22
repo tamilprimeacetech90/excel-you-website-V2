@@ -6,7 +6,13 @@ const Student = require("../models/Student");
 console.log("GOOGLE_CLIENT_ID:", process.env.GOOGLE_CLIENT_ID);
 console.log("GOOGLE_CLIENT_SECRET:", process.env.GOOGLE_CLIENT_SECRET);
 console.log("GOOGLE_CALLBACK_URL:", process.env.GOOGLE_CALLBACK_URL);
+
+
+
+// ======================
 // GOOGLE LOGIN
+// ======================
+
 passport.use(
   new GoogleStrategy(
     {
@@ -14,44 +20,87 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK_URL
     },
+
     async (accessToken, refreshToken, profile, done) => {
+
       try {
+
+        console.log("========== GOOGLE LOGIN ==========");
+        console.log("PROFILE ID:", profile.id);
+        console.log("PROFILE NAME:", profile.displayName);
+        console.log("PROFILE EMAIL:", profile.emails?.[0]?.value);
+
+        // Find by Google ID
         let user = await Student.findOne({
           googleId: profile.id
         });
 
+        console.log("Found by Google ID:", user);
+
         if (user) {
+
+          console.log("Returning existing Google user");
+
           return done(null, user);
+
         }
 
+        // Find by email
         user = await Student.findOne({
           email: profile.emails[0].value
         });
 
+        console.log("Found by Email:", user);
+
         if (user) {
+
           user.googleId = profile.id;
           user.provider = "google";
+
           await user.save();
+
+          console.log("Linked Google account to existing user");
+
           return done(null, user);
+
         }
 
+        // Create new user
         const newUser = await Student.create({
+
           username: profile.displayName,
+
           email: profile.emails[0].value,
+
           password: "GOOGLE_AUTH",
+
           googleId: profile.id,
+
           provider: "google"
+
         });
 
-        done(null, newUser);
+        console.log("Created New User:", newUser);
+
+        return done(null, newUser);
+
       } catch (error) {
-        done(error, null);
+
+        console.error("GOOGLE STRATEGY ERROR");
+        console.error(error);
+
+        return done(error, false);
+
       }
+
     }
   )
 );
-
 // GITHUB LOGIN
+// ======================
+// GITHUB LOGIN
+// ======================
+
 passport.use(
   new GitHubStrategy(
     {
@@ -59,45 +108,90 @@ passport.use(
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: process.env.GITHUB_CALLBACK_URL
     },
-    async (accessToken, refreshToken, profile, done) => {
-      try {
-        let user = await Student.findOne({
-          githubId: profile.id
-        });
 
-        if (user) {
-          return done(null, user);
-        }
+    async (accessToken, refreshToken, profile, done) => {
+
+      try {
+
+        console.log("========== GITHUB LOGIN ==========");
+        console.log("PROFILE ID:", profile.id);
+        console.log("USERNAME:", profile.username);
+        console.log("DISPLAY NAME:", profile.displayName);
 
         const email =
           profile.emails && profile.emails.length
             ? profile.emails[0].value
             : `${profile.username}@github.com`;
 
-        user = await Student.findOne({ email });
+        console.log("EMAIL:", email);
 
-        if (user) {
-          user.githubId = profile.id;
-          user.provider = "github";
-          await user.save();
-          return done(null, user);
-        }
-
-        const newUser = await Student.create({
-          username: profile.username || profile.displayName,
-          email,
-          password: "GITHUB_AUTH",
-          githubId: profile.id,
-          provider: "github"
+        // Find by GitHub ID
+        let user = await Student.findOne({
+          githubId: profile.id
         });
 
-        done(null, newUser);
+        console.log("Found by GitHub ID:", user);
+
+        if (user) {
+
+          console.log("Returning existing GitHub user");
+
+          return done(null, user);
+
+        }
+
+        // Find by Email
+        user = await Student.findOne({
+          email
+        });
+
+        console.log("Found by Email:", user);
+
+        if (user) {
+
+          user.githubId = profile.id;
+          user.provider = "github";
+
+          await user.save();
+
+          console.log("Linked GitHub account");
+
+          return done(null, user);
+
+        }
+
+        // Create new user
+        const newUser = await Student.create({
+
+          username: profile.username || profile.displayName,
+
+          email,
+
+          password: "GITHUB_AUTH",
+
+          githubId: profile.id,
+
+          provider: "github"
+
+        });
+
+        console.log("Created New User:", newUser);
+
+        return done(null, newUser);
+
       } catch (error) {
-        done(error, null);
+
+        console.error("GITHUB STRATEGY ERROR");
+        console.error(error);
+
+        return done(error, false);
+
       }
+
     }
   )
 );
+
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
