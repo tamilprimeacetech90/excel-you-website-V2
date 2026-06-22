@@ -94,16 +94,17 @@ app.use(
 
         }),
 
-        cookie: {
+      cookie: {
 
-            maxAge:
-                1000 * 60 * 60 * 24,
+    maxAge: 1000 * 60 * 60 * 24,
 
-            httpOnly: true,
+    httpOnly: true,
 
-          secure: process.env.NODE_ENV === "production"
+    secure: process.env.NODE_ENV === "production",
 
-        }
+    sameSite: "lax"
+
+}
 
     })
 );

@@ -181,31 +181,17 @@ router.post("/login", async (req, res) => {
 // CURRENT LOGGED-IN STUDENT
 // ======================
 
-router.get("/me", async (req, res) => {
+router.get("/me", (req, res) => {
 
-    try {
+    console.log("Session ID:", req.sessionID);
+    console.log("Authenticated:", req.isAuthenticated());
+    console.log("User:", req.user);
 
-        if (!req.user) {
-
-            return res.status(401).json({
-                success: false
-            });
-
-        }
-
-        res.json({
-            success: true,
-            student: req.user
-        });
-
-    } catch (err) {
-
-        res.status(500).json({
-            success: false
-        });
-
-    }
+    res.json({
+        success: !!req.user,
+        authenticated: req.isAuthenticated(),
+        user: req.user || null
+    });
 
 });
-
 module.exports = router;

@@ -373,3 +373,30 @@ if(signupForm){
 // GOOGLE LOGIN
 //======================
 
+const googleBtn = document.getElementById("googleSignup");
+
+if (googleBtn) {
+
+    googleBtn.addEventListener("click", () => {
+
+        window.location.href = "/auth/google";
+
+    });
+
+}
+
+//======================
+// GITHUB LOGIN
+//======================
+
+const githubBtn = document.getElementById("githubSignup");
+
+if (githubBtn) {
+
+    githubBtn.addEventListener("click", () => {
+
+        window.location.href = "/auth/github";
+
+    });
+
+}
