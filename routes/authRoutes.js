@@ -1,14 +1,21 @@
+
+console.log("✅ authRoutes loaded");
 const express = require("express");
 const passport = require("passport");
 
 const router = express.Router();
 
-router.get(
-  "/google",
-  passport.authenticate("google", {
+router.get("/google", (req, res, next) => {
+
+    console.log("✅ GOOGLE ROUTE HIT");
+
+    next();
+
+}, passport.authenticate("google", {
+
     scope: ["profile", "email"]
-  })
-);
+
+}));
 
 router.get(
   "/google/callback",
