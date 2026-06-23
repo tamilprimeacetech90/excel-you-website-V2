@@ -30,12 +30,15 @@ router.get(
   }
 );
 
-router.get(
-  "/github",
-  passport.authenticate("github", {
-    scope: ["user:email"]
-  })
-);
+router.get("/google", (req, res, next) => {
+
+    console.log("✅ GOOGLE ROUTE HIT");
+
+    passport.authenticate("google", {
+        scope: ["profile", "email"]
+    })(req, res, next);
+
+});
 
 router.get(
   "/github/callback",
