@@ -1017,25 +1017,25 @@ function applyTheme(theme){
 
 }
 
-applyTheme(
-  localStorage.getItem("theme")
-  || "light"
-);
+function applyTheme(theme){
+  document.body.setAttribute("data-theme", theme);
 
-themeBtn.onclick = () => {
+  // 1. UPDATE THEME SWITCH BUTTON ICON
+  themeBtn.innerHTML = theme === "dark" ? "☀️" : "🌙";
 
-  const current =
-    document.body.getAttribute(
-      "data-theme"
-    );
+  // 2. SWITCH LOGO IMAGES WITHOUT FLASHING (Fixed validation check)
+  if (siteLogo) {
+    siteLogo.src = theme === "dark"
+      ? "/assets/logo/full-logo-white.png"
+      : "/assets/logo/full-logo.png";
+  }
 
-  applyTheme(
-    current === "dark"
-    ? "light"
-    : "dark"
-  );
+  // 3. SAVE THEME STATE
+  localStorage.setItem("theme", theme);
+}
 
-};
+
+
     // LOAD HOMEPAGE DATA
 
     async function loadHomepage(){

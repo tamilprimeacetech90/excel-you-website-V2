@@ -46,7 +46,6 @@ async function loadSubjects(){
     try {
 
         // FETCH
-
         const response =
             await fetch(
                 "/api/subjects"
@@ -56,17 +55,14 @@ async function loadSubjects(){
             await response.json();
 
         // SAVE
-
         allSubjects = data;
 
         // RENDER
-
         renderSubjects(
             allSubjects
         );
 
         // SELECT
-
         populateSubjectSelect(
             allSubjects
         );
@@ -79,17 +75,11 @@ async function loadSubjects(){
         );
 
         subjectContainer.innerHTML = `
-
             <div class="empty-box">
-
                 Failed to load subjects
-
             </div>
-
         `;
-
     }
-
 }
 
 
@@ -100,33 +90,22 @@ async function loadSubjects(){
 function renderSubjects(subjects){
 
     // RESET
-
     subjectContainer.innerHTML = "";
 
     // EMPTY
-
     if(!subjects.length){
-
         subjectContainer.innerHTML = `
-
             <div class="empty-box">
-
                 No subjects found
-
             </div>
-
         `;
-
         return;
-
     }
 
     // LOOP
-
     subjects.forEach(subject => {
 
         // TILE
-
         const tile =
             document.createElement(
                 "div"
@@ -135,164 +114,85 @@ function renderSubjects(subjects){
         tile.className =
             "subject-tile";
 
-        
-// SUBJECT IMAGES
-const image =
-
-    subject.image ||
-
-    "/assets/subjects/DATAMINING.png";
+        // SUBJECT IMAGES
+        const image =
+            subject.image ||
+            "/assets/subjects/DATAMINING.png";
 
         // HTML
-
         tile.innerHTML = `
-
-            <!-- IMAGE -->
-
             <div class="subject-image-wrap">
-
                 <img
                     src="${image}"
                     alt="${subject.name}"
                     class="subject-image"
                 >
-
-                <!-- INFO -->
-
                 <button
                     class="info-btn"
                 >
                     ⓘ
                 </button>
-
             </div>
-
-            <!-- BOTTOM -->
 
             <div class="subject-bottom">
-
                 <h3>
-
                     ${subject.name}
-
                 </h3>
-
             </div>
-
-            <!-- INFO POPUP -->
 
             <div class="subject-info">
-
                 <h4>
-
                     ${subject.name}
-
                 </h4>
-
                 <p>
-
-                    ${
-                        subject.description ||
-
-                        "No description available."
-                    }
-
+                    ${subject.description || "No description available."}
                 </p>
-
             </div>
-
         `;
 
         // SUBJECT OPEN
-
         tile.addEventListener(
             "click",
             (e) => {
-
                 // IGNORE INFO BUTTON
-
-                if(
-                    e.target.classList.contains(
-                        "info-btn"
-                    )
-                ){
-
+                if(e.target.classList.contains("info-btn")){
                     return;
-
                 }
 
                 // CREATE SLUG
-
-                const slug =
-
-                    createSlug(
-                        subject.name
-                    );
+                const slug = createSlug(subject.name);
 
                 // REDIRECT
-
-                window.location.href =
-
-                    `/subject/${slug}`;
-
+                window.location.href = `/subject/${slug}`;
             }
         );
 
         // INFO BUTTON
-
-        const infoBtn =
-            tile.querySelector(
-                ".info-btn"
-            );
-
-        const infoPopup =
-            tile.querySelector(
-                ".subject-info"
-            );
+        const infoBtn = tile.querySelector(".info-btn");
+        const infoPopup = tile.querySelector(".subject-info");
 
         infoBtn.addEventListener(
             "click",
             (e) => {
-
                 e.stopPropagation();
 
                 // CLOSE OTHERS
-
                 document
-                    .querySelectorAll(
-                        ".subject-info"
-                    )
+                    .querySelectorAll(".subject-info")
                     .forEach(popup => {
-
-                        if(
-                            popup !== infoPopup
-                        ){
-
-                            popup.classList.remove(
-                                "active"
-                            );
-
+                        if(popup !== infoPopup){
+                            popup.classList.remove("active");
                         }
-
                     });
 
                 // TOGGLE
-
-                infoPopup.classList.toggle(
-                    "active"
-                );
-
+                infoPopup.classList.toggle("active");
             }
         );
 
         // APPEND
-
-        subjectContainer.appendChild(
-            tile
-        );
-
+        subjectContainer.appendChild(tile);
     });
-
 }
 
 
@@ -303,36 +203,24 @@ const image =
 function populateSubjectSelect(subjects){
 
     // RESET
-
     subjectSelect.innerHTML = `
-
         <option value="">
             All Subjects
         </option>
-
     `;
 
     // LOOP
-
     subjects.forEach(subject => {
-
         const option =
             document.createElement(
                 "option"
             );
 
-        option.value =
-            subject.name;
+        option.value = subject.name;
+        option.innerHTML = subject.name;
 
-        option.innerHTML =
-            subject.name;
-
-        subjectSelect.appendChild(
-            option
-        );
-
+        subjectSelect.appendChild(option);
     });
-
 }
 
 
@@ -343,52 +231,28 @@ function populateSubjectSelect(subjects){
 function searchSubjects(){
 
     // VALUES
-
     const searchValue =
-
         searchInput.value
             .toLowerCase()
             .trim();
 
     const selectedValue =
-
         subjectSelect.value
             .toLowerCase()
             .trim();
 
     // FILTER
-
     const filtered =
-
         allSubjects.filter(subject => {
-
-            const name =
-
-                subject.name
-                    .toLowerCase();
-
+            const name = subject.name.toLowerCase();
             return (
-
-                name.includes(
-                    searchValue
-                ) &&
-
-                (
-                    selectedValue === "" ||
-
-                    name.includes(
-                        selectedValue
-                    )
-                )
-
+                name.includes(searchValue) &&
+                (selectedValue === "" || name.includes(selectedValue))
             );
-
         });
 
     // RENDER
-
     renderSubjects(filtered);
-
 }
 
 
@@ -397,15 +261,10 @@ function searchSubjects(){
 // =========================
 
 function createSlug(text){
-
     return text
-
         .toLowerCase()
-
         .replace(/[^a-z0-9]+/g, "-")
-
         .replace(/(^-|-$)/g, "");
-
 }
 
 
@@ -414,12 +273,8 @@ function createSlug(text){
 // =========================
 
 function initTheme(){
-
     const savedTheme =
-
-        localStorage.getItem(
-            "theme"
-        ) || "dark";
+        localStorage.getItem("theme") || "dark";
 
     document.body.setAttribute(
         "data-theme",
@@ -427,7 +282,6 @@ function initTheme(){
     );
 
     updateThemeIcon();
-
 }
 
 
@@ -436,23 +290,16 @@ function initTheme(){
 // =========================
 
 function updateThemeIcon(){
-
     const currentTheme =
-
         document.body.getAttribute(
             "data-theme"
         );
 
     if(currentTheme === "dark"){
-
         themeBtn.innerHTML = "☀️";
-
     } else {
-
         themeBtn.innerHTML = "🌙";
-
     }
-
 }
 
 
@@ -463,18 +310,13 @@ function updateThemeIcon(){
 themeBtn?.addEventListener(
     "click",
     () => {
-
         const currentTheme =
-
             document.body.getAttribute(
                 "data-theme"
             );
 
         const newTheme =
-
-            currentTheme === "dark"
-                ? "light"
-                : "dark";
+            currentTheme === "dark" ? "light" : "dark";
 
         document.body.setAttribute(
             "data-theme",
@@ -487,7 +329,6 @@ themeBtn?.addEventListener(
         );
 
         updateThemeIcon();
-
     }
 );
 
@@ -507,124 +348,84 @@ subjectSelect?.addEventListener(
 );
 
 
-
-
 // =========================
 // LOGIN STATUS UI
 // =========================
 
 async function updateStudentNavbar(){
-
     let student = null;
 
-    // Try localStorage first
+    // 1. Try local storage first
     const studentData = localStorage.getItem("student");
-
     if(studentData){
-
         student = JSON.parse(studentData);
-
-    }
-
-    // If not found, ask server (Google/GitHub login)
-    else{
-
-        try{
-
-            const response =
-                await fetch("/api/student/me");
-
-            const data =
-                await response.json();
-
-            if(data.success){
-
-                student = data.student;
-
+    } 
+    // 2. Fallback: Query session API directly (Crucial for Google/GitHub OAuth recovery)
+    else {
+        try {
+            const response = await fetch("/api/current-user");
+            const data = await response.json();
+            
+            if(data.loggedIn && data.user) {
+                // Map the server session variables safely to your frontend schema
+                student = {
+                    username: data.user.username,
+                    email: data.user.email,
+                    xp: data.user.xp || 0,
+                    rank: data.user.rank || "Unranked",
+                    level: data.user.level || 1,
+                    streak: data.user.streak || 0
+                };
+                
+                // Keep frontend state intact so it doesn't drop the session
+                localStorage.setItem("studentLoggedIn", "true");
+                localStorage.setItem("student", JSON.stringify(student));
             }
-
-        }catch(err){
-
-            console.log(err);
-
+        } catch (err) {
+            console.error("Session sync failed:", err);
         }
-
     }
 
+    // 3. Halt updating layout properties if no authentication payload is present
     if(!student){
-
-        return;
-
+        console.log("No valid profile found. Keeping guest layout view state.");
+        return; 
     }
 
-    // Keep the rest of your existing code below...
-    const guestMenu =
-        document.getElementById(
-            "guestMenu"
-        );
-
-    const studentMenu =
-        document.getElementById(
-            "studentMenu"
-        );
-
-    const studentName =
-        document.getElementById(
-            "studentName"
-        );
-
-    const logoutBtn =
-        document.getElementById(
-            "logoutBtn"
-        );
+    // ==========================================
+    // DOM MANIPULATION (Safely updates layouts)
+    // ==========================================
+    const guestMenu = document.getElementById("guestMenu");
+    const studentMenu = document.getElementById("studentMenu");
+    const studentName = document.getElementById("studentName");
+    const logoutBtn = document.getElementById("logoutBtn");
 
     if(guestMenu){
-        guestMenu.style.display =
-            "none";
+        guestMenu.style.display = "none";
     }
 
     if(studentMenu){
-        studentMenu.style.display =
-            "block";
+        studentMenu.style.display = "flex";
     }
 
     if(studentName){
+        studentName.textContent = student.username || student.name || "Student";
+    }
 
-        studentName.textContent =
-
-           student.username ||
-
-          student.name ||
-
-          "Student";
-     }
-
+    // 4. LOGOUT ACTION
     logoutBtn?.addEventListener(
         "click",
         () => {
-
-            localStorage.removeItem(
-                "student"
-            );
-
-            localStorage.removeItem(
-                "studentLoggedIn"
-            );
-
-            window.location.href =
-                "/student-login.html";
+            localStorage.removeItem("student");
+            localStorage.removeItem("studentLoggedIn");
+            window.location.href = "/logout"; // Direct to express backend route to kill cookie
         }
     );
 
-    const loginCard =
-        document.querySelector(
-            ".login-card"
-        );
-
+    // 5. UPDATE USER CARD STATS PANEL
+    const loginCard = document.querySelector(".login-card");
     if(loginCard){
-
         loginCard.innerHTML = `
-
             <div class="anime-box">
                 ⚔️
             </div>
@@ -635,75 +436,49 @@ async function updateStudentNavbar(){
             </h3>
 
             <p>
-                Continue your journey
-                toward becoming a
-                Celestial Immortal.
+                Continue your journey toward becoming a Celestial Immortal.
             </p>
 
             <div class="mini-benefits">
-
                 <div class="mini-item">
-                    ⚡ XP:
-                    ${student.xp || 0}
+                    ⚡ XP: ${student.xp || 0}
                 </div>
-
                 <div class="mini-item">
-                    👑 Rank:
-                    ${student.rank || "Scholar"}
+                    👑 Rank: ${student.rank || "Scholar"}
                 </div>
-
                 <div class="mini-item">
-                    📈 Level:
-                    ${student.level || 1}
+                    📈 Level: ${student.level || 1}
                 </div>
-
                 <div class="mini-item">
-                    🔥 Daily Streak:
-                    ${student.streak || 0}
+                    🔥 Daily Streak: ${student.streak || 0}
                 </div>
-
             </div>
-
         `;
     }
 
     // =========================
     // DROPDOWN
     // =========================
-
-    const dropdownBtn =
-        document.getElementById(
-            "studentDropdownBtn"
-        );
-
-    const dropdown =
-        document.getElementById(
-            "studentDropdown"
-        );
+    const dropdownBtn = document.getElementById("studentDropdownBtn");
+    const dropdown = document.getElementById("studentDropdown");
 
     dropdownBtn?.addEventListener(
         "click",
         (e) => {
-
             e.stopPropagation();
-
-            dropdown?.classList.toggle(
-                "show"
-            );
+            dropdown?.classList.toggle("show");
         }
     );
 
     document.addEventListener(
         "click",
         () => {
-
-            dropdown?.classList.remove(
-                "show"
-            );
+            dropdown?.classList.remove("show");
         }
     );
-
 }
+
+
 // =========================
 // CLOSE INFO POPUPS
 // =========================
@@ -711,19 +486,11 @@ async function updateStudentNavbar(){
 document.addEventListener(
     "click",
     () => {
-
         document
-            .querySelectorAll(
-                ".subject-info"
-            )
+            .querySelectorAll(".subject-info")
             .forEach(popup => {
-
-                popup.classList.remove(
-                    "active"
-                );
-
+                popup.classList.remove("active");
             });
-
     }
 );
 
@@ -735,18 +502,13 @@ document.addEventListener(
 window.addEventListener(
     "load",
     () => {
-
         // SUBJECTS
-
         loadSubjects();
 
         // THEME
-
         initTheme();
 
         // LOGIN STATUS
-
         updateStudentNavbar();
-
     }
 );

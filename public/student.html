@@ -399,54 +399,70 @@
         </aside>
 
     </main>
+//==============
+//FOOTER
+//=================
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
+ <footer>
 
         © 2026 EXCEL YOU —
         Computer Science Learning Platform
 
     </footer>
 
-    <!-- JS -->
-
     <script src="/student/js/student.js"></script>
 
+    <script>
+    // Sync server-side OAuth session with client-side localStorage automatically
+    fetch('/api/current-user')
+      .then(res => {
+        if (!res.ok) throw new Error('Not logged in');
+        return res.json();
+      })
+      .then(data => {
+        if (data.loggedIn && data.user) {
+          const studentSessionData = {
+            username: data.user.username,
+            email: data.user.email,
+            xp: data.user.xp || 0,
+            rank: data.user.rank || "Unranked",
+            streak: data.user.streak || 0
+          };
+          
+          localStorage.setItem("studentLoggedIn", "true");
+          localStorage.setItem("student", JSON.stringify(studentSessionData));
+          
+          // Toggle UI state components instantly
+          const guestMenu = document.getElementById('guestMenu');
+          const studentMenu = document.getElementById('studentMenu');
+          const studentName = document.getElementById('studentName');
+          const loginCard = document.querySelector('.login-card');
 
+          if(guestMenu) guestMenu.style.display = 'none';
+          if(studentMenu) studentMenu.style.display = 'flex';
+          if(studentName) studentName.innerText = data.user.username;
+          if(loginCard) loginCard.style.display = 'none';
+          
+          // Dynamic Update for Scholar Status Cards on Sidebar
+          const statusCard = document.querySelector('.status-card:not(.login-card)');
+          if (statusCard) {
+              const items = statusCard.querySelectorAll('.status-item');
+              if (items.length >= 3) {
+                  items[0].innerHTML = `Realm: ${data.user.rank || "Beginner"}`;
+                  items[1].innerHTML = `XP: ⚡ ${data.user.xp || 0}`;
+                  items[2].innerHTML = `Streak: 🔥 ${data.user.streak || 0} Days`;
+              }
+          }
 
-<script>
-// Check student login status
-fetch('/api/current-user')
-  .then(res => {
-    if (!res.ok) throw new Error('Not logged in');
-    return res.json();
-  })
-  .then(data => {
-    if (data.loggedIn) {
-      // Show student menu, hide guest
-      document.getElementById('guestMenu').style.display = 'none';
-      document.getElementById('studentMenu').style.display = 'flex';
-      document.getElementById('studentName').innerText = data.user.username;
-      
-      // Hide the big "Become a Celestial Scholar" card
-      document.querySelector('.login-card').style.display = 'none';
-    }
-  })
-  .catch(() => {
-    console.log('Student not logged in');
-    // Keep guest menu showing
-  });
-
-// Logout
-document.getElementById('logoutBtn')?.addEventListener('click', async () => {
-  await fetch('/auth/logout', { method: 'POST' });
-  window.location.href = '/index.html';
-});
-</script>
+          if (typeof updateStudentNavbar === "function") {
+             updateStudentNavbar();
+          }
+        }
+      })
+      .catch((err) => {
+        console.log('No active session:', err.message);
+      });
+    </script>
 
 </body>
-
 </html>

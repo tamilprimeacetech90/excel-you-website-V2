@@ -22,81 +22,59 @@ passport.use(
     },
 
     async (accessToken, refreshToken, profile, done) => {
-
       try {
-
         console.log("========== GOOGLE LOGIN ==========");
         console.log("PROFILE ID:", profile.id);
         console.log("PROFILE NAME:", profile.displayName);
-        console.log("PROFILE EMAIL:", profile.emails?.[0]?.value);
+        
+        const googleEmail = profile.emails?.[0]?.value || "";
+        console.log("PROFILE EMAIL:", googleEmail);
 
-        // Find by Google ID
-        let user = await Student.findOne({
-          googleId: profile.id
-        });
+        // 1. First, find by Google ID to see if they logged in with Google before
+        let user = await Student.findOne({ googleId: profile.id });
 
         console.log("Found by Google ID:", user);
 
         if (user) {
-
           console.log("Returning existing Google user");
-
           return done(null, user);
-
         }
 
-        // Find by email
-        user = await Student.findOne({
-          email: profile.emails[0].value
-        });
+        // 2. If not found by ID, check if their email exists from standard email signup
+        if (googleEmail) {
+          user = await Student.findOne({ email: googleEmail });
+          console.log("Found by Email:", user);
 
-        console.log("Found by Email:", user);
-
-        if (user) {
-
-          user.googleId = profile.id;
-          user.provider = "google";
-
-          await user.save();
-
-          console.log("Linked Google account to existing user");
-
-          return done(null, user);
-
+          if (user) {
+            user.googleId = profile.id;
+            user.provider = "google";
+            await user.save();
+            console.log("Linked Google account to existing user");
+            return done(null, user);
+          }
         }
 
-        // Create new user
+        // 3. Create a brand new user if they don't exist at all
         const newUser = await Student.create({
-
           username: profile.displayName,
-
-          email: profile.emails[0].value,
-
+          email: googleEmail || `${profile.id}@google.com`, // Fallback string just in case
           password: "GOOGLE_AUTH",
-
           googleId: profile.id,
-
           provider: "google"
-
         });
 
         console.log("Created New User:", newUser);
-
         return done(null, newUser);
 
       } catch (error) {
-
         console.error("GOOGLE STRATEGY ERROR");
         console.error(error);
-
         return done(error, false);
-
       }
-
     }
   )
 );
-// GITHUB LOGIN
+
 // ======================
 // GITHUB LOGIN
 // ======================
