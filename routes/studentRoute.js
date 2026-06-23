@@ -53,12 +53,28 @@ router.post("/signup", async (req, res) => {
              avatar
           });
 
-        await student.save();
+       await student.save();
 
-        res.json({
-            success: true,
-            message: "Account created successfully"
+// Automatically log in the student
+req.login(student, (err) => {
+
+    if (err) {
+
+        console.error(err);
+
+        return res.status(500).json({
+            success: false,
+            message: "Login failed"
         });
+
+    }
+
+    return res.json({
+        success: true,
+        student
+    });
+
+});
 
     } catch (err) {
 
@@ -110,10 +126,28 @@ router.post("/login", async (req, res) => {
 
         }
 
-        res.json({
-            success: true,
-            student
+       req.login(student, (err) => {
+
+    if (err) {
+
+        console.error(err);
+
+        return res.status(500).json({
+            success: false,
+            message: "Login failed"
         });
+
+    }
+
+    return res.json({
+
+        success: true,
+
+        student
+
+    });
+
+});
 
     } catch (err) {
 
@@ -133,15 +167,22 @@ router.post("/login", async (req, res) => {
 
 router.get("/me", (req, res) => {
 
-    console.log("Session ID:", req.sessionID);
-    console.log("Authenticated:", req.isAuthenticated());
-    console.log("User:", req.user);
+    if (!req.isAuthenticated()) {
+
+        return res.json({
+            success: false
+        });
+
+    }
 
     res.json({
-        success: !!req.user,
-        authenticated: req.isAuthenticated(),
-        user: req.user || null
+
+        success: true,
+
+        student: req.user
+
     });
 
 });
+
 module.exports = router;

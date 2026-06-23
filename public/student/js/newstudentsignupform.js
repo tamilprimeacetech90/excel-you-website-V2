@@ -305,18 +305,50 @@ if(signupForm){
                 // SUCCESS
                 // =====================
 
-                if(response.ok){
+              if (data.success) {
 
-                    alert(
-                        "✅ Account Created Successfully"
-                    );
+    localStorage.setItem(
+        "studentLoggedIn",
+        "true"
+    );
 
-                    window.location.href =
+    localStorage.setItem(
+        "student",
+        JSON.stringify({
 
-                        "/student-login.html";
+            name:
+                data.student.username,
 
-                }
+            username:
+                data.student.username,
 
+            email:
+                data.student.email,
+
+            avatar:
+                data.student.avatar,
+
+            rank:
+                data.student.rank,
+
+            xp:
+                data.student.xp,
+
+            level:
+                data.student.level || 1,
+
+            streak:
+                data.student.streak || 0,
+
+            provider:
+                data.student.provider
+
+        })
+    );
+
+    window.location.href = "/student";
+
+}
 
                 // =====================
                 // FAILED
