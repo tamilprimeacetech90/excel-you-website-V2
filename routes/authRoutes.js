@@ -12,12 +12,25 @@ router.get(
   })
 );
 
-router.get("/google/callback", (req, res) => {
-    console.log("===== GOOGLE CALLBACK =====");
-    console.log(req.query);
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/student-login.html"
+  }),
+  (req, res) => {
+    req.login(req.user, (err) => {
+      if (err) {
+        console.error("Google req.login error:", err);
+        return res.redirect("/student-login.html?error=session");
+      }
 
-    res.json(req.query);
-});
+      console.log("✅ Google Success:", req.user.email);
+
+      return res.redirect("/student.html");
+    });
+  }
+);
+
 
 router.get(
   "/github",
