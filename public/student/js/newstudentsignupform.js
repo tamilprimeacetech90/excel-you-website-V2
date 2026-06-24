@@ -346,7 +346,7 @@ if(signupForm){
         })
     );
 
-    window.location.href = "/student";
+    window.location.href = "/student.html";
 
 }
 
