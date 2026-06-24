@@ -12,24 +12,12 @@ router.get(
   })
 );
 
-router.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/student-login.html"
-  }),
-  (req, res) => {
-    // req.user is the Student from DB, set by your strategy
-    req.login(req.user, (err) => {
-      if (err) {
-        console.error("Google req.login error:", err);
-        return res.redirect("/student-login.html?error=session");
-      }
-      console.log("Google Success:", req.user.email);
-      return res.redirect("/student.html"); // THIS FIXES THE INDEX.HTML PROBLEM
-    });
-  }
-);
+router.get("/google/callback", (req, res) => {
+    console.log("===== GOOGLE CALLBACK =====");
+    console.log(req.query);
 
+    res.json(req.query);
+});
 
 router.get(
   "/github",
