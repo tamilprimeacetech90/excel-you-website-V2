@@ -78,7 +78,7 @@ app.use(
 
         secret:
             process.env.SESSION_SECRET ||
-            "mySuperSecretKey@2026!",
+            "Tamilprimeacetech@2026!",
 
         resave: false,
 
