@@ -348,11 +348,9 @@ app.get("/api/current-user", (req, res) => {
 // =====================
 // TEST ROUTE
 // =====================
-app.get("/hello", (req, res) => {
-    res.send("HELLO WORKING");
+app.get("/test", (req, res) => {
+    res.send("TEST OK");
 });
-
-
 // =====================
 // ❌ 404 PAGE
 // =====================
