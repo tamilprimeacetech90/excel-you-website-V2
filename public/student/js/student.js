@@ -509,6 +509,6 @@ window.addEventListener(
         initTheme();
 
         // LOGIN STATUS
-       // updateStudentNavbar();
+        updateStudentNavbar();
     }
 );
