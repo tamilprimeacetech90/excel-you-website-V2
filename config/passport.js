@@ -32,14 +32,36 @@ console.log("GOOGLE SIGNUP VERSION 2");
         console.log("PROFILE EMAIL:", googleEmail);
 
         // 1. First, find by Google ID to see if they logged in with Google before
-        let user = await Student.findOne({ googleId: profile.id });
+    let user = await Student.findOne({
+    googleId: profile.id
+});
 
-        console.log("Found by Google ID:", user);
+console.log("Found by Google ID:", user);
 
-        if (user) {
-          console.log("Returning existing Google user");
-          return done(null, user);
+if (user) {
+    console.log("GOOGLE ID EXISTS -> LOGIN");
+    return done(null, user);
+}
+
+user = await Student.findOne({
+    email: googleEmail
+});
+
+console.log("Found by Email:", user);
+
+if (user) {
+    console.log("EMAIL EXISTS -> SHOULD BLOCK SIGNUP");
+    
+    return done(
+        null,
+        false,
+        {
+            message: "EMAIL_EXISTS"
         }
+    );
+}
+
+console.log("CREATING NEW USER");
 
         // 2. If not found by ID, check if their email exists from standard email signup
  
