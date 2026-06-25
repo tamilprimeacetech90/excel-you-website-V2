@@ -8,7 +8,8 @@ const router = express.Router();
 router.get(
   "/google",
   passport.authenticate("google", {
-    scope: ["profile", "email"]
+    scope: ["profile", "email"],
+    prompt: "select_account"
   })
 );
 
@@ -35,7 +36,8 @@ router.get(
 router.get(
   "/github",
   passport.authenticate("github", {
-    scope: ["user:email"]
+    scope: ["user:email"],
+    allow_signup: true
   })
 );
 
