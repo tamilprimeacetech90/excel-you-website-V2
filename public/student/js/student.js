@@ -352,7 +352,8 @@ subjectSelect?.addEventListener(
 // LOGIN STATUS UI
 // =========================
 
-async function updateStudentNavbar(){
+async function updateStudentNavbar()
+{
     let student = null;
 
     // 1. Try local storage first
@@ -489,7 +490,7 @@ document.addEventListener(
         dropdown?.classList.remove("show");
     }
 );
-
+}
 // =========================
 // CLOSE INFO POPUPS
 // =========================
