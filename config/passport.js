@@ -41,24 +41,24 @@ passport.use(
         }
 
         // 2. If not found by ID, check if their email exists from standard email signup
-     user = await Student.findOne({
-  email: googleEmail
-});
+ 
+if (googleEmail) {
 
-if (user) {
+  user = await Student.findOne({ email: googleEmail });
 
-  if (
-      user.googleId ||
-      user.password !== "GOOGLE_AUTH"
-  ) {
+  console.log("Found by Email:", user);
 
-      return done(
-          null,
-          false,
-          {
-             message: "EMAIL_EXISTS"
-          }
-      );
+  if (user) {
+
+    console.log("Email already exists:", googleEmail);
+
+    return done(
+        null,
+        false,
+        {
+            message: "EMAIL_EXISTS"
+        }
+    );
   }
 }
 

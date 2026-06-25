@@ -70,6 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
        }
 
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+if (
+    params.get("error")
+    ===
+    "email_exists"
+) {
+
+    alert(
+        "This email is already registered. Please login."
+    );
+
+}
+
     // =========================
     // ERROR FUNCTIONS
     // =========================
