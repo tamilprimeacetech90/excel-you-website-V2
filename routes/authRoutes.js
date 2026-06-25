@@ -1,9 +1,13 @@
-
 console.log("✅ authRoutes loaded");
+
 const express = require("express");
 const passport = require("passport");
 
 const router = express.Router();
+
+// =========================
+// GOOGLE LOGIN
+// =========================
 
 router.get(
   "/google",
@@ -15,76 +19,31 @@ router.get(
 
 router.get(
   "/google/callback",
-  (req, res, next) => {
-
-    passport.authenticate(
-      "google",
-      (err, user, info) => {
-
-        if (err) {
-          return res.redirect(
-            "/student-login.html?error=session"
-          );
-        }
-
-        // EMAIL ALREADY EXISTS
-        if (!user && info?.message === "EMAIL_EXISTS") {
-
-          return res.redirect(
-            "/student-login.html?error=email_exists"
-          );
-        }
-
-        if (!user) {
-
-          return res.redirect(
-            "/student-login.html"
-          );
-        }
-
-        req.login(user, (err) => {
-
-          if (err) {
-            return res.redirect(
-              "/student-login.html?error=session"
-            );
-          }
-
-          return res.redirect(
-            "/student.html"
-          );
-        });
-
-      }
-    )(req, res, next);
-
-  }
-);
-
-router.get(
-  "/github",
-  passport.authenticate("github", {
-    scope: ["user:email"],
-    allow_signup: true
-  })
-);
-
-router.get(
-  "/github/callback",
-  passport.authenticate("github", {
+  passport.authenticate("google", {
     failureRedirect: "/student-login.html"
   }),
   (req, res) => {
+
+    req.session.authMode = null;
+
     req.login(req.user, (err) => {
+
       if (err) {
-        console.error("GitHub req.login error:", err);
-        return res.redirect("/student-login.html?error=session");
+        console.error(err);
+        return res.redirect(
+          "/student-login.html?error=session"
+        );
       }
-      console.log("GitHub Success:", req.user.email);
-      return res.redirect("/student");
+
+      return res.redirect("/student.html");
     });
+
   }
 );
+
+// =========================
+// GOOGLE SIGNUP
+// =========================
 
 router.get(
   "/google-signup",
@@ -96,9 +55,72 @@ router.get(
 
   },
   passport.authenticate("google", {
-    scope: ["profile", "email"]
+    scope: ["profile", "email"],
+    prompt: "select_account"
   })
 );
+
+router.get(
+  "/google-signup/callback",
+  passport.authenticate("google", {
+    failureRedirect:
+      "/student-login.html?error=email_exists"
+  }),
+  (req, res) => {
+
+    req.session.authMode = null;
+
+    req.login(req.user, (err) => {
+
+      if (err) {
+        return res.redirect(
+          "/student-login.html?error=session"
+        );
+      }
+
+      return res.redirect("/student.html");
+    });
+
+  }
+);
+
+// =========================
+// GITHUB LOGIN
+// =========================
+
+router.get(
+  "/github",
+  passport.authenticate("github", {
+    scope: ["user:email"]
+  })
+);
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: "/student-login.html"
+  }),
+  (req, res) => {
+
+    req.session.authMode = null;
+
+    req.login(req.user, (err) => {
+
+      if (err) {
+        return res.redirect(
+          "/student-login.html?error=session"
+        );
+      }
+
+      return res.redirect("/student.html");
+    });
+
+  }
+);
+
+// =========================
+// GITHUB SIGNUP
+// =========================
 
 router.get(
   "/github-signup",
@@ -114,16 +136,58 @@ router.get(
   })
 );
 
+router.get(
+  "/github-signup/callback",
+  passport.authenticate("github", {
+    failureRedirect:
+      "/student-login.html?error=email_exists"
+  }),
+  (req, res) => {
 
-// Add logout for students - separate from admin logout
-router.post("/logout", (req, res) => {
-  req.logout((err) => {
-    if (err) return res.status(500).json({ error: "Logout failed" });
-    req.session.destroy(() => {
-      res.clearCookie("connect.sid");
-      res.json({ success: true });
+    req.session.authMode = null;
+
+    req.login(req.user, (err) => {
+
+      if (err) {
+        return res.redirect(
+          "/student-login.html?error=session"
+        );
+      }
+
+      return res.redirect("/student.html");
     });
+
+  }
+);
+
+// =========================
+// LOGOUT
+// =========================
+
+router.post("/logout", (req, res) => {
+
+  req.logout((err) => {
+
+    if (err) {
+      return res
+        .status(500)
+        .json({
+          error: "Logout failed"
+        });
+    }
+
+    req.session.destroy(() => {
+
+      res.clearCookie("connect.sid");
+
+      res.json({
+        success: true
+      });
+
+    });
+
   });
+
 });
 
 module.exports = router;

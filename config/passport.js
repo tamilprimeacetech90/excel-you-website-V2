@@ -20,91 +20,82 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
+async (accessToken, refreshToken, profile, done) => {
 
-    async (accessToken, refreshToken, profile, done) => {
-      try {
-console.log("GOOGLE SIGNUP VERSION 2");
-        console.log("========== GOOGLE LOGIN ==========");
-        console.log("PROFILE ID:", profile.id);
-        console.log("PROFILE NAME:", profile.displayName);
-        
-        const googleEmail = profile.emails?.[0]?.value || "";
-        console.log("PROFILE EMAIL:", googleEmail);
+try {
 
-        // 1. First, find by Google ID to see if they logged in with Google before
-    let user = await Student.findOne({
-    googleId: profile.id
+console.log("========== GOOGLE AUTH ==========");
+
+const googleEmail =
+  profile.emails?.[0]?.value || "";
+
+console.log("EMAIL:", googleEmail);
+
+// Existing Google user
+let user = await Student.findOne({
+  googleId: profile.id
 });
 
-console.log("Found by Google ID:", user);
-
 if (user) {
-    console.log("GOOGLE ID EXISTS -> LOGIN");
-    return done(null, user);
+
+  console.log("GOOGLE USER EXISTS");
+
+  return done(null, user);
+
 }
 
+// Existing email user
 user = await Student.findOne({
-    email: googleEmail
+  email: googleEmail
 });
 
-console.log("Found by Email:", user);
-
 if (user) {
-    console.log("EMAIL EXISTS -> SHOULD BLOCK SIGNUP");
-    
-    return done(
-        null,
-        false,
-        {
-            message: "EMAIL_EXISTS"
-        }
-    );
-}
 
-console.log("CREATING NEW USER");
+  console.log("EMAIL EXISTS");
 
-        // 2. If not found by ID, check if their email exists from standard email signup
- 
-if (googleEmail) {
-
-  user = await Student.findOne({ email: googleEmail });
-
-  console.log("Found by Email:", user);
-
-  if (user) {
-
-    console.log("Email already exists:", googleEmail);
-
-    return done(
-        null,
-        false,
-        {
-            message: "EMAIL_EXISTS"
-        }
-    );
-  }
-}
-
-        // 3. Create a brand new user if they don't exist at all
-        const newUser = await Student.create({
-          username: profile.displayName,
-          email: googleEmail || `${profile.id}@google.com`, // Fallback string just in case
-          password: "GOOGLE_AUTH",
-          googleId: profile.id,
-          provider: "google"
-        });
-
-        console.log("Created New User:", newUser);
-        return done(null, newUser);
-
-      } catch (error) {
-        console.error("GOOGLE STRATEGY ERROR");
-        console.error(error);
-        return done(error, false);
-      }
+  return done(
+    null,
+    false,
+    {
+      message: "EMAIL_EXISTS"
     }
-  )
-);
+  );
+
+}
+
+// Create new user
+const newUser = await Student.create({
+
+  username: profile.displayName,
+
+  email: googleEmail,
+
+  password: "GOOGLE_AUTH",
+
+  googleId: profile.id,
+
+  provider: "google",
+
+  rank: "Beginner",
+
+  xp: 0
+
+});
+
+console.log("NEW USER CREATED");
+
+return done(null, newUser);
+
+}
+catch(error){
+
+console.error(error);
+
+return done(error, false);
+
+}
+
+}
 
 // ======================
 // GITHUB LOGIN
