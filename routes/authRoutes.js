@@ -15,23 +15,51 @@ router.get(
 
 router.get(
   "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/student-login.html?error=email_exists"
-  }),
-  (req, res) => {
-    req.login(req.user, (err) => {
-      if (err) {
-        console.error("Google req.login error:", err);
-        return res.redirect("/student-login.html?error=session");
+  (req, res, next) => {
+
+    passport.authenticate(
+      "google",
+      (err, user, info) => {
+
+        if (err) {
+          return res.redirect(
+            "/student-login.html?error=session"
+          );
+        }
+
+        // EMAIL ALREADY EXISTS
+        if (!user && info?.message === "EMAIL_EXISTS") {
+
+          return res.redirect(
+            "/student-login.html?error=email_exists"
+          );
+        }
+
+        if (!user) {
+
+          return res.redirect(
+            "/student-login.html"
+          );
+        }
+
+        req.login(user, (err) => {
+
+          if (err) {
+            return res.redirect(
+              "/student-login.html?error=session"
+            );
+          }
+
+          return res.redirect(
+            "/student.html"
+          );
+        });
+
       }
+    )(req, res, next);
 
-      console.log("✅ Google Success:", req.user.email);
-
-      return res.redirect("/student.html");
-    });
   }
 );
-
 
 router.get(
   "/github",
