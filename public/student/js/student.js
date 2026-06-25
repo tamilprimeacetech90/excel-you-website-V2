@@ -413,15 +413,30 @@ async function updateStudentNavbar()
         studentName.textContent = student.username || student.name || "Student";
     }
 
-    // 4. LOGOUT ACTION
-    logoutBtn?.addEventListener(
-        "click",
-        () => {
-            localStorage.removeItem("student");
-            localStorage.removeItem("studentLoggedIn");
-            window.location.href = "/logout"; // Direct to express backend route to kill cookie
+// 4. LOGOUT ACTION
+logoutBtn?.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            await fetch("/auth/logout", {
+                method: "POST"
+            });
+
+        } catch(err) {
+
+            console.error("Logout error:", err);
+
         }
-    );
+
+        localStorage.removeItem("student");
+        localStorage.removeItem("studentLoggedIn");
+
+        window.location.href = "/student-login.html";
+    }
+);
+
 
     // 5. UPDATE USER CARD STATS PANEL
     const loginCard = document.querySelector(".login-card");
