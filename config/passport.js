@@ -41,18 +41,26 @@ passport.use(
         }
 
         // 2. If not found by ID, check if their email exists from standard email signup
-        if (googleEmail) {
-          user = await Student.findOne({ email: googleEmail });
-          console.log("Found by Email:", user);
+     user = await Student.findOne({
+  email: googleEmail
+});
 
-          if (user) {
-            user.googleId = profile.id;
-            user.provider = "google";
-            await user.save();
-            console.log("Linked Google account to existing user");
-            return done(null, user);
+if (user) {
+
+  if (
+      user.googleId ||
+      user.password !== "GOOGLE_AUTH"
+  ) {
+
+      return done(
+          null,
+          false,
+          {
+             message: "EMAIL_EXISTS"
           }
-        }
+      );
+  }
+}
 
         // 3. Create a brand new user if they don't exist at all
         const newUser = await Student.create({

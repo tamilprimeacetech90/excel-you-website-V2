@@ -16,7 +16,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "/student-login.html"
+    failureRedirect: "/student-login.html?error=email_exists"
   }),
   (req, res) => {
     req.login(req.user, (err) => {
@@ -57,6 +57,35 @@ router.get(
     });
   }
 );
+
+router.get(
+  "/google-signup",
+  (req, res, next) => {
+
+    req.session.authMode = "signup";
+
+    next();
+
+  },
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
+  })
+);
+
+router.get(
+  "/github-signup",
+  (req, res, next) => {
+
+    req.session.authMode = "signup";
+
+    next();
+
+  },
+  passport.authenticate("github", {
+    scope: ["user:email"]
+  })
+);
+
 
 // Add logout for students - separate from admin logout
 router.post("/logout", (req, res) => {

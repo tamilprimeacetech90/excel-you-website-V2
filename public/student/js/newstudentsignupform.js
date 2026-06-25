@@ -411,8 +411,7 @@ if (googleBtn) {
 
     googleBtn.addEventListener("click", () => {
 
-        window.location.href = "/auth/google";
-
+window.location.href = "/auth/google-signup";
     });
 
 }
@@ -427,8 +426,7 @@ if (githubBtn) {
 
     githubBtn.addEventListener("click", () => {
 
-        window.location.href = "/auth/github";
-
+window.location.href = "/auth/github-signup";
     });
 
 }
