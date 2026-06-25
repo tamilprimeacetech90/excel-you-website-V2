@@ -15,18 +15,18 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "/student-login.html"
+    failureRedirect: "/student.html"
   }),
   (req, res) => {
     req.login(req.user, (err) => {
       if (err) {
         console.error("Google req.login error:", err);
-        return res.redirect("/student-login.html?error=session");
+        return res.redirect("/student.html?error=session");
       }
 
       console.log("✅ Google Success:", req.user.email);
 
-      return res.redirect("/student.html");
+      return res.redirect("/student-login-html");
     });
   }
 );
@@ -51,7 +51,7 @@ router.get(
         return res.redirect("/student-login.html?error=session");
       }
       console.log("GitHub Success:", req.user.email);
-      return res.redirect("/student.html");
+      return res.redirect("/student");
     });
   }
 );
