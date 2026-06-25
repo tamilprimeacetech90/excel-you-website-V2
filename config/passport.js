@@ -23,6 +23,7 @@ passport.use(
 
     async (accessToken, refreshToken, profile, done) => {
       try {
+console.log("GOOGLE SIGNUP VERSION 2");
         console.log("========== GOOGLE LOGIN ==========");
         console.log("PROFILE ID:", profile.id);
         console.log("PROFILE NAME:", profile.displayName);
