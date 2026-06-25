@@ -456,28 +456,39 @@ async function updateStudentNavbar(){
         `;
     }
 
-    // =========================
-    // DROPDOWN
-    // =========================
-    const dropdownBtn = document.getElementById("studentDropdownBtn");
-    const dropdown = document.getElementById("studentDropdown");
+  // =========================
+// DROPDOWN DEBUG
+// =========================
 
-    dropdownBtn?.addEventListener(
-        "click",
-        (e) => {
-            e.stopPropagation();
-            dropdown?.classList.toggle("show");
-        }
-    );
+const dropdownBtn = document.getElementById("studentDropdownBtn");
+const dropdown = document.getElementById("studentDropdown");
 
-    document.addEventListener(
-        "click",
-        () => {
-            dropdown?.classList.remove("show");
-        }
-    );
-}
+console.log("BUTTON:", dropdownBtn);
+console.log("DROPDOWN:", dropdown);
 
+dropdownBtn?.addEventListener(
+    "click",
+    (e) => {
+
+        console.log("CLICKED");
+
+        e.stopPropagation();
+
+        dropdown?.classList.toggle("show");
+
+        console.log(
+            "CLASS:",
+            dropdown.className
+        );
+    }
+);
+
+document.addEventListener(
+    "click",
+    () => {
+        dropdown?.classList.remove("show");
+    }
+);
 
 // =========================
 // CLOSE INFO POPUPS
