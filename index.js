@@ -329,6 +329,7 @@ app.get("/logout", (req, res) => {
 // =====================
 // 👤 CURRENT STUDENT API
 // =====================
+console.log("✅ CURRENT USER ROUTE REGISTERED");
 app.get("/api/current-user", (req, res) => {
   if (!req.isAuthenticated()) {
     return res.status(401).json({ loggedIn: false });
