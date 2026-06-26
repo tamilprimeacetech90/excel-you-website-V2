@@ -588,7 +588,8 @@ body[data-theme="dark"] .immortal-title{
     border-radius:12px;
 
     overflow: visible;
-
+     position: relative;
+    z-index: 1;
     background:
         linear-gradient(
             135deg,
@@ -636,7 +637,11 @@ body[data-theme="dark"] .immortal-title{
         0 0 35px rgba(56,189,248,.10);
 
     pointer-events:none;
-}/* HUD CORNERS */
+    z-index: -1;
+
+}
+
+/* HUD CORNERS */
 
 .immortal-card::after{
 
