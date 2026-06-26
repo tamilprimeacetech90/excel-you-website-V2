@@ -629,8 +629,8 @@ body[data-theme="dark"] .immortal-title{
 
     border-radius:inherit;
 
-    border:1px solid rgba(56,189,248,.45);
-
+  border:
+        1px solid rgba(56,189,248,.12);
     box-shadow:
         0 0 10px rgba(56,189,248,.35),
         0 0 20px rgba(56,189,248,.20),
