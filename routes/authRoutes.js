@@ -5,189 +5,270 @@ const passport = require("passport");
 
 const router = express.Router();
 
-// =========================
+
+// =======================================
 // GOOGLE LOGIN
-// =========================
+// =======================================
 
 router.get(
-  "/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-    prompt: "select_account"
-  })
+"/google",
+(req,res,next)=>{
+
+    req.session.authMode="login";
+
+    next();
+
+},
+passport.authenticate("google",{
+    scope:["profile","email"],
+    prompt:"select_account"
+})
 );
 
 router.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/student-login.html"
-  }),
-  (req, res) => {
+    "/google/callback",
+    (req, res, next) => {
 
-    req.session.authMode = null;
+        passport.authenticate(
+            "google",
+            (err, user, info) => {
 
-    req.login(req.user, (err) => {
+                if (err) {
+                    return res.redirect("/student-login.html?error=session");
+                }
 
-      if (err) {
-        console.error(err);
-        return res.redirect(
-          "/student-login.html?error=session"
-        );
-      }
+                // Existing email tried to sign up
+                if (!user && info?.message === "EMAIL_EXISTS") {
+                    return res.redirect(
+                        "/student-login.html?error=email_exists"
+                    );
+                }
 
-      return res.redirect("/student.html");
-    });
+                if (!user) {
+                    return res.redirect("/student-login.html");
+                }
 
-  }
+                req.login(user, err => {
+
+                    if (err) {
+                        return res.redirect("/student-login.html?error=session");
+                    }
+
+                    return res.redirect("/student.html");
+
+                });
+
+            }
+        )(req, res, next);
+
+    }
 );
 
-// =========================
+// =======================================
 // GOOGLE SIGNUP
-// =========================
+// =======================================
 
 router.get(
-  "/google-signup",
-  (req, res, next) => {
+    "/google-signup",
+    (req, res, next) => {
 
-    req.session.authMode = "signup";
+        req.session.authMode = "signup";
 
-    next();
+ console.log("SET AUTH MODE:", req.session.authMode);
 
-  },
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-    prompt: "select_account"
-  })
+        next();
+
+    },
+    passport.authenticate("google", {
+        scope: ["profile", "email"],
+        prompt: "select_account"
+    })
 );
 
 router.get(
-  "/google-signup/callback",
-  passport.authenticate("google", {
-    failureRedirect:
-      "/student-login.html?error=email_exists"
-  }),
-  (req, res) => {
+    "/google-signup/callback",
+    (req, res, next) => {
 
-    req.session.authMode = null;
+        passport.authenticate(
+            "google",
+            (err, user, info) => {
 
-    req.login(req.user, (err) => {
+                if (err) {
+                    return res.redirect("/5newstudentsignupform.html?error=session");
+                }
 
-      if (err) {
-        return res.redirect(
-          "/student-login.html?error=session"
-        );
-      }
+                if (!user && info?.message === "EMAIL_EXISTS") {
 
-      return res.redirect("/student.html");
-    });
+                    return res.redirect(
+                        "/student-login.html?error=email_exists"
+                    );
 
-  }
+                }
+
+                if (!user) {
+
+                    return res.redirect(
+                        "/5newstudentsignupform.html"
+                    );
+
+                }
+
+                req.login(user, err => {
+
+                    if (err) {
+                        return res.redirect("/5newstudentsignupform.html?error=session");
+                    }
+
+                    return res.redirect("/student.html");
+
+                });
+
+            }
+
+        )(req, res, next);
+
+    }
 );
 
-// =========================
+
+// =======================================
 // GITHUB LOGIN
-// =========================
+// =======================================
 
 router.get(
-  "/github",
-  passport.authenticate("github", {
-    scope: ["user:email"]
-  })
+    "/github",
+    passport.authenticate("github", {
+        scope: ["user:email"]
+    })
 );
 
 router.get(
-  "/github/callback",
-  passport.authenticate("github", {
-    failureRedirect: "/student-login.html"
-  }),
-  (req, res) => {
+    "/github/callback",
+    (req, res, next) => {
 
-    req.session.authMode = null;
+        req.session.authMode = "login";
 
-    req.login(req.user, (err) => {
+        passport.authenticate(
+            "github",
+            (err, user) => {
 
-      if (err) {
-        return res.redirect(
-          "/student-login.html?error=session"
-        );
-      }
+                if (err) {
+                    return res.redirect("/student-login.html");
+                }
 
-      return res.redirect("/student.html");
-    });
+                if (!user) {
+                    return res.redirect("/student-login.html");
+                }
 
-  }
+                req.login(user, err => {
+
+                    if (err) {
+                        return res.redirect("/student-login.html");
+                    }
+
+                    return res.redirect("/student.html");
+
+                });
+
+            }
+
+        )(req, res, next);
+
+    }
 );
 
-// =========================
+
+// =======================================
 // GITHUB SIGNUP
-// =========================
+// =======================================
 
 router.get(
-  "/github-signup",
-  (req, res, next) => {
+    "/github-signup",
+    (req, res, next) => {
 
-    req.session.authMode = "signup";
+        req.session.authMode = "signup";
 
-    next();
+        next();
 
-  },
-  passport.authenticate("github", {
-    scope: ["user:email"]
-  })
+    },
+    passport.authenticate("github", {
+        scope: ["user:email"]
+    })
 );
 
 router.get(
-  "/github-signup/callback",
-  passport.authenticate("github", {
-    failureRedirect:
-      "/student-login.html?error=email_exists"
-  }),
-  (req, res) => {
+    "/github-signup/callback",
+    (req, res, next) => {
 
-    req.session.authMode = null;
+        passport.authenticate(
+            "github",
+            (err, user, info) => {
 
-    req.login(req.user, (err) => {
+                if (err) {
+                    return res.redirect("/5newstudentsignupform.html");
+                }
 
-      if (err) {
-        return res.redirect(
-          "/student-login.html?error=session"
-        );
-      }
+                if (!user && info?.message === "EMAIL_EXISTS") {
 
-      return res.redirect("/student.html");
-    });
+                    return res.redirect(
+                        "/student-login.html?error=email_exists"
+                    );
 
-  }
+                }
+
+                if (!user) {
+
+                    return res.redirect(
+                        "/5newstudentsignupform.html"
+                    );
+
+                }
+
+                req.login(user, err => {
+
+                    if (err) {
+                        return res.redirect("/5newstudentsignupform.html");
+                    }
+
+                    return res.redirect("/student.html");
+
+                });
+
+            }
+
+        )(req, res, next);
+
+    }
 );
 
-// =========================
+
+// =======================================
 // LOGOUT
-// =========================
+// =======================================
 
 router.post("/logout", (req, res) => {
 
-  req.logout((err) => {
+    req.logout(err => {
 
-    if (err) {
-      return res
-        .status(500)
-        .json({
-          error: "Logout failed"
+        if (err) {
+            return res.status(500).json({
+                error: "Logout failed"
+            });
+        }
+
+        req.session.destroy(() => {
+
+            res.clearCookie("connect.sid");
+
+            res.json({
+                success: true
+            });
+
         });
-    }
-
-    req.session.destroy(() => {
-
-      res.clearCookie("connect.sid");
-
-      res.json({
-        success: true
-      });
 
     });
 
-  });
-
 });
+
 
 module.exports = router;
