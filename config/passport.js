@@ -151,7 +151,7 @@ async (req, accessToken, refreshToken, profile, done) => {
             ? profile.emails[0].value
             : `${profile.username}@github.com`;
 
-    let user = await Student.findOne({
+let user = await Student.findOne({
     githubId: profile.id
 });
 
@@ -161,24 +161,17 @@ if (user) {
 
         console.log("SIGNUP -> GITHUB ACCOUNT ALREADY EXISTS");
 
-        return done(
-            null,
-            false,
-            {
-                message: "EMAIL_EXISTS"
-            }
-        );
+        return done(null, false, {
+            message: "EMAIL_EXISTS"
+        });
 
     }
 
     console.log("LOGIN -> GITHUB USER EXISTS");
 
     return done(null, user);
-
 }
 
-
-     // Existing email account
 user = await Student.findOne({
     email
 });
@@ -200,56 +193,32 @@ if (user) {
 
     if (req.session.authMode === "signup") {
 
-        return done(
-            null,
-            false,
-            {
-                message: "EMAIL_EXISTS"
-            }
-        );
-    }
-}
-
-    // SIGNUP MODE
-    if (req.session.authMode === "signup") {
-
-        console.log("SIGNUP -> GitHub Email Already Exists");
-
-        return done(
-            null,
-            false,
-            {
-                message: "EMAIL_EXISTS"
-            }
-        );
-
-    }
-
-}
-
-
-
-
-        const newUser = await Student.create({
-
-          username:
-            profile.username || profile.displayName,
-
-          email,
-
-          password: "GITHUB_AUTH",
-
-          githubId: profile.id,
-
-          provider: "github",
-
-          rank: "Beginner",
-
-          xp: 0
-
+        return done(null, false, {
+            message: "EMAIL_EXISTS"
         });
+    }
+}
 
-        return done(null, newUser);
+// Create new user
+const newUser = await Student.create({
+
+    username: profile.username || profile.displayName,
+
+    email,
+
+    password: "GITHUB_AUTH",
+
+    githubId: profile.id,
+
+    provider: "github",
+
+    rank: "Beginner",
+
+    xp: 0
+
+});
+
+return done(null, newUser);
 
       }
       catch (error) {
