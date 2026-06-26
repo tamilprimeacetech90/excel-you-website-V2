@@ -27,17 +27,31 @@ console.log("AUTH MODE:", req.session.authMode);
         console.log("EMAIL:", googleEmail);
 
         // Existing Google account
-        let user = await Student.findOne({
-          googleId: profile.id
-        });
+     let user = await Student.findOne({
+    googleId: profile.id
+});
 
-        if (user) {
+if (user) {
 
-          console.log("GOOGLE USER EXISTS");
+    if (req.session.authMode === "signup") {
 
-          return done(null, user);
+        console.log("SIGNUP -> GOOGLE ACCOUNT ALREADY EXISTS");
 
-        }
+        return done(
+            null,
+            false,
+            {
+                message: "EMAIL_EXISTS"
+            }
+        );
+
+    }
+
+    console.log("LOGIN -> GOOGLE USER EXISTS");
+
+    return done(null, user);
+
+}
 
         // Existing email account
 user = await Student.findOne({
@@ -137,16 +151,31 @@ async (req, accessToken, refreshToken, profile, done) => {
             ? profile.emails[0].value
             : `${profile.username}@github.com`;
 
-        let user = await Student.findOne({
-          githubId: profile.id
-        });
+    let user = await Student.findOne({
+    githubId: profile.id
+});
 
-        if (user) {
+if (user) {
 
-          return done(null, user);
+    if (req.session.authMode === "signup") {
 
-        }
+        console.log("SIGNUP -> GITHUB ACCOUNT ALREADY EXISTS");
 
+        return done(
+            null,
+            false,
+            {
+                message: "EMAIL_EXISTS"
+            }
+        );
+
+    }
+
+    console.log("LOGIN -> GITHUB USER EXISTS");
+
+    return done(null, user);
+
+}
 
 
      // Existing email account
