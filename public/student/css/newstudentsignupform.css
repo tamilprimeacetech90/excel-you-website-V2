@@ -613,13 +613,13 @@ body[data-theme="dark"] .immortal-title{
         0 0 35px rgba(56,189,248,.10);
 
     pointer-events:none;
-    z-index: -1;
+    z-index: 0;
 
 }
 
 /* HUD CORNERS */
 
-.immortal-card::after{
+/*.immortal-card::after{
 
     content:"";
 
@@ -633,7 +633,7 @@ body[data-theme="dark"] .immortal-title{
         1px solid rgba(56,189,248,.12);
 
     pointer-events:none;
-}
+}*/
 
 /* IMAGE */
 
