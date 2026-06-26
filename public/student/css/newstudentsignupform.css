@@ -624,15 +624,19 @@ body[data-theme="dark"] .immortal-title{
 
     position:absolute;
 
-    inset:0;
+    inset:-2px;
 
     border-radius:inherit;
 
     border:1px solid rgba(56,189,248,.45);
 
+    box-shadow:
+        0 0 10px rgba(56,189,248,.35),
+        0 0 20px rgba(56,189,248,.20),
+        0 0 35px rgba(56,189,248,.10);
+
     pointer-events:none;
-}
-/* HUD CORNERS */
+}/* HUD CORNERS */
 
 .immortal-card::after{
 
