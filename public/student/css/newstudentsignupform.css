@@ -585,7 +585,7 @@ body[data-theme="dark"] .immortal-title{
     flex-direction:column; 
     padding:20px;
 
-    border-radius:22px;
+    border-radius:12px;
 
     overflow: visible;
      position: relative;
@@ -599,21 +599,17 @@ body[data-theme="dark"] .immortal-title{
 
      border:1px solid rgba(59,130,246,.45);
 
-  
+    box-shadow:
+        0 0 8px rgba(59,130,246,.12),
+        0 0 18px rgba(59,130,246,.08),
+        inset 0 0 12px rgba(255,255,255,.30);
 
     backdrop-filter:blur(10px);
 
     transition:.35s;
 }
 
-.immortal-card:hover{
 
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 0 40px rgba(56,189,248,.25),
-        inset 0 0 20px rgba(56,189,248,.12);
-}
 
 /* OUTER GLOW */
 .immortal-card::before{
@@ -628,7 +624,10 @@ body[data-theme="dark"] .immortal-title{
 
     border:1px solid rgba(56,189,248,.45);
 
-  
+    box-shadow:
+        0 0 10px rgba(56,189,248,.35),
+        0 0 20px rgba(56,189,248,.20),
+        0 0 35px rgba(56,189,248,.10);
 
     pointer-events:none;
     z-index: -1;
