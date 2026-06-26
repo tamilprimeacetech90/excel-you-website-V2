@@ -3,21 +3,6 @@
 // STUDENT LOGIN JS
 // =========================
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-if (
-    params.get("error")
-    ===
-    "email_exists"
-){
-
-    alert(
-      "This email is already registered. Please login."
-    );
-}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -45,45 +30,53 @@ document.addEventListener("DOMContentLoaded", () => {
             "themeBtn"
         );
  
-    // =========================
-    // AUTO REDIRECT
-    // =========================
+// =========================
+// EMAIL EXISTS ERROR
+// =========================
+
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("error") === "email_exists") {
+
+    localStorage.removeItem("studentLoggedIn");
+    localStorage.removeItem("student");
+
+    errorBox.textContent =
+    "This email is already registered. Please login.";
+
+errorBox.style.display =
+    "block";
+
+    window.history.replaceState(
+        {},
+        document.title,
+        "/student-login.html"
+    );
+}
+// =========================
+// AUTO REDIRECT
+// =========================
+
+const hasError =
+    params.get("error");
+
+if (!hasError) {
 
     const loggedIn =
-    localStorage.getItem(
-        "studentLoggedIn"
-               );
+        localStorage.getItem("studentLoggedIn");
 
     const student =
-          localStorage.getItem(
-             "student"
-               );
+        localStorage.getItem("student");
 
     if (
-            loggedIn === "true" &&
-            student
-        ) {
+        loggedIn === "true" &&
+        student
+    ) {
 
-       window.location.href =
-        "/student";
-
+        window.location.href = "/student";
         return;
-       }
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-if (
-    params.get("error")
-    ===
-    "email_exists"
-) {
-
-    alert(
-        "This email is already registered. Please login."
-    );
+    }
 
 }
 
