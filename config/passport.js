@@ -96,6 +96,8 @@ return done(error, false);
 }
 
 }
+)
+);
 
 // ======================
 // GITHUB LOGIN
