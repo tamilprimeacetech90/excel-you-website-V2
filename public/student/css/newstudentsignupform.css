@@ -618,7 +618,6 @@ body[data-theme="dark"] .immortal-title{
 }
 
 /* OUTER GLOW */
-
 .immortal-card::before{
 
     content:"";
@@ -629,28 +628,10 @@ body[data-theme="dark"] .immortal-title{
 
     border-radius:inherit;
 
-    padding:1px;
+    border:1px solid rgba(56,189,248,.45);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(56,189,248,.7),
-            transparent,
-            rgba(56,189,248,.4)
-        );
-
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    mask-composite:exclude;
-    -webkit-mask-composite:xor;
+    pointer-events:none;
 }
-
 /* HUD CORNERS */
 
 .immortal-card::after{
