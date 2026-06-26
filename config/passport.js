@@ -185,10 +185,7 @@ user = await Student.findOne({
 
 if (user) {
 
-    // LOGIN MODE
     if (req.session.authMode === "login") {
-
-        console.log("LOGIN -> Existing GitHub Email");
 
         if (!user.githubId) {
 
@@ -196,12 +193,22 @@ if (user) {
             user.provider = "github";
 
             await user.save();
-
         }
 
         return done(null, user);
-
     }
+
+    if (req.session.authMode === "signup") {
+
+        return done(
+            null,
+            false,
+            {
+                message: "EMAIL_EXISTS"
+            }
+        );
+    }
+}
 
     // SIGNUP MODE
     if (req.session.authMode === "signup") {
