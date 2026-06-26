@@ -599,17 +599,25 @@ body[data-theme="dark"] .immortal-title{
 
      border:1px solid rgba(59,130,246,.45);
 
+
     box-shadow:
-        0 0 8px rgba(59,130,246,.12),
-        0 0 18px rgba(59,130,246,.08),
-        inset 0 0 12px rgba(255,255,255,.30);
+        0 0 40px rgba(56,189,248,.25),
+        inset 0 0 20px rgba(56,189,248,.12);
+
 
     backdrop-filter:blur(10px);
 
     transition:.35s;
 }
 
+.immortal-card:hover{
 
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 40px rgba(56,189,248,.25),
+        inset 0 0 20px rgba(56,189,248,.12);
+}
 
 /* OUTER GLOW */
 .immortal-card::before{
