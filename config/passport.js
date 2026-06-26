@@ -146,6 +146,8 @@ passport.use(
 async (req, accessToken, refreshToken, profile, done) => {
       try {
 
+console.log("NEW GITHUB USER CREATED");
+
         const email =
           profile.emails?.length
             ? profile.emails[0].value

@@ -137,6 +137,15 @@ router.get(
 
 router.get(
     "/github",
+    (req, res, next) => {
+
+        req.session.authMode = "login";
+
+        console.log("SET AUTH MODE:", req.session.authMode);
+
+        next();
+
+    },
     passport.authenticate("github", {
         scope: ["user:email"]
     })
@@ -146,24 +155,38 @@ router.get(
     "/github/callback",
     (req, res, next) => {
 
-        req.session.authMode = "login";
-
         passport.authenticate(
             "github",
-            (err, user) => {
+            (err, user, info) => {
 
                 if (err) {
-                    return res.redirect("/student-login.html");
+                    return res.redirect(
+                        "/student-login.html?error=session"
+                    );
+                }
+
+                if (!user && info?.message === "EMAIL_EXISTS") {
+
+                    return res.redirect(
+                        "/student-login.html?error=email_exists"
+                    );
+
                 }
 
                 if (!user) {
-                    return res.redirect("/student-login.html");
+
+                    return res.redirect(
+                        "/student-login.html"
+                    );
+
                 }
 
                 req.login(user, err => {
 
                     if (err) {
-                        return res.redirect("/student-login.html");
+                        return res.redirect(
+                            "/student-login.html?error=session"
+                        );
                     }
 
                     return res.redirect("/student.html");
@@ -188,6 +211,8 @@ router.get(
 
         req.session.authMode = "signup";
 
+        console.log("SET AUTH MODE:", req.session.authMode);
+
         next();
 
     },
@@ -205,7 +230,11 @@ router.get(
             (err, user, info) => {
 
                 if (err) {
-                    return res.redirect("/5newstudentsignupform.html");
+
+                    return res.redirect(
+                        "/5newstudentsignupform.html?error=session"
+                    );
+
                 }
 
                 if (!user && info?.message === "EMAIL_EXISTS") {
@@ -227,7 +256,11 @@ router.get(
                 req.login(user, err => {
 
                     if (err) {
-                        return res.redirect("/5newstudentsignupform.html");
+
+                        return res.redirect(
+                            "/5newstudentsignupform.html?error=session"
+                        );
+
                     }
 
                     return res.redirect("/student.html");
@@ -240,7 +273,6 @@ router.get(
 
     }
 );
-
 
 // =======================================
 // LOGOUT
