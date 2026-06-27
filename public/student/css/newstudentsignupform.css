@@ -591,10 +591,21 @@ body[data-theme="dark"] .immortal-title{
     background:
         linear-gradient(
             135deg,
-            rgba(5,18,45,.95),
-            rgba(8,32,78,.92)
+            rgba(56,189,248,.7),
+            transparent,
+            rgba(56,189,248,.4)
         );
 
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite:exclude;
+    -webkit-mask-composite:xor;
      border:1px solid rgba(59,130,246,.45);
 
     box-shadow:
@@ -630,24 +641,7 @@ body[data-theme="dark"] .immortal-title{
 
     padding:1px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(56,189,248,.7),
-            transparent,
-            rgba(56,189,248,.4)
-        );
 
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    mask-composite:exclude;
-    -webkit-mask-composite:xor;
 }
 
 /* HUD CORNERS */
