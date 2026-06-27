@@ -595,13 +595,14 @@ outline:2px solid yellow;
             rgba(5,18,45,.95),
             rgba(8,32,78,.92)
         );
+     z-index:1;
 
      border:1px solid rgba(59,130,246,.45);
 
     box-shadow:
         0 0 8px rgba(59,130,246,.12),
-        0 0 18px rgba(59,130,246,.08),
-        inset 0 0 12px rgba(255,255,255,.30);
+        0 0 18px rgba(56,189,248,.18),
+        inset 0 0 12px rgba(255,255,255,.08);
 
     backdrop-filter:blur(10px);
 
@@ -615,6 +616,11 @@ outline:2px solid yellow;
  transition:.35s;
 
    }
+
+.immortal-card::before,
+.immortal-card::after{
+    z-index:0;
+}
 
 
 /* OUTER GLOW */
@@ -755,6 +761,9 @@ outline:2px solid red;
      gap:4px;
 width:100%;
 
+ position:relative;
+    z-index:2;
+
 }
 
 
@@ -781,6 +790,8 @@ outline:2px solid orange;
     white-space:nowrap;
 
     color:#dbeafe;
+ position:relative;
+    z-index:2;
 }
 
 
