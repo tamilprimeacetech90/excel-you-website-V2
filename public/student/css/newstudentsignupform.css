@@ -759,6 +759,8 @@ width:100%;
 
 
 .hero-line{ 
+outline:2px solid orange;
+    background:rgba(255,0,0,.2);
 
   display:block;
    margin-top:0;
