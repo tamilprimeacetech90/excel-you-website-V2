@@ -79,9 +79,12 @@ body[data-theme="light"] .feature-icon{
     background:rgba(255,255,255,.70);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
-border:1px solid rgba(59,130,246,.16);
     border-radius:18px;
-    box-shadow: 0 6px 20px rgba(59,130,246,.10), inset 0 1px 0 rgba(255,255,255,.60);
+ border:1px solid rgba(56,189,248,.38);
+
+    box-shadow:
+        0 6px 18px rgba(56,189,248,.08),
+        inset 0 1px 0 rgba(255,255,255,.9);
     transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
     transform-origin:center;
 }
@@ -98,12 +101,12 @@ body[data-theme="light"] .immortal-title{
     color:#0f4fa8;
 }
 
-body[data-theme="light"] .immortal-card{
+body[data-theme="light"] .immortal-card
+{
     background:rgba(255,255,255,.75);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-border:1px solid rgba(59,130,246,.15);
-    box-shadow: 0 8px 32px rgba(59,130,246,.12), inset 0 1px 0 rgba(255,255,255,.70);
+  border:1px solid rgba(56,189,248,.35);    box-shadow: 0 8px 32px rgba(59,130,246,.12), inset 0 1px 0 rgba(255,255,255,.70);
 }
 
 body[data-theme="light"] .immortal-card::before{

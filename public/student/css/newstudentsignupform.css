@@ -462,14 +462,9 @@ body[data-theme="dark"]{
         );
 
     backdrop-filter:blur(3px);
-border:1px solid rgba(160,235,255,.65);
-     box-shadow:
-
-    0 0 18px rgba(56,189,248,.20),
-
-    0 0 30px rgba(56,189,248,.08),
-
-    inset 0 0 10px rgba(56,189,248,.08);
+border:1px solid rgba(110,220,255,.55);      box-shadow:
+        0 0 10px rgba(90,200,255,.18),
+        inset 0 0 10px rgba(110,220,255,.05);
 
     transition:.35s;
 
@@ -481,7 +476,7 @@ border:1px solid rgba(160,235,255,.65);
     inset:0;
     border-radius:18px;
     pointer-events:none;
-    border:1px solid rgba(170,240,255,.18);
+    border:1px solid rgba(170,240,255,.25);
 }
 
 .immortal-title{
@@ -524,7 +519,7 @@ color:#38bdf8;
 
     backdrop-filter:blur(12px);
 
-   border:1px solid rgba(170,240,255,.68);
+   border:1px solid rgba(120,225,255,.58);
 
     box-shadow:
         0 0 8px rgba(120,255,255,.22),
@@ -558,11 +553,11 @@ color:#38bdf8;
     inset:0;
     border-radius:inherit;
 
-    border:1px solid rgba(150,235,255,.70);
+    border:1px solid rgba(120,225,255,.72);
 
     box-shadow:
-        0 0 5px rgba(120,255,255,.40),
-        0 0 10px rgba(120,255,255,.22);
+        0 0 10px rgba(120,225,255,.45),
+        0 0 22px rgba(56,189,248,.22);
 
     pointer-events:none;
 }
