@@ -575,6 +575,7 @@ body[data-theme="dark"] .immortal-title{
 ================================== */
 
 .immortal-card{
+outline:2px solid yellow;
 
     position:relative;
 
