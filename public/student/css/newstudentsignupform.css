@@ -376,6 +376,12 @@ body[data-theme="dark"]{
 
 }
 
+.feature-icon img{
+    filter:
+        drop-shadow(0 0 4px rgba(120,225,255,.35))
+        brightness(1.04);
+}
+
 .feature-card{
 
     display:flex;
@@ -435,6 +441,8 @@ body[data-theme="dark"]{
 }
 .feature-icon{
 
+    postion:relative;
+
     width:150px;
 
     height:140px;
@@ -454,8 +462,7 @@ body[data-theme="dark"]{
         );
 
     backdrop-filter:blur(3px);
- border:1px solid rgba(135,230,255,.74);
-
+border:1px solid rgba(160,235,255,.65);
      box-shadow:
 
     0 0 18px rgba(56,189,248,.20),
@@ -466,6 +473,15 @@ body[data-theme="dark"]{
 
     transition:.35s;
 
+}
+
+.feature-icon::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:18px;
+    pointer-events:none;
+    border:1px solid rgba(170,240,255,.18);
 }
 
 .immortal-title{
@@ -496,7 +512,7 @@ color:#38bdf8;
     position:relative;
     overflow:visible;
 
-    border-radius:20px;
+    border-radius:8px;
     padding:2px;
 
     background:
@@ -508,7 +524,7 @@ color:#38bdf8;
 
     backdrop-filter:blur(12px);
 
-    border:1px solid rgba(120,225,255,.58);
+   border:1px solid rgba(170,240,255,.68);
 
     box-shadow:
         0 0 8px rgba(120,255,255,.22),
