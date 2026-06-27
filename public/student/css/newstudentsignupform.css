@@ -1165,6 +1165,66 @@ body[data-theme="light"] .input-group input:focus{
         0 0 0 4px rgba(56,189,248,.12);
 
 }
+
+.password-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+}
+
+.password-wrapper input{
+
+    width:100%;
+
+    padding-right:50px;
+
+}
+
+.password-toggle{
+
+    position:absolute;
+
+    top:50%;
+
+    right:14px;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:#38bdf8;
+
+    font-size:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+}
+
+.password-toggle:hover{
+
+    color:#67e8f9;
+
+    transform:translateY(-50%) scale(1.08);
+
+}
+
+body[data-theme="light"] .password-toggle{
+
+    color:#0ea5e9;
+
+}
 /* =========================
    RANK BOX
 ========================= */
