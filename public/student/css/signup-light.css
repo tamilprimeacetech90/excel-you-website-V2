@@ -101,14 +101,16 @@ body[data-theme="light"] .feature-icon
     -webkit-backdrop-filter:blur(10px);
     border-radius:18px;
 
-   border:1.8px solid rgba(56,189,248,.60);
+   border:1.5px solid rgba(56,189,248,.30);
 
     box-shadow:
-        0 0 10px rgba(56,189,248,.10),
-        inset 0 0 8px rgba(56,189,248,.04);
+       0 8px 20px rgba(56,189,248,.08),
+        inset 0 1px 0 rgba(255,255,255,.65);
 
-    transition: transform .35s
- cubic-bezier(.34,1.56,.64,1), 
+     transition:
+        transform .35s,
+        box-shadow .35s,
+        border-color .35s;
 
 box-shadow .35s;
     transform-origin:center;
@@ -116,8 +118,24 @@ box-shadow .35s;
 
 body[data-theme="light"] .feature-icon:hover
 {
-    transform: translateY(-6px) scale(1.08);
-    box-shadow: 0 14px 32px rgba(59,130,246,.18), inset 0 1px 0 rgba(255,255,255,.70);
+     transform:
+        scale(1.08)
+        translateY(-6px);
+
+    border-color:
+        rgba(56,189,248,.55);
+
+    box-shadow:
+        0 12px 28px rgba(56,189,248,.14),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+body[data-theme="light"].feature-card span{
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+
 }
 
 /* =========================
@@ -145,13 +163,11 @@ body[data-theme="light"] .immortal-card
 
     -webkit-backdrop-filter:blur(14px);
 
-  border:1.8px solid rgba(56,189,248,.60);
+  border:1.5px solid rgba(56,189,248,.38);
 
     box-shadow:
-        0 0 8px rgba(56,189,248,.10),
-        0 0 16px rgba(56,189,248,.08),
-        0 10px 24px rgba(56,189,248,.08),
-        inset 0 0 10px rgba(56,189,248,.04);
+        0 8px 22px rgba(56,189,248,.10),
+        inset 0 1px 0 rgba(255,255,255,.75);
 
 }
 
@@ -223,7 +239,7 @@ body[data-theme="light"] .signup-card{
     background:var(--signup-card);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
-border:1px solid rgba(59,130,246,.18);
+border:1.5px solid rgba(56,189,248,.28);
     box-shadow: 0 0 0 1px rgba(59,130,246,.15), 0 8px 32px rgba(59,130,246,.20), 0 0 60px rgba(59,130,246,.12), inset 0 1px 0 rgba(255,255,255,.90);
 }
 
@@ -232,7 +248,7 @@ border:1px solid rgba(59,130,246,.18);
 ========================= */
 body[data-theme="light"] .input-group input{
     background:rgba(255,255,255,.75);
-    border:1px solid rgba(59,130,246,.12);
+border:1px solid rgba(56,189,248,.18);
     box-shadow: inset 0 1px 3px rgba(0,0,0,.04);
 }
 
@@ -256,4 +272,12 @@ body[data-theme="light"] .signup-right,
 body[data-theme="light"] .left-panel{
     overflow:visible;
     background:transparent;
+}
+body[data-theme="light"] .journey-step{
+
+    border:1px solid rgba(56,189,248,.22);
+
+    box-shadow:
+        0 4px 14px rgba(56,189,248,.05);
+
 }
