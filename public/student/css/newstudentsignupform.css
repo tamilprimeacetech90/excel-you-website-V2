@@ -657,13 +657,14 @@ outline:2px solid yellow;
 /* IMAGE */
 
 .immortal-image-wrap{
+outline:2px solid yellow;
 
     flex-shrink:0;
         
 }
 
 .immortal-image-wrap img{
-outline:2px solid red;
+
 
     width:150px;
     height:170px;
@@ -677,6 +678,7 @@ outline:2px solid red;
 /* CONTENT */
 
 .immortal-content{
+  outline:2px solid lime;
 
     display:flex;
 padding-top:15px;
@@ -747,6 +749,7 @@ body[data-theme="light"] .hero-subtitle
 /* SLOGAN */
 
 .hero-top{
+outline:2px solid red;
     display:flex;
  align-items:flex-start;
      gap:4px;
