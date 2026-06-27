@@ -580,6 +580,7 @@ outline:2px solid yellow;
     position:relative;
 
     display:flex;
+ height:230px;
    
     gap:12px;
     flex-direction:column; 
@@ -605,7 +606,7 @@ outline:2px solid yellow;
         inset 0 0 12px rgba(255,255,255,.08);
 
     backdrop-filter:blur(10px);
-
+padding:20px;
     transition:.35s;
 }
 
@@ -772,7 +773,7 @@ outline:2px solid orange;
     background:rgba(255,0,0,.2);
 
   display:block;
-   margin-top:0;
+ 
    transform:translateY(-6px);
    
 
@@ -792,6 +793,8 @@ outline:2px solid orange;
     color:#dbeafe;
  position:relative;
     z-index:2;
+ margin-top:12px;
+    padding-bottom:10px;
 }
 
 
