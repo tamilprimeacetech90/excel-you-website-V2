@@ -273,17 +273,17 @@ body[data-theme="dark"]{
 
         430px;
 
-    align-items:flex-start;
+    align-items:center;
 
     gap:40px;
 
     padding:
 
-        35px
+        20px
 
         5%
 
-        20px;
+        10px;
 
     min-height:calc(100vh - 90px);
 
@@ -729,16 +729,17 @@ width:100%;
 
     align-items:center;
 
-gap:67px;
+gap:28px;
 
    
 }
 
 .main-avatar{
 
-    width:430px;
+     width:min(420px,22vw);
 
-    max-height:560px;
+    max-height:48vh;
+
     margin-bottom:-25px;
 
     object-fit:contain;
@@ -1637,9 +1638,12 @@ footer{
         margin-top:0;
 
     }
+
 .main-avatar{
 
-    width:300px;
+    width:260px;
+
+    margin-bottom:-10px;
 
 }
 
@@ -1649,13 +1653,13 @@ footer{
 
     }
 
-    .signup-card{
+   .signup-card{
 
-        width:100%;
+    width:100%;
 
-        max-width:500px;
+    max-width:400px;
 
-    }
+}
 
 }
 
@@ -1681,17 +1685,32 @@ footer{
 
     }
 
-    .main-avatar{
+   .main-avatar{
 
-        width:220px;
+    width:190px;
 
-    }
+    margin-bottom:-5px;
+
+}
 
     .signup-card{
 
         padding:24px;
 
     }
+.feature-icon{
+
+    width:100px;
+
+    height:95px;
+
+}
+
+.feature-card span{
+
+    font-size:15px;
+
+}
 
     .journey-line{
 
