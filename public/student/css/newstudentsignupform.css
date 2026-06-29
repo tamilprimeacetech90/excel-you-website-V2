@@ -80,27 +80,15 @@ body{
         background .4s ease,
         color .4s ease;
 
+    overflow-y: hidden;
+
 }
 
 /* =========================
    BACKGROUND IMAGES
 ========================= */
 
-body[data-theme="dark"]{
 
-    background:
-
-        url("/assets/backgrounds/signup-dark.png")
-
-        center center /
-
-        cover
-
-        no-repeat
-
-        fixed;
-
-}
 
 
 /* =========================
@@ -142,7 +130,7 @@ body[data-theme="dark"]{
 
     padding:
 
-    12px
+    5px
 
      clamp(20px,5vw,70px);
     backdrop-filter:blur(6px);
@@ -213,7 +201,7 @@ body[data-theme="dark"]{
 
     color:white;
 
-    padding:10px 20px;
+    padding:9px 17px;
 
     border-radius:14px;
 
@@ -268,23 +256,23 @@ body[data-theme="dark"]{
 
     display:grid;
 
-    grid-template-columns:
-minmax(320px,24%)
-1fr
-minmax(430px,30%);
-
-gap:28px;
+   grid-template-columns:
+        minmax(340px,25%)
+        1fr
+       minmax(450px,31%);
+        
+   gap:18px;
 
     align-items:flex-start;
 
 
     max-width:1700px;
-width:min(95vw,1700px);
+   width:min(97vw,1750px);
     
     margin:0 auto;
 
     min-height:auto;
- padding:
+    padding:
 
         clamp(2px,5vw,10px)
 
@@ -456,11 +444,9 @@ font-size:17px;
 
     position:relative;
 
-    width:clamp(145px,9vw,170px);
+    width:clamp(133px,8vw,160px);
 
-    height:clamp(135px,9vw,160px);
-
-    padding:2px;
+    height:clamp(123px,8vw,170px);
 
     border-radius:8%;
    
@@ -522,7 +508,10 @@ color:#38bdf8;
     overflow:visible;
 
     border-radius:8px;
-    padding:2px;
+
+  max-width:380px;
+
+    margin:0 auto;
 
     background:
         radial-gradient(
@@ -600,11 +589,11 @@ color:#38bdf8;
 }
 
 .immortal-image-wrap img{
+margin-top:15px;
 
 
-    width:clamp(120px,8vw,150px);
-
-height:100PX;
+     width:170px;
+    height:180px;
 
     filter:
         drop-shadow(
@@ -662,7 +651,6 @@ padding-top:15px;
 
 }
 
-// (Student signup and OAuth integration)
 
 .immortal-content h2 span{
       font-size:2.2rem;
@@ -678,7 +666,7 @@ padding-top:15px;
 .hero-top{
     display:flex;
  align-items:flex-start;
-     gap:4px;
+     gap:2px;
 width:100%;
 
  position:relative;
@@ -698,7 +686,7 @@ width:100%;
 
      text-align:center;
 
-     margin-top:0px;
+  
      clear:both;
 
      font-size:.95rem;
@@ -710,8 +698,7 @@ width:100%;
      color:#dbeafe;
      position:relative;
      z-index:2;
-     margin-top:12px;
-     padding-bottom:10px;
+     padding-bottom:9px;
 }
 
 
@@ -755,9 +742,10 @@ width:100%;
     
     max-width:100%;
 
-    max-height:560px;
+    max-height:550px;
 
     margin-bottom:-25px;
+    margin-top:20px;
 
     object-fit:contain;
 
@@ -986,7 +974,7 @@ body[data-theme="light"] .hologram-ring{
 
     width:100%;
 
-    max-width: clamp(400,30vw,500px);
+    max-width: clamp(400px,30vw,500px);
 
     padding:30px 30px;
 
@@ -1104,6 +1092,9 @@ body[data-theme="light"] .hologram-ring{
 .input-group{
 
     margin-bottom:18px;
+
+    grid-template-columns:120px 1fr;
+
 
 }
 
@@ -1502,18 +1493,17 @@ body[data-theme="dark"] .github-icon{
 ========================= */
 
 footer{
+    margin-top:0px;
 
-    margin-top:4px;
+    padding:0 0 10px;
 
-    padding:8px 0 15px;
     text-align:center;
 
     color:var(--muted);
 
-    font-size:0.9rem;
+    font-size:.9rem;
 
 }
-
 
 
 /* =========================
@@ -1619,7 +1609,7 @@ footer{
 
     width:100%;
 
-    max-width:400px;
+    max-width:520px;
 
 }
 
@@ -1687,11 +1677,12 @@ footer{
             rotate(90deg);
 
     }
-.input-group{
+.input-group{ 
+    display:grid;
 
-    grid-template-columns:1fr;
+    grid-template-columns:110px 1fr;
 
-    gap:6px;
+    gap:14px;
 
     text-align:left;
 
