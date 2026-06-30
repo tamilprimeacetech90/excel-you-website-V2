@@ -262,6 +262,10 @@ border:1.5px solid rgba(56,189,248,.28);
     box-shadow: 0 0 0 1px rgba(59,130,246,.15), 0 8px 32px rgba(59,130,246,.20), 0 0 60px rgba(59,130,246,.12), inset 0 1px 0 rgba(255,255,255,.90);
 }
 
+body[data-theme="light"] .signup-card h2{
+    color:#1e40af;
+}
+
 /* =========================
    INPUT FIELDS
 ========================= */
