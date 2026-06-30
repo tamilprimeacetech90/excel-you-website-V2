@@ -219,60 +219,57 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                 </p>
 
-                <form id="signupForm">
+<form id="signupForm">
 
-                   
-                 <div class="input-group">
-
-                      <label for="username">
-
-                      Username
-
-                      </label>
-
-                     <input
-                     type="text"
-                       id="username"
-                     name="username"
-                     autocomplete="username"
-                      placeholder="Choose username"
-                       required>
-
-                    </div>
-
-                   
-                    <div class="input-group">
-
-                    <label for="email">
-
-                       Email Address
-
-                     </label>
-
-                       <input
-                        type="email"
-                        id="email"
-                         name="email"
-                         autocomplete="email"
-                         placeholder="you@example.com"
-                         required>
-
-                        </div>
+    <!-- Username -->
+   <div class="input-group">
 
 
-<div class="input-group">
+        <input
+            type="text"
+            id="username"
+            name="username"
+            autocomplete="username"
+            placeholder=" "
+            required>
 
-    <label for="password">Password</label>
+        <label for="username">
+            Username
+        </label>
 
-    <div class="password-wrapper">
+    </div>
+
+    <!-- Email -->
+    <div class="floating-group">
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            placeholder=" "
+            required>
+
+        <label for="email">
+            Email Address
+        </label>
+
+    </div>
+
+    <!-- Password -->
+    <div class="floating-group password-group">
 
         <input
             type="password"
             id="password"
             name="password"
             autocomplete="new-password"
-            placeholder="Create password"
+            placeholder=" "
             required>
+
+        <label for="password">
+            Password
+        </label>
 
         <button
             type="button"
@@ -285,24 +282,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     </div>
 
-</div>
-
-
-<div class="input-group">
-
-    <label for="confirmPassword">
-        Confirm Password
-    </label>
-
-    <div class="password-wrapper">
+    <!-- Confirm Password -->
+    <div class="floating-group password-group">
 
         <input
             type="password"
             id="confirmPassword"
             name="confirmPassword"
             autocomplete="new-password"
-            placeholder="Confirm password"
+            placeholder=" "
             required>
+
+        <label for="confirmPassword">
+            Confirm Password
+        </label>
 
         <button
             type="button"
@@ -315,42 +308,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     </div>
 
-</div>
+    <button
+        type="submit"
+        class="signup-btn">
 
-      
+        Create Account
 
-                      <button
-                        type="submit"
-                        class="signup-btn"
-                    >
+    </button>
 
-                        Create Account
+    <div class="social-divider">
+        <span>or continue with</span>
+    </div>
 
-                    </button> 
-                    <div class="social-divider">
+    <div class="social-login">
 
-                     <span>
+        <a href="/auth/google-signup" class="social-btn">
+            <img src="/assets/icons/google.png" alt="Google">
+        </a>
 
-                        or continue with
+        <a href="/auth/github-signup" class="social-btn">
+            <img
+                src="/assets/icons/github.png"
+                alt="GitHub"
+                class="github-icon">
+        </a>
 
-                     </span>
+    </div>
 
-                 </div>
-
-               <div class="social-login">
-
-    <a href="/auth/google-signup" class="social-btn">
-        <img src="/assets/icons/google.png" alt="Google">
-    </a>
-
-    <a href="/auth/github-signup" class="social-btn">
-        <img src="/assets/icons/github.png"
-             alt="GitHub"
-             class="github-icon">
-    </a>
-
-</div>
-                </form>
+</form>
 
                 <div class="bottom-text">
 
