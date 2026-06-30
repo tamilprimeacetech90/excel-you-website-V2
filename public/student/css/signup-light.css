@@ -233,12 +233,14 @@ body[data-theme="light"] .main-avatar{
 
     max-height:550px;
 
-    margin-bottom:-25px;
+    margin-bottom:-90px;
     margin-top:35px;
     filter: drop-shadow(0 0 25px rgba(56,189,248,.25)) drop-shadow(0 10px 30px rgba(37,99,235,.15));
 }
 
 body[data-theme="light"] .avatar-note{
+    margin-top:79px;
+
     color:#334155;
 }
 
