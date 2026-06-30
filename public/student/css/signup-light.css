@@ -263,26 +263,23 @@ border:1.5px solid rgba(56,189,248,.28);
 /* =========================
    INPUT FIELDS
 ========================= */
-/* Light Theme */
-
 body[data-theme="light"] .input-group input{
 
-    background:rgba(255,255,255,.82);
+    background:transparent;
 
-    border:1px solid rgba(59,130,246,.15);
+    border:none;
+
+    border-bottom:2px solid rgba(15,23,42,.18);
+
+    box-shadow:none;
 
 }
 
 body[data-theme="light"] .input-group input:focus{
 
-    border-color:#38bdf8;
+    border-bottom:2px solid #0ea5e9;
 
-}
-
-body[data-theme="light"] .input-group input:focus + label,
-body[data-theme="light"] .input-group input:not(:placeholder-shown) + label{
-
-    background:white;
+    box-shadow:none;
 
 }
 
