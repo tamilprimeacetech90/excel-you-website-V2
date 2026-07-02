@@ -164,27 +164,23 @@ body[data-theme="light"] .feature-card:hover{
    CENTER PANEL
 ========================= */
 
-body[data-theme="light"] .main-avatar{
+body[data-theme="light"] .hologram-card{
 
-    filter:
+background:rgba(255,255,255,.72);
 
-        drop-shadow(
-
-            0 0 25px rgba(56,189,248,.22)
-
-        )
-
-        drop-shadow(
-
-            0 10px 30px rgba(37,99,235,.12)
-
-        );
+border:1px solid rgba(37,99,235,.20);
 
 }
 
-body[data-theme="light"] .avatar-note{
+body[data-theme="light"] .hologram-card h2{
 
-    color:#334155;
+color:#1e3a8a;
+
+}
+
+body[data-theme="light"] .hologram-card p{
+
+color:#475569;
 
 }
 

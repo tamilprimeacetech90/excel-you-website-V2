@@ -483,98 +483,444 @@ body[data-theme="dark"]{
    Center Panel • Login Card • Login Form
 ===================================================== */
 
-
 /* =========================
    CENTER PANEL
 ========================= */
+
+/*=========================
+PROJECTOR
+=========================*/
 
 .login-center{
 
     display:flex;
 
-    flex-direction:column;
+    justify-content:center;
 
     align-items:center;
 
-    justify-content:center;
+    position:relative;
 
 }
 
-/* =========================
-   AVATAR
-========================= */
+/*=========================
+HOLOGRAM PANEL
+=========================*/
 
-.avatar-container{
+.hologram-panel{
 
-    display:flex;
+    width:420px;
 
-    flex-direction:column;
+    height:260px;
 
-    align-items:center;
+    padding:35px;
 
-    justify-content:center;
+    position:relative;
 
-}
+    border-radius:20px;
 
-.main-avatar{
+    background:
 
-    width:clamp(260px,30vw,430px);
+        linear-gradient(
 
-    max-width:100%;
+            180deg,
 
-    max-height:560px;
+            rgba(8,30,70,.35),
 
-    object-fit:contain;
-
-    animation:
-
-        floatAvatar
-
-        4s ease-in-out
-
-        infinite;
-
-    filter:
-
-        drop-shadow(
-
-            0 0 30px
-
-            rgba(56,189,248,.35)
+            rgba(8,20,45,.20)
 
         );
 
-    transition:
+    backdrop-filter:blur(8px);
 
-        opacity .8s ease,
+    border:2px solid #38bdf8;
 
-        transform .8s ease;
+    overflow:hidden;
+
+    box-shadow:
+
+        0 0 8px #38bdf8,
+
+        0 0 18px #38bdf8,
+
+        0 0 45px rgba(56,189,248,.55),
+
+        inset 0 0 20px rgba(56,189,248,.10);
 
 }
 
+
+/*=========================
+CORNERS
+=========================*/
+
+.hologram-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        repeating-linear-gradient(
+
+            0deg,
+
+            rgba(56,189,248,.05) 0px,
+
+            rgba(56,189,248,.05) 1px,
+
+            transparent 1px,
+
+            transparent 10px
+
+        );
+
+    pointer-events:none;
+
+    opacity:.45;
+
+}
+
+@keyframes borderPulse
+{
+
+0%,100%
+{
+
+opacity:.55;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+}
+/*=========================
+AI LABEL
+=========================*/
+.ai-label{
+
+    position:absolute;
+
+    top:18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:"Orbitron";
+
+    font-size:13px;
+
+    letter-spacing:6px;
+
+    color:#38bdf8;
+
+    text-shadow:
+
+        0 0 10px #38bdf8;
+
+}
+/*=========================
+WELCOME
+=========================*/
+
+.hologram-panel h2{
+
+    margin-top:55px;
+
+    font-size:48px;
+
+    font-family:"Orbitron";
+
+    text-align:center;
+
+    color:#6ee7ff;
+
+    text-shadow:
+
+        0 0 6px #38bdf8,
+
+        0 0 18px #38bdf8,
+
+        0 0 35px #38bdf8,
+
+        0 0 60px #38bdf8;
+
+}
+.hologram-panel p{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    color:#7dd3fc;
+
+    text-shadow:
+
+        0 0 8px rgba(56,189,248,.8);
+
+}
+.hologram-panel h3{
+
+    font-size:20px;
+
+    margin-top:5px;
+
+    color:#38bdf8;
+
+    letter-spacing:4px;
+
+    text-shadow:
+
+        0 0 15px #38bdf8,
+
+        0 0 35px #38bdf8,
+
+        0 0 60px #38bdf8;
+
+}
+/*=========================
+STATUS
+=========================*/
+
+.status{
+
+    margin-top:28px;
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#8fefff;
+
+    text-shadow:
+
+        0 0 8px rgba(56,189,248,.55);
+
+}
+
+/*=========================
+CONTINUE
+=========================*/
+.continue{
+
+    margin-top:24px;
+
+    color:#38bdf8;
+
+    font-size:19px;
+
+    font-weight:600;
+
+    text-shadow:
+
+        0 0 12px #38bdf8;
+
+}
+
+/*=========================
+SCAN LINE
+=========================*/
+
+.scan-line{
+
+    position:absolute;
+
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:#38bdf8;
+
+    box-shadow:
+
+        0 0 20px #38bdf8,
+
+        0 0 40px #38bdf8;
+
+    animation:scan 2.8s linear infinite;
+
+}
+
+
+/*=========================
+PROJECTOR BASE
+=========================*/
+
+.projector-ring{
+
+    position:absolute;
+
+    bottom:-18px;
+
+    width:260px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(56,189,248,.95),
+
+    rgba(56,189,248,.35),
+
+    transparent);
+
+    filter:blur(15px);
+
+    animation:ringGlow 2s infinite;
+
+}
+
+@keyframes ringGlow{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.12);
+
+}
+
+}
+
+/*=========================
+FLOAT
+=========================*/
+@keyframes floatPanel{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+/*=========================
+SCAN
+=========================*/
+
+@keyframes scan{
+
+0%{
+
+top:0;
+
+opacity:.1;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+top:100%;
+
+opacity:.1;
+
+}
+
+}
+
+/*=========================
+LOADING
+=========================*/
+
+@keyframes loading{
+
+0%{
+
+transform:scaleX(.2);
+
+transform-origin:left;
+
+}
+
+100%{
+
+transform:scaleX(1);
+
+transform-origin:left;
+
+}
+
+}
 /* =========================
    FLOATING EFFECT
 ========================= */
+.holo-projector::after{
 
-@keyframes floatAvatar{
+    content:"";
 
-    0%{
+    position:absolute;
 
-        transform:translateY(0);
+    bottom:-18px;
 
-    }
+    left:50%;
 
-    50%{
+    transform:translateX(-50%);
 
-        transform:translateY(-10px);
+    width:160px;
 
-    }
+    height:120px;
 
-    100%{
+    background:
 
-        transform:translateY(0);
+        linear-gradient(
 
-    }
+            to top,
+
+            rgba(56,189,248,.45),
+
+            transparent
+
+        );
+
+    clip-path:polygon(
+
+        50% 100%,
+
+        0 0,
+
+        100% 0
+
+    );
+
+    filter:blur(10px);
 
 }
 
