@@ -1,7 +1,7 @@
 /* =====================================================
-   EXCEL YOU LOGIN PAGE V2
-   PART 1
-   Global Layout • Background • Topbar • Left Panel
+   EXCEL YOU LOGIN V2
+   PART 1 / 3
+   Global • Background • Topbar • Layout • Left Panel
 ===================================================== */
 
 /* =========================
@@ -11,19 +11,14 @@
 :root{
 
     --text:#f8fafc;
+
     --muted:#cbd5e1;
-
-    --primary:#38bdf8;
-    --secondary:#8b5cf6;
-
-    --glass:rgba(255,255,255,.05);
 
     --card:rgba(15,23,42,.35);
 
-    --border:rgba(255,255,255,.10);
+    --glass:rgba(255,255,255,.06);
 
-    --shadow:
-        0 20px 45px rgba(0,0,0,.30);
+    --border:rgba(255,255,255,.10);
 
     --login-card:
         linear-gradient(
@@ -35,6 +30,14 @@
     --login-border:
         rgba(56,189,248,.25);
 
+    --primary:#38bdf8;
+
+    --secondary:#8b5cf6;
+
+    --shadow:
+        0 20px 45px
+        rgba(0,0,0,.28);
+
 }
 
 /* =========================
@@ -44,7 +47,9 @@
 *{
 
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
 
 }
@@ -53,18 +58,18 @@ html,
 body{
 
     width:100%;
+
     min-height:100vh;
+
     overflow-x:hidden;
 
 }
 
-/* =========================
-   BODY
-========================= */
-
 body{
 
-    font-family:"Poppins",sans-serif;
+    font-family:
+        "Poppins",
+        sans-serif;
 
     color:var(--text);
 
@@ -75,23 +80,14 @@ body{
 }
 
 /* =========================
-   SAME BACKGROUND AS SIGNUP
+   BACKGROUND
 ========================= */
 
 body[data-theme="dark"]{
 
     background:
         url("/assets/backgrounds/signup-dark.png")
-        center center/cover
-        no-repeat fixed;
-
-}
-
-body[data-theme="light"]{
-
-    background:
-        url("/assets/backgrounds/signup-light.png")
-        center center/cover
+        center center / cover
         no-repeat fixed;
 
 }
@@ -103,13 +99,12 @@ body[data-theme="light"]{
 .background-overlay{
 
     position:fixed;
+
     inset:0;
 
     z-index:-2;
 
     pointer-events:none;
-
-    backdrop-filter:blur(2px);
 
 }
 
@@ -121,8 +116,9 @@ body[data-theme="light"]{
 
     position:fixed;
 
-    width:500px;
-    height:500px;
+    width:520px;
+
+    height:520px;
 
     border-radius:50%;
 
@@ -138,8 +134,9 @@ body[data-theme="light"]{
 
     background:#2563eb;
 
-    top:-120px;
-    left:-120px;
+    top:-180px;
+
+    left:-180px;
 
 }
 
@@ -147,8 +144,9 @@ body[data-theme="light"]{
 
     background:#7c3aed;
 
-    bottom:-120px;
-    right:-120px;
+    bottom:-180px;
+
+    right:-180px;
 
 }
 
@@ -166,13 +164,17 @@ body[data-theme="light"]{
 
     padding:
 
-        5px clamp(20px,5vw,70px);
+        5px
+
+        clamp(20px,5vw,70px);
+
+    backdrop-filter:blur(6px);
 
     border-bottom:
 
-        1px solid rgba(255,255,255,.08);
+        1px solid
 
-    backdrop-filter:blur(6px);
+        rgba(255,255,255,.08);
 
 }
 
@@ -189,7 +191,37 @@ body[data-theme="light"]{
 }
 
 /* =========================
-   RIGHT BUTTONS
+   NAVIGATION
+========================= */
+
+.nav-links{
+
+    display:flex;
+
+    gap:32px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--primary);
+
+}
+
+/* =========================
+   RIGHT NAV
 ========================= */
 
 .topbar-right{
@@ -208,7 +240,7 @@ body[data-theme="light"]{
 
     color:white;
 
-    padding:10px 18px;
+    padding:9px 17px;
 
     border-radius:14px;
 
@@ -217,12 +249,14 @@ body[data-theme="light"]{
     background:
 
         linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
-        );
 
-    transition:.3s;
+            135deg,
+
+            var(--primary),
+
+            var(--secondary)
+
+        );
 
 }
 
@@ -234,8 +268,9 @@ body[data-theme="light"]{
 
 .theme-btn{
 
-    width:42px;
-    height:42px;
+    width:40px;
+
+    height:40px;
 
     border:none;
 
@@ -245,20 +280,22 @@ body[data-theme="light"]{
 
     font-size:18px;
 
-    color:white;
-
     background:var(--glass);
+
+    color:var(--text);
+
+    backdrop-filter:blur(12px);
 
     border:
 
-        1px solid rgba(255,255,255,.10);
+        1px solid
 
-    backdrop-filter:blur(12px);
+        var(--border);
 
 }
 
 /* =========================
-   MAIN WRAPPER
+   MAIN LAYOUT
 ========================= */
 
 .login-wrapper{
@@ -267,11 +304,13 @@ body[data-theme="light"]{
 
     grid-template-columns:
 
-        minmax(380px,34%)
+        minmax(360px,27%)
+
         1fr
+
         minmax(430px,30%);
 
-    gap:20px;
+    gap:22px;
 
     align-items:center;
 
@@ -281,8 +320,10 @@ body[data-theme="light"]{
 
     padding:
 
-        15px
+        12px
+
         clamp(20px,3vw,45px)
+
         10px;
 
 }
@@ -302,7 +343,7 @@ body[data-theme="light"]{
 }
 
 /* =========================
-   AI STATUS BADGE
+   BADGE
 ========================= */
 
 .badge{
@@ -319,15 +360,15 @@ body[data-theme="light"]{
 
     font-weight:600;
 
-    color:#7dd3fc;
-
     background:
 
         rgba(56,189,248,.14);
 
     border:
 
-        1px solid rgba(56,189,248,.28);
+        1px solid
+
+        rgba(56,189,248,.25);
 
 }
 
@@ -340,9 +381,10 @@ body[data-theme="light"]{
     font-family:
 
         "Orbitron",
+
         sans-serif;
 
-    font-size:2.5rem;
+    font-size:2.4rem;
 
     line-height:1.15;
 
@@ -362,21 +404,21 @@ body[data-theme="light"]{
 
     color:var(--muted);
 
-    line-height:1.8;
-
     font-size:15px;
+
+    line-height:1.8;
 
 }
 
 /* =========================
-   AI FEATURE GRID
+   FEATURE LIST
 ========================= */
 
 .feature-list{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:1fr;
+    flex-direction:column;
 
     gap:14px;
 
@@ -388,10 +430,6 @@ body[data-theme="light"]{
 
 .feature-card{
 
-    position:relative;
-
-    overflow:hidden;
-
     padding:18px 20px;
 
     border-radius:18px;
@@ -402,7 +440,9 @@ body[data-theme="light"]{
 
     border:
 
-        1px solid rgba(56,189,248,.15);
+        1px solid
+
+        rgba(56,189,248,.15);
 
     backdrop-filter:blur(12px);
 
@@ -412,7 +452,9 @@ body[data-theme="light"]{
 
 .feature-card:hover{
 
-    transform:translateX(6px);
+    transform:
+
+        translateX(6px);
 
     border-color:
 
@@ -420,39 +462,24 @@ body[data-theme="light"]{
 
     box-shadow:
 
-        0 0 18px rgba(56,189,248,.18);
+        0 0 18px
+
+        rgba(56,189,248,.18);
 
 }
 
-/* =========================
-   LIGHT THEME
-========================= */
+.feature-card strong{
 
-body[data-theme="light"]{
+    color:#7dd3fc;
 
-    --text:#1e293b;
-
-    --muted:#475569;
+    font-size:16px;
 
 }
 
-body[data-theme="light"] .feature-card{
-
-    background:rgba(255,255,255,.80);
-
-    border:1px solid rgba(15,23,42,.08);
-
-}
-
-body[data-theme="light"] .badge{
-
-    color:#0369a1;
-
-}
 
 /* =====================================================
-   EXCEL YOU LOGIN PAGE V2
-   PART 2
+   EXCEL YOU LOGIN V2
+   PART 2 / 3
    Center Panel • Login Card • Login Form
 ===================================================== */
 
@@ -473,6 +500,10 @@ body[data-theme="light"] .badge{
 
 }
 
+/* =========================
+   AVATAR
+========================= */
+
 .avatar-container{
 
     display:flex;
@@ -487,34 +518,37 @@ body[data-theme="light"] .badge{
 
 .main-avatar{
 
-    width:clamp(260px,28vw,420px);
+    width:clamp(260px,30vw,430px);
 
     max-width:100%;
 
+    max-height:560px;
+
     object-fit:contain;
 
-    animation:floatAvatar 4s ease-in-out infinite;
+    animation:
+
+        floatAvatar
+
+        4s ease-in-out
+
+        infinite;
 
     filter:
-        drop-shadow(0 0 30px rgba(56,189,248,.35));
+
+        drop-shadow(
+
+            0 0 30px
+
+            rgba(56,189,248,.35)
+
+        );
 
     transition:
+
         opacity .8s ease,
+
         transform .8s ease;
-
-}
-
-.avatar-note{
-
-    margin-top:15px;
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    text-align:center;
-
-    letter-spacing:.3px;
 
 }
 
@@ -554,9 +588,9 @@ body[data-theme="light"] .badge{
 
     height:50px;
 
-    border-radius:50%;
-
     margin-top:-8px;
+
+    border-radius:50%;
 
     background:
 
@@ -564,7 +598,7 @@ body[data-theme="light"] .badge{
 
             ellipse,
 
-            rgba(56,189,248,.85),
+            rgba(56,189,248,.90),
 
             rgba(56,189,248,.35),
 
@@ -572,7 +606,19 @@ body[data-theme="light"] .badge{
 
         );
 
-    filter:blur(12px);
+    filter:blur(13px);
+
+}
+
+.avatar-note{
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    text-align:center;
 
 }
 
@@ -604,9 +650,9 @@ body[data-theme="light"] .badge{
 
     max-width:520px;
 
-    padding:32px;
+    padding:30px;
 
-    border-radius:22px;
+    border-radius:20px;
 
     background:var(--login-card);
 
@@ -614,15 +660,17 @@ body[data-theme="light"] .badge{
 
     border:
 
-        1px solid var(--login-border);
+        1px solid
+
+        var(--login-border);
 
     box-shadow:
 
-        0 0 35px rgba(56,189,248,.22),
+        0 0 35px rgba(56,189,248,.25),
 
-        0 0 60px rgba(56,189,248,.10),
+        0 0 60px rgba(56,189,248,.12),
 
-        inset 0 0 15px rgba(56,189,248,.05);
+        inset 0 0 15px rgba(56,189,248,.08);
 
 }
 
@@ -644,11 +692,11 @@ body[data-theme="light"] .badge{
 
             135deg,
 
-            rgba(56,189,248,.8),
+            rgba(56,189,248,.90),
 
             transparent 45%,
 
-            rgba(56,189,248,.45)
+            rgba(56,189,248,.55)
 
         );
 
@@ -672,21 +720,39 @@ body[data-theme="light"] .badge{
 
 }
 
+.login-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(56,189,248,.18);
+
+    pointer-events:none;
+
+}
+
 /* =========================
    LOGIN TITLE
 ========================= */
 
 .login-title{
 
-    font-family:"Orbitron",sans-serif;
+    font-family:
 
-    font-size:30px;
+        "Orbitron",
+
+        sans-serif;
+
+    font-size:28px;
 
     text-align:center;
 
     margin-bottom:10px;
-
-    color:var(--text);
 
 }
 
@@ -795,7 +861,7 @@ body[data-theme="light"] .badge{
 }
 
 /* =========================
-   PASSWORD WRAPPER
+   PASSWORD
 ========================= */
 
 .input-group.password-wrapper{
@@ -810,23 +876,19 @@ body[data-theme="light"] .badge{
 
 }
 
-/* =========================
-   PASSWORD TOGGLE
-========================= */
-
 .password-toggle{
 
     position:absolute;
 
     top:50%;
 
-    right:10px;
+    right:14px;
 
     transform:translateY(-50%);
 
-    border:none;
-
     background:none;
+
+    border:none;
 
     cursor:pointer;
 
@@ -874,6 +936,14 @@ body[data-theme="light"] .badge{
 
     color:var(--primary);
 
+    transition:.25s;
+
+}
+
+.remember-row a:hover{
+
+    color:#67e8f9;
+
 }
 
 /* =========================
@@ -884,19 +954,19 @@ body[data-theme="light"] .badge{
 
     width:100%;
 
-    padding:17px;
+    padding:18px;
 
     border:none;
 
-    border-radius:18px;
+    border-radius:20px;
 
     cursor:pointer;
 
     color:white;
 
-    font-size:17px;
-
     font-weight:700;
+
+    font-size:18px;
 
     background:
 
@@ -910,19 +980,28 @@ body[data-theme="light"] .badge{
 
         );
 
-    transition:.35s;
-
     box-shadow:
 
-        0 0 20px rgba(56,189,248,.30);
+        0 0 20px rgba(56,189,248,.30),
+
+        0 0 35px rgba(139,92,246,.20);
+
+    transition:.35s;
 
 }
 
 .login-btn:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 
 }
+
+/* =====================================================
+   EXCEL YOU LOGIN V2
+   PART 3 / 3
+   Social Login • Footer • Responsive • Final Polish
+===================================================== */
+
 
 /* =========================
    SOCIAL DIVIDER
@@ -934,7 +1013,9 @@ body[data-theme="light"] .badge{
 
     justify-content:center;
 
-    margin:24px 0 16px;
+    align-items:center;
+
+    margin:28px 0 18px;
 
 }
 
@@ -943,6 +1024,8 @@ body[data-theme="light"] .badge{
     color:var(--muted);
 
     font-size:13px;
+
+    letter-spacing:.5px;
 
 }
 
@@ -956,15 +1039,17 @@ body[data-theme="light"] .badge{
 
     justify-content:center;
 
-    gap:12px;
+    align-items:center;
+
+    gap:14px;
 
 }
 
 .social-btn{
 
-    width:44px;
+    width:52px;
 
-    height:44px;
+    height:52px;
 
     display:flex;
 
@@ -972,43 +1057,61 @@ body[data-theme="light"] .badge{
 
     align-items:center;
 
-    border-radius:14px;
+    border-radius:16px;
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,.05);
 
     border:1px solid rgba(255,255,255,.08);
 
-    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(10px);
 
-    transition:.25s;
-
-}
-
-.social-btn:hover{
-
-    transform:translateY(-3px);
-
-    border-color:rgba(56,189,248,.35);
+    transition:.30s;
 
 }
 
 .social-btn img{
 
-    width:20px;
+    width:24px;
 
-    height:20px;
+    height:24px;
 
     object-fit:contain;
 
 }
 
+.social-btn:hover{
+
+    transform:
+
+        translateY(-4px);
+
+    border-color:
+
+        rgba(56,189,248,.45);
+
+    box-shadow:
+
+        0 0 18px rgba(56,189,248,.22);
+
+}
+
+.github-icon{
+
+    filter:invert(1);
+
+}
+
 /* =========================
-   BOTTOM TEXT
+   CREATE ACCOUNT
 ========================= */
 
 .bottom-text{
 
-    text-align:center;
+    margin-top:28px;
 
-    margin-top:24px;
+    text-align:center;
 
     color:var(--muted);
 
@@ -1024,14 +1127,15 @@ body[data-theme="light"] .badge{
 
     font-weight:600;
 
+    transition:.25s;
+
 }
 
-/* =====================================================
-   EXCEL YOU LOGIN PAGE V2
-   PART 3
-   Responsive • Theme • Footer • Final Polish
-===================================================== */
+.bottom-text a:hover{
 
+    color:#67e8f9;
+
+}
 
 /* =========================
    FOOTER
@@ -1041,120 +1145,16 @@ footer{
 
     text-align:center;
 
-    padding:10px 0 15px;
+    padding:15px 0;
 
     color:var(--muted);
 
-    font-size:.9rem;
+    font-size:13px;
 
 }
 
 /* =========================
-   LIGHT THEME
-========================= */
-
-body[data-theme="light"]{
-
-    --text:#1e293b;
-
-    --muted:#475569;
-
-}
-
-body[data-theme="light"] .login-card{
-
-    background:
-
-        linear-gradient(
-
-            135deg,
-
-            rgba(255,255,255,.95),
-
-            rgba(241,245,249,.95)
-
-        );
-
-    border:
-
-        1px solid rgba(37,99,235,.12);
-
-    box-shadow:
-
-        0 18px 40px rgba(15,23,42,.10);
-
-}
-
-body[data-theme="light"] .login-title{
-
-    color:#1e3a8a;
-
-}
-
-body[data-theme="light"] .avatar-note{
-
-    color:#334155;
-
-}
-
-body[data-theme="light"] .feature-card{
-
-    background:rgba(255,255,255,.82);
-
-    border:
-
-        1px solid rgba(15,23,42,.08);
-
-}
-
-body[data-theme="light"] .feature-card:hover{
-
-    box-shadow:
-
-        0 12px 28px rgba(56,189,248,.12);
-
-}
-
-body[data-theme="light"] .password-toggle{
-
-    color:#0284c7;
-
-}
-
-body[data-theme="light"] .password-toggle:hover{
-
-    color:#0369a1;
-
-}
-
-body[data-theme="light"] .theme-btn{
-
-    color:#0f172a;
-
-}
-
-body[data-theme="light"] .github-icon{
-
-    filter:none;
-
-}
-
-/* =========================
-   BUTTON HOVER
-========================= */
-
-.login-btn:hover{
-
-    box-shadow:
-
-        0 0 30px rgba(56,189,248,.40),
-
-        0 0 45px rgba(139,92,246,.20);
-
-}
-
-/* =========================
-   FEATURE ANIMATION
+   FEATURE CARD
 ========================= */
 
 .feature-card{
@@ -1163,9 +1163,9 @@ body[data-theme="light"] .github-icon{
 
         transform .35s,
 
-        box-shadow .35s,
+        border-color .35s,
 
-        border-color .35s;
+        box-shadow .35s;
 
 }
 
@@ -1180,31 +1180,7 @@ body[data-theme="light"] .github-icon{
 }
 
 /* =========================
-   SOCIAL BUTTON
-========================= */
-
-.social-btn{
-
-    transition:
-
-        transform .30s,
-
-        box-shadow .30s,
-
-        border-color .30s;
-
-}
-
-.social-btn:hover{
-
-    box-shadow:
-
-        0 0 18px rgba(56,189,248,.20);
-
-}
-
-/* =========================
-   INPUT ANIMATION
+   INPUT EFFECT
 ========================= */
 
 .input-group input{
@@ -1224,6 +1200,26 @@ body[data-theme="light"] .github-icon{
 }
 
 /* =========================
+   LOGIN CARD HOVER
+========================= */
+
+.login-card{
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
+
+}
+
+.login-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* =========================
    DESKTOP
 ========================= */
 
@@ -1231,7 +1227,13 @@ body[data-theme="light"] .github-icon{
 
 .login-wrapper{
 
-    width:min(96vw,1750px);
+    width:min(96vw,1760px);
+
+}
+
+.main-avatar{
+
+    width:460px;
 
 }
 
@@ -1241,25 +1243,23 @@ body[data-theme="light"] .github-icon{
    LAPTOP
 ========================= */
 
-@media(max-width:1400px){
+@media(max-width:1450px){
 
 .login-wrapper{
 
     grid-template-columns:
 
-        360px
+        340px
 
         1fr
 
         420px;
 
-    gap:30px;
-
 }
 
 .main-avatar{
 
-    width:330px;
+    width:340px;
 
 }
 
@@ -1277,7 +1277,7 @@ body[data-theme="light"] .github-icon{
 
         1fr
 
-        420px;
+        430px;
 
 }
 
@@ -1301,6 +1301,8 @@ body[data-theme="light"] .github-icon{
 
     flex-direction:column;
 
+    justify-content:center;
+
     align-items:center;
 
     text-align:center;
@@ -1309,7 +1311,7 @@ body[data-theme="light"] .github-icon{
 
 .main-avatar{
 
-    width:260px;
+    width:250px;
 
 }
 
@@ -1343,7 +1345,7 @@ body[data-theme="light"] .github-icon{
 
 .main-avatar{
 
-    width:190px;
+    width:200px;
 
 }
 
@@ -1363,9 +1365,7 @@ body[data-theme="light"] .github-icon{
 
 .login-wrapper{
 
-    padding:
-
-        20px;
+    padding:18px;
 
 }
 
@@ -1403,22 +1403,30 @@ body[data-theme="light"] .github-icon{
 
 }
 
+.social-btn{
+
+    width:48px;
+
+    height:48px;
+
+}
+
 }
 
 /* =========================
-   EXTRA POLISH
+   SCROLL
 ========================= */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
 
 ::selection{
 
     background:#38bdf8;
 
     color:white;
-
-}
-
-html{
-
-    scroll-behavior:smooth;
 
 }

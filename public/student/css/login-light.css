@@ -1,0 +1,460 @@
+/* =====================================================
+   EXCEL YOU LOGIN V2
+   LIGHT THEME
+   PART 1 / 2
+===================================================== */
+
+
+/* =========================
+   LIGHT THEME VARIABLES
+========================= */
+
+body[data-theme="light"]{
+
+    --text:#1f2937;
+
+    --muted:#475569;
+
+    --card:rgba(255,255,255,.78);
+
+    --glass:rgba(255,255,255,.65);
+
+    --border:rgba(15,23,42,.08);
+
+    --login-card:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.96),
+            rgba(243,247,252,.95)
+        );
+
+    --login-border:
+        rgba(37,99,235,.14);
+
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body[data-theme="light"]{
+
+    background:
+        url("/assets/backgrounds/signup-light.png")
+        center center / cover
+        no-repeat fixed;
+
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+body[data-theme="light"] .topbar{
+
+    border-bottom:
+
+        1px solid rgba(15,23,42,.08);
+
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+body[data-theme="light"] .nav-links a{
+
+    color:#334155;
+
+}
+
+body[data-theme="light"] .nav-links a:hover{
+
+    color:#0284c7;
+
+}
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+body[data-theme="light"] .theme-btn{
+
+    color:#0f172a;
+
+    background:rgba(255,255,255,.75);
+
+}
+
+/* =========================
+   BADGE
+========================= */
+
+body[data-theme="light"] .badge{
+
+    color:#0369a1;
+
+    background:
+
+        rgba(56,189,248,.10);
+
+    border:
+
+        1px solid rgba(2,132,199,.18);
+
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+body[data-theme="light"] .login-left h1{
+
+    color:#0f172a;
+
+}
+
+body[data-theme="light"] .login-left h1 span{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .login-left p{
+
+    color:#475569;
+
+}
+
+/* =========================
+   FEATURE CARD
+========================= */
+
+body[data-theme="light"] .feature-card{
+
+    background:
+
+        rgba(255,255,255,.82);
+
+    border:
+
+        1px solid rgba(15,23,42,.08);
+
+    box-shadow:
+
+        0 10px 25px rgba(15,23,42,.04);
+
+}
+
+body[data-theme="light"] .feature-card strong{
+
+    color:#0369a1;
+
+}
+
+body[data-theme="light"] .feature-card:hover{
+
+    border-color:
+
+        rgba(56,189,248,.30);
+
+}
+
+/* =========================
+   CENTER PANEL
+========================= */
+
+body[data-theme="light"] .main-avatar{
+
+    filter:
+
+        drop-shadow(
+
+            0 0 25px rgba(56,189,248,.22)
+
+        )
+
+        drop-shadow(
+
+            0 10px 30px rgba(37,99,235,.12)
+
+        );
+
+}
+
+body[data-theme="light"] .avatar-note{
+
+    color:#334155;
+
+}
+
+/* =========================
+   HOLOGRAM
+========================= */
+
+body[data-theme="light"] .hologram-ring{
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(56,189,248,.55),
+
+            rgba(59,130,246,.20),
+
+            transparent 75%
+
+        );
+
+}
+
+/* =====================================================
+   EXCEL YOU LOGIN V2
+   LIGHT THEME
+   PART 2 / 2
+===================================================== */
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+body[data-theme="light"] .login-card{
+
+    background:var(--login-card);
+
+    border:1px solid var(--login-border);
+
+    box-shadow:
+
+        0 18px 45px rgba(15,23,42,.10),
+
+        inset 0 0 10px rgba(255,255,255,.40);
+
+}
+
+body[data-theme="light"] .login-card::before{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(56,189,248,.45),
+
+            transparent 45%,
+
+            rgba(37,99,235,.18)
+
+        );
+
+}
+
+body[data-theme="light"] .login-card::after{
+
+    border:1px solid rgba(37,99,235,.08);
+
+}
+
+/* =========================
+   LOGIN TITLE
+========================= */
+
+body[data-theme="light"] .login-title{
+
+    color:#1e3a8a;
+
+}
+
+body[data-theme="light"] .login-subtitle{
+
+    color:#64748b;
+
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+body[data-theme="light"] .input-group input{
+
+    color:#1f2937;
+
+    border-bottom:
+
+        2px solid rgba(100,116,139,.40);
+
+}
+
+body[data-theme="light"] .input-group label{
+
+    color:#64748b;
+
+}
+
+body[data-theme="light"] .input-group input:focus{
+
+    border-bottom:
+
+        2px solid #0284c7;
+
+}
+
+body[data-theme="light"] .input-group input:focus + label,
+
+body[data-theme="light"] .input-group input:not(:placeholder-shown) + label{
+
+    color:#0284c7;
+
+}
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
+body[data-theme="light"] .password-toggle{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .password-toggle:hover{
+
+    color:#0369a1;
+
+}
+
+/* =========================
+   REMEMBER ROW
+========================= */
+
+body[data-theme="light"] .remember-row{
+
+    color:#475569;
+
+}
+
+body[data-theme="light"] .remember-row a{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .remember-row a:hover{
+
+    color:#0369a1;
+
+}
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+body[data-theme="light"] .login-btn{
+
+    box-shadow:
+
+        0 10px 25px rgba(56,189,248,.18);
+
+}
+
+body[data-theme="light"] .login-btn:hover{
+
+    box-shadow:
+
+        0 16px 35px rgba(56,189,248,.28);
+
+}
+
+/* =========================
+   SOCIAL DIVIDER
+========================= */
+
+body[data-theme="light"] .social-divider span{
+
+    color:#64748b;
+
+}
+
+/* =========================
+   SOCIAL BUTTONS
+========================= */
+
+body[data-theme="light"] .social-btn{
+
+    background:#ffffff;
+
+    border:1px solid rgba(15,23,42,.08);
+
+    box-shadow:
+
+        0 6px 18px rgba(15,23,42,.05);
+
+}
+
+body[data-theme="light"] .social-btn:hover{
+
+    border-color:rgba(2,132,199,.35);
+
+    box-shadow:
+
+        0 12px 24px rgba(56,189,248,.16);
+
+}
+
+/* =========================
+   GITHUB ICON
+========================= */
+
+body[data-theme="light"] .github-icon{
+
+    filter:none;
+
+}
+
+/* =========================
+   BOTTOM TEXT
+========================= */
+
+body[data-theme="light"] .bottom-text{
+
+    color:#64748b;
+
+}
+
+body[data-theme="light"] .bottom-text a{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .bottom-text a:hover{
+
+    color:#0369a1;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+body[data-theme="light"] footer{
+
+    color:#64748b;
+
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+body[data-theme="light"] ::selection{
+
+    background:#38bdf8;
+
+    color:#ffffff;
+
+}
