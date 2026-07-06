@@ -29,6 +29,9 @@ ROBOT
 
 position:absolute;
 
+height:350px;
+width:230px;
+
 bottom:170px;
 
 display:flex;
@@ -49,6 +52,8 @@ BOT IMAGE
 =========================*/
 
 .bot-image{
+
+height:450px;
 
 width:230px;
 
