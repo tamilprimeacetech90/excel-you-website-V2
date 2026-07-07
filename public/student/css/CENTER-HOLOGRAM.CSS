@@ -1,238 +1,205 @@
-/*=========================
-CENTER
-=========================*/
+/* ==========================================
+   CENTER PANEL
+========================================== */
 
 .login-center{
-
-position:relative;
-
-display:flex;
-
-justify-content:center;
-
-align-items:flex-end;
-
-width:500px;
-
-height:650px;
-
-overflow:visible;
-
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    width:500px;
+    height:650px;
+    overflow:visible;
 }
 
 
-/*=========================
-ROBOT
-=========================*/
+/* ==========================================
+   ROBOT
+========================================== */
 
 .ai-bot{
+    position:absolute;
+    bottom:170px;
 
-position:absolute;
+    width:430px;
+    height:350px;
 
-height:350px;
-width:230px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-bottom:170px;
+    z-index:20;
 
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-animation:floatBot 4s ease-in-out infinite;
-
-z-index:20;
-
+    animation:floatBot 4s ease-in-out infinite;
 }
 
 
-/*=========================
-BOT IMAGE
-=========================*/
+/* ==========================================
+   ROBOT IMAGE
+========================================== */
 
 .bot-image{
+    width:430px;
+    height:750px;
+    object-fit:contain;
 
-height:450px;
-
-width:230px;
-
-filter:
-
-drop-shadow(0 0 12px #38bdf8)
-
-drop-shadow(0 0 35px #38bdf8)
-
-drop-shadow(0 0 70px rgba(56,189,248,.8));
-
+  filter:
+    drop-shadow(0 0 8px rgba(56,189,248,.8))
+    drop-shadow(0 0 18px rgba(56,189,248,.45));
 }
+
+
+/* ==========================================
+   HOLOGRAM BEAM
+========================================== */
 
 /*=========================
-SPEECH
-=========================*/
-
-.speech{
-
-margin-top:18px;
-
-padding:18px 30px;
-
-border-radius:25px;
-
-background:
-
-rgba(8,25,70,.22);
-
-backdrop-filter:blur(12px);
-
-border:2px solid rgba(56,189,248,.7);
-
-box-shadow:
-
-0 0 12px #38bdf8,
-
-0 0 30px rgba(56,189,248,.55),
-
-inset 0 0 18px rgba(56,189,248,.15);
-
-text-align:center;
-
-animation:pulseBox 2s infinite;
-
-}
-
-
-.speech h2{
-
-font-size:32px;
-
-font-family:Orbitron;
-
-color:#7de9ff;
-
-letter-spacing:3px;
-
-margin-bottom:10px;
-
-text-shadow:
-
-0 0 10px cyan,
-
-0 0 30px cyan;
-
-}
-
-
-.speech p{
-
-font-size:18px;
-
-color:white;
-
-opacity:.95;
-
-}
-/*=========================
-BEAM
+PREMIUM HOLOGRAM BEAM
 =========================*/
 
 .beam{
 
-position:absolute;
+    position:absolute;
+    
 
-bottom:80px;
+    left:50%;
 
-width:170px;
+    transform:translateX(-50%);
 
-height:310px;
+  height:330px;
+width:250px;
+bottom:90px;
 
-background:
+    pointer-events:none;
 
-linear-gradient(
+    z-index:8;
 
-180deg,
+}
 
-rgba(0,255,255,.70),
+.beam::before{
 
-rgba(0,255,255,.22),
+    content:"";
 
-transparent
+    position:absolute;
 
-);
+    inset:0;
 
-clip-path:polygon(
+    background:
+    linear-gradient(
+        180deg,
+        rgba(125,233,255,.95) 0%,
+        rgba(56,189,248,.45) 30%,
+        rgba(56,189,248,.18) 65%,
+        transparent 100%
+    );
 
-48% 0,
-
-52% 0,
-
+  clip-path:polygon(
+35% 0,
+65% 0,
 100% 100%,
-
 0 100%
-
 );
 
-filter:blur(18px);
+    filter:blur(14px);
 
-animation:beamPulse 2s infinite;
+    animation:beamPulse 3s ease-in-out infinite;
+
+}
+.beam::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-40px;
+
+    background:
+    radial-gradient(
+        ellipse,
+        rgba(56,189,248,.25),
+        transparent 70%
+    );
+
+    filter:blur(45px);
+
+    animation:beamGlow 4s ease-in-out infinite;
 
 }
 
 
-/*=========================
-PROJECTOR
-=========================*/
+.beam span{
 
-.projector-floor{
+    position:absolute;
 
-position:absolute;
+    bottom:0;
 
-bottom:0;
+    width:2px;
 
-width:320px;
+    height:100%;
 
-height:90px;
+    background:
 
-border-radius:50%;
+    linear-gradient(
 
-background:
+        transparent,
 
-radial-gradient(
+        rgba(125,233,255,.9),
 
-ellipse,
+        transparent
 
-rgba(0,255,255,.95),
+    );
 
-rgba(56,189,248,.45),
+    opacity:.75;
 
-transparent 75%
-
-);
-
-filter:blur(10px);
-
-box-shadow:
-
-0 0 35px cyan,
-
-0 0 90px cyan;
-
-animation:ringPulse 2s infinite;
-
-}
-@keyframes floatBot{
-
-0%,100%{
-
-transform:translateY(0);
+    animation:rayMove 2.5s linear infinite;
 
 }
 
-50%{
+.beam span:nth-child(1){
 
-transform:translateY(-14px);
+left:25%;
+
+animation-delay:0s;
 
 }
+
+.beam span:nth-child(2){
+
+left:37%;
+
+animation-delay:.5s;
+
+}
+
+.beam span:nth-child(3){
+
+left:50%;
+
+animation-delay:1s;
+
+}
+
+.beam span:nth-child(4){
+
+left:63%;
+
+animation-delay:1.5s;
+
+}
+
+.beam span:nth-child(5){
+
+left:75%;
+
+animation-delay:2s;
+
+}
+
+.beam span:nth-child(6){
+
+left:87%;
+
+animation-delay:2.5s;
 
 }
 
@@ -242,321 +209,148 @@ transform:translateY(-14px);
 
 opacity:.65;
 
+transform:scaleX(1);
+
 }
 
 50%{
 
 opacity:1;
 
-}
+transform:scaleX(1.08);
 
 }
 
-@keyframes pulseBox{
+}
+
+@keyframes beamGlow{
 
 0%,100%{
 
-transform:scale(1);
+opacity:.45;
 
 }
 
 50%{
 
-transform:scale(1.03);
+opacity:.9;
 
 }
 
 }
+
+
+@keyframes rayMove{
+
+0%{
+
+transform:translateY(40px);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+80%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-60px);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ==========================================
+   PROJECTOR FLOOR
+========================================== */
+
+.projector-floor
+{
+    position:absolute;
+
+    width:320px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        ellipse,
+        rgba(0,255,255,.95),
+        rgba(56,189,248,.45),
+        transparent 75%
+    );
+
+    filter:blur(10px);
+
+box-shadow:
+0 0 22px rgba(56,189,248,.75),
+0 0 50px rgba(56,189,248,.35);
+
+    animation:ringPulse 2s infinite;
+}
+
+
+/* ==========================================
+   FLOATING ANIMATION
+========================================== */
+
+@keyframes floatBot{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-14px);
+    }
+
+}
+
+
+/* ==========================================
+   BEAM PULSE
+========================================== */
+
+@keyframes beamPulse{
+
+    0%,100%{
+        opacity:.65;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+
+/* ==========================================
+   FLOOR PULSE
+========================================== */
 
 @keyframes ringPulse{
 
-0%,100%{
-
-transform:scale(1);
-
-}
-
-50%{
-
-transform:scale(1.08);
-
-}
-
-}
-
-/* ==========================
-   AI MASCOT
-========================== */
-
-.ai-assistant{
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-52%);
-
-    width:240px;
-
-    z-index:25;
-
-    pointer-events:none;
-
-    animation:
-    aiFloat 5s ease-in-out infinite;
-}
-
-.ai-assistant img{
-
-    width:100%;
-
-    display:block;
-
-    filter:
-
-    drop-shadow(0 0 12px #3ddcff)
-
-    drop-shadow(0 0 25px #00bfff)
-
-    drop-shadow(0 0 60px rgba(0,255,255,.45));
-
-    animation:
-
-    hologramGlitch 6s infinite,
-
-    brightnessPulse 3s infinite;
-}
-
-/* ==========================
-   FLOATING ANIMATION
-========================== */
-
-@keyframes aiFloat{
-
-0%{
-
-transform:translate(-50%,-52%) rotate(-1deg);
-
-}
-
-25%{
-
-transform:translate(-50%,-56%) rotate(1deg);
-
-}
-
-50%{
-
-transform:translate(-50%,-53%) rotate(-1deg);
-
-}
-
-75%{
-
-transform:translate(-50%,-57%) rotate(1deg);
-
-}
-
-100%{
-
-transform:translate(-50%,-52%) rotate(-1deg);
-
-}
-
-}
-
-/* ==========================
-   HOLOGRAM BRIGHTNESS
-========================== */
-
-@keyframes brightnessPulse{
-
-0%,100%{
-
-filter:
-
-drop-shadow(0 0 10px cyan)
-
-drop-shadow(0 0 25px #00ffff)
-
-drop-shadow(0 0 60px rgba(0,255,255,.35));
-
-}
-
-50%{
-
-filter:
-
-drop-shadow(0 0 20px #6fffff)
-
-drop-shadow(0 0 40px #00ffff)
-
-drop-shadow(0 0 80px rgba(0,255,255,.75));
-
-}
-
-}
-
-
-/* ==========================
-   HOLOGRAM GLITCH
-========================== */
-
-
-
-@keyframes hologramGlitch{
-
-0%,95%,100%{
-
-opacity:1;
-
-}
-
-96%{
-
-opacity:.6;
-
-transform:translateX(2px);
-
-}
-
-97%{
-
-opacity:1;
-
-transform:translateX(-2px);
-
-}
-
-98%{
-
-opacity:.8;
-
-transform:translateX(1px);
-
-}
-
-99%{
-
-opacity:1;
-
-transform:none;
-
-}
-
-}
-
-/* ==========================
-   HOLOGRAM SCAN LAYER
-========================== */
-
-.ai-assistant::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-top:0;
-
-width:100%;
-height:100%;
-
-background:
-
-repeating-linear-gradient(
-
-180deg,
-
-rgba(255,255,255,.18) 0px,
-
-rgba(255,255,255,.18) 2px,
-
-transparent 4px,
-
-transparent 8px
-
-);
-
-mix-blend-mode:screen;
-
-animation:scanMove 5s linear infinite;
-
-pointer-events:none;
-
-}
-
-@keyframes scanMove{
-
-0%{
-
-transform:translateY(-100%);
-
-}
-
-100%{
-
-transform:translateY(100%);
-
-}
-
-}
-
-
-/* ==========================
-  BLUE AURA ROBOT
-========================== */
-
-.ai-assistant::before{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-top:50%;
-
-width:180px;
-height:180px;
-
-transform:translate(-50%,-50%);
-
-border-radius:50%;
-
-background:
-
-radial-gradient(circle,
-
-rgba(0,255,255,.45),
-
-transparent 70%);
-
-filter:blur(35px);
-
-animation:auraPulse 3s infinite;
-
-z-index:-1;
-
-}
-
-
-@keyframes auraPulse{
-
-0%,100%{
-
-transform:translate(-50%,-50%) scale(1);
-
-opacity:.55;
-
-}
-
-50%{
-
-transform:translate(-50%,-50%) scale(1.15);
-
-opacity:1;
-
-}
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
 
 }
