@@ -1,107 +1,72 @@
-/*==========================================
-    ROBOT CONTAINER
-==========================================*/
+/*==============================
+    CENTER PANEL
+==============================*/
 
-.robot-container{
+.robot-panel{
 
     position:relative;
 
-    width:450px;
-    height:750px;
+    width:500px;
+    height:650px;
 
     margin:auto;
+
+    overflow:visible;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    overflow:visible;
-
 }
 
 
-/*==========================================
-    COMMON PARTS
-==========================================*/
+/*==============================
+        BODY
+==============================*/
 
-.robot-part{
+.robot-body{
 
     position:absolute;
-
-    width:450px;
-    height:auto;
 
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%) scale(.82);
 
-    user-select:none;
+
+    width:580px;   /* Change this value */
+    height:550px;
+
+    object-fit:contain;
+
+    z-index:20;
+
     pointer-events:none;
 
 }
 
 
-/*==========================================
-    LAYER ORDER
-==========================================*/
+/*==============================
+        HEAD
+==============================*/
 
-.shadow{
-    z-index:1;
-}
+.robot-head{
 
-.left-wing{
-    z-index:2;
-}
+    position:absolute;
 
-.right-wing{
-    z-index:2;
-}
+    left:50%;
+   margin-top:420px ;
 
-.left-foot{
-    z-index:3;
-}
+     width:380px;   
+    height:350px;
+     
 
-.right-foot{
-    z-index:3;
-}
+    transform:
+        translate(-50%, -50%)
+        translateY(-120px);
 
-.body{
-    z-index:4;
-}
+    z-index:30;
 
-.left-arm{
-    z-index:5;
-}
+    pointer-events:none;
 
-.right-arm{
-    z-index:5;
-}
-
-.left-hand{
-    z-index:6;
-}
-
-.right-hand{
-    z-index:6;
-}
-
-.head{
-    z-index:7;
-}
-
-.left-eye{
-    z-index:8;
-}
-
-.right-eye{
-    z-index:8;
-}
-
-.smile{
-    z-index:9;
-}
-
-.halo{
-    z-index:10;
 }
