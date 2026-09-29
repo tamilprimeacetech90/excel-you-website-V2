@@ -205,15 +205,18 @@
 
 <div class="login-center">
 
-<video autoplay muted loop playsinline>
-    <source src="bubble-robo.webm" type="video/webm">
-    <source src="/assets/BUBBLE ROBO/BUBBLE-ROBO.mp4" type="video/mp4">
-</video>
+    <video
+        id="robotVideo"
+        src="/assets/BUBBLE ROBO/robot.mp4"
+        muted
+        playsinline
+        loop
+        preload="auto">
+    </video>
 
-
+    <canvas id="robotCanvas"></canvas>
 
 </div>
-
         <!-- =====================================
                     RIGHT PANEL
         ====================================== -->
@@ -447,7 +450,8 @@
 
     <!-- Login -->
 
-    <script src="/student/js/studentlogin.js"></script>
+    <script src="/student/js/student-login.js"></script>
+    <script src="/student/js/student-login-center.js"></script>
 
 
     <!-- =====================================
