@@ -219,42 +219,39 @@ body[data-theme="light"] .hologram-ring{
 
 body[data-theme="light"] .login-card{
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.72),
-            rgba(245,250,255,.62)
-        );
+    background:var(--login-card);
 
-    border:
-        1px solid rgba(56,189,248,.28);
+    border:1px solid var(--login-border);
 
     box-shadow:
-        0 18px 45px rgba(15,23,42,.08),
-        0 0 28px rgba(56,189,248,.10),
-        inset 0 0 18px rgba(255,255,255,.45);
 
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
+        0 18px 45px rgba(15,23,42,.10),
+
+        inset 0 0 10px rgba(255,255,255,.40);
 
 }
 
 body[data-theme="light"] .login-card::before{
 
     background:
+
         linear-gradient(
+
             135deg,
-            rgba(56,189,248,.20),
+
+            rgba(56,189,248,.45),
+
             transparent 45%,
-            rgba(37,99,235,.08)
+
+            rgba(37,99,235,.18)
+
         );
 
 }
 
 body[data-theme="light"] .login-card::after{
 
-    border:
-        1px solid rgba(56,189,248,.10);
+    border:1px solid rgba(37,99,235,.08);
 
 }
 
