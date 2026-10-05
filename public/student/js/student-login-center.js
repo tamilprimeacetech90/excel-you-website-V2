@@ -12,6 +12,7 @@ if (video && canvas) {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
 
+
         startRobot();
     });
 
