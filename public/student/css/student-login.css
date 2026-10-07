@@ -654,7 +654,7 @@ body[data-theme="dark"]{
 
     flex-direction:column;
 
-    gap:20px;
+    gap:24px;
 
 }
 
@@ -1086,6 +1086,7 @@ footer{
         transform .35s,
 
         box-shadow .35s;
+    width: 400px;
 
 }
 
