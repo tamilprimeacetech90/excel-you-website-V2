@@ -654,7 +654,7 @@ body[data-theme="dark"]{
 
     flex-direction:column;
 
-    gap:26px;
+    gap:22px;
 
 }
 
@@ -891,7 +891,7 @@ body[data-theme="dark"]{
 
     align-items:center;
 
-    margin:28px 0 18px;
+    margin:12px 0 10px;
 
 }
 
@@ -985,7 +985,7 @@ body[data-theme="dark"]{
 
 .bottom-text{
 
-    margin-top:28px;
+    margin-top:16px;
 
     text-align:center;
 
