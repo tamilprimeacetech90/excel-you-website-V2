@@ -14,7 +14,10 @@
 
 /* Hidden source video */
 #robotVideo {
-    display: none;
+  width: 320px;
+    height: 420px;
+    object-fit: contain;
+    display: block;
 }
 
 /* Processed transparent robot */
