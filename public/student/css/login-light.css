@@ -141,13 +141,24 @@ body[data-theme="light"] .login-left p{
    SLIDING AREA
 ===================================================== */
 
+/* =====================================================
+   FEATURE CARDS — VERSION B
+   PREMIUM FROSTED GLASS + HOLOGRAPHIC HUD
+   LIGHT THEME
+===================================================== */
+
+
+/* =====================================================
+   FEATURE SLIDER CONTAINER
+===================================================== */
+
 body[data-theme="light"] .feature-list {
 
     position: relative;
 
     width: 100%;
 
-    min-height: 128px;
+    min-height: 132px;
 
     overflow: hidden;
 
@@ -166,7 +177,7 @@ body[data-theme="light"] .feature-card {
     left: 0;
 
     width: 100%;
-    min-height: 128px;
+    min-height: 132px;
 
     box-sizing: border-box;
 
@@ -180,16 +191,21 @@ body[data-theme="light"] .feature-card {
 
     border-radius: 20px;
 
+    overflow: hidden;
+
+    isolation: isolate;
+
 
     /* ================================================
-       TRANSPARENT GLASS
+       MORE TRANSPARENT GLASS
     ================================================= */
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.62),
-            rgba(232,246,255,.38)
+            rgba(255,255,255,.40),
+            rgba(219,240,255,.24) 55%,
+            rgba(190,225,255,.19)
         );
 
 
@@ -198,29 +214,7 @@ body[data-theme="light"] .feature-card {
     ================================================= */
 
     border:
-        1px solid rgba(255,255,255,.88);
-
-
-    /* ================================================
-       GLASS DEPTH
-    ================================================= */
-
-    box-shadow:
-
-        0 12px 30px
-        rgba(15,65,110,.12),
-
-        0 0 18px
-        rgba(56,189,248,.10),
-
-        0 0 42px
-        rgba(56,189,248,.045),
-
-        inset 0 1px 0
-        rgba(255,255,255,.95),
-
-        inset 0 -1px 0
-        rgba(125,211,252,.10);
+        1px solid rgba(190,235,255,.62);
 
 
     /* ================================================
@@ -228,12 +222,28 @@ body[data-theme="light"] .feature-card {
     ================================================= */
 
     backdrop-filter:
-        blur(20px)
-        saturate(130%);
+        blur(18px)
+        saturate(135%);
 
     -webkit-backdrop-filter:
-        blur(20px)
-        saturate(130%);
+        blur(18px)
+        saturate(135%);
+
+
+    /* ================================================
+       SOFT DEPTH
+    ================================================= */
+
+    box-shadow:
+
+        0 10px 28px
+        rgba(15,65,110,.10),
+
+        0 0 14px
+        rgba(56,189,248,.08),
+
+        inset 0 1px 0
+        rgba(255,255,255,.72);
 
 
     /* ================================================
@@ -242,34 +252,32 @@ body[data-theme="light"] .feature-card {
 
     opacity: 0;
 
-    transform:
-        translateX(80px)
-        scale(.96);
-
-    filter:
-        blur(5px);
+    visibility: hidden;
 
     pointer-events: none;
 
+    transform:
+        translateX(55px)
+        scale(.985);
+
+    filter:
+        blur(3px);
+
     z-index: 1;
 
-
-    /* ================================================
-       SLIDE TRANSITION
-    ================================================= */
 
     transition:
 
         transform .65s
         cubic-bezier(.22,.61,.36,1),
 
-        opacity .50s ease,
+        opacity .45s ease,
 
-        filter .65s ease,
+        filter .55s ease,
 
-        box-shadow .40s ease,
+        border-color .35s ease,
 
-        border-color .40s ease;
+        box-shadow .35s ease;
 
 }
 
@@ -291,20 +299,21 @@ body[data-theme="light"] .feature-card::before {
     background:
         linear-gradient(
             125deg,
-            rgba(255,255,255,.46),
-            rgba(255,255,255,.12) 26%,
-            transparent 48%,
-            transparent 72%,
-            rgba(56,189,248,.07)
+            rgba(255,255,255,.30),
+            transparent 38%,
+            rgba(125,211,252,.045) 75%,
+            transparent
         );
 
     pointer-events: none;
+
+    z-index: 0;
 
 }
 
 
 /* =====================================================
-   TOP LIGHT LINE
+   ANIMATED HOLOGRAPHIC BORDER
 ===================================================== */
 
 body[data-theme="light"] .feature-card::after {
@@ -313,29 +322,61 @@ body[data-theme="light"] .feature-card::after {
 
     position: absolute;
 
-    top: 0;
+    inset: -1px;
 
-    left: 8%;
+    padding: 1px;
 
-    right: 8%;
-
-    height: 1px;
+    border-radius: inherit;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.95),
-            rgba(125,211,252,.95),
-            rgba(255,255,255,.95),
-            transparent
+        conic-gradient(
+            from 0deg,
+
+            transparent 0deg 245deg,
+
+            rgba(125,211,252,.15) 270deg,
+
+            rgba(255,255,255,.95) 292deg,
+
+            rgba(56,189,248,.95) 308deg,
+
+            rgba(125,211,252,.18) 325deg,
+
+            transparent 345deg 360deg
         );
 
-    box-shadow:
-        0 0 9px
-        rgba(125,211,252,.55);
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
 
     pointer-events: none;
+
+    z-index: 4;
+
+
+    animation:
+        featureBorderSweep
+        5s
+        linear
+        infinite;
+
+}
+
+
+@keyframes featureBorderSweep {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
 
 }
 
@@ -349,6 +390,10 @@ body[data-theme="light"]
 
     opacity: 1;
 
+    visibility: visible;
+
+    pointer-events: auto;
+
     transform:
         translateX(0)
         scale(1);
@@ -356,36 +401,29 @@ body[data-theme="light"]
     filter:
         blur(0);
 
-    pointer-events: auto;
-
     z-index: 3;
 
+
     border-color:
-        rgba(125,211,252,.85);
+        rgba(186,230,253,.82);
 
 
     box-shadow:
 
-        0 16px 38px
-        rgba(15,65,110,.15),
+        0 12px 30px
+        rgba(15,65,110,.12),
 
-        0 0 22px
-        rgba(56,189,248,.20),
-
-        0 0 50px
-        rgba(56,189,248,.08),
+        0 0 18px
+        rgba(56,189,248,.13),
 
         inset 0 1px 0
-        rgba(255,255,255,1),
-
-        inset 0 0 22px
-        rgba(186,230,253,.15);
+        rgba(255,255,255,.82);
 
 }
 
 
 /* =====================================================
-   CARD LEAVING
+   LEAVING CARD
 ===================================================== */
 
 body[data-theme="light"]
@@ -393,14 +431,16 @@ body[data-theme="light"]
 
     opacity: 0;
 
-    transform:
-        translateX(-80px)
-        scale(.96);
-
-    filter:
-        blur(5px);
+    visibility: visible;
 
     pointer-events: none;
+
+    transform:
+        translateX(-55px)
+        scale(.985);
+
+    filter:
+        blur(3px);
 
     z-index: 2;
 
@@ -408,14 +448,15 @@ body[data-theme="light"]
 
 
 /* =====================================================
-   ICON AREA
+   ICON CONTAINER
 ===================================================== */
 
 body[data-theme="light"] .feature-icon {
 
     position: relative;
 
-    flex: 0 0 62px;
+    flex:
+        0 0 62px;
 
     width: 62px;
 
@@ -427,35 +468,32 @@ body[data-theme="light"] .feature-icon {
 
     justify-content: center;
 
-    border-radius: 18px;
+    border-radius: 17px;
 
 
     /* ================================================
-       SMALL GLASS HUD CONTAINER
+       TRANSPARENT HOLOGRAPHIC GLASS
     ================================================= */
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.58),
-            rgba(186,230,253,.18)
+            rgba(225,248,255,.30),
+            rgba(56,189,248,.12)
         );
 
 
     border:
-        1px solid rgba(125,211,252,.42);
+        1px solid rgba(125,211,252,.48);
 
 
     box-shadow:
 
+        0 0 14px
+        rgba(56,189,248,.13),
+
         inset 0 1px 0
-        rgba(255,255,255,.90),
-
-        0 0 12px
-        rgba(56,189,248,.10),
-
-        0 6px 14px
-        rgba(15,65,110,.08);
+        rgba(255,255,255,.55);
 
 
     backdrop-filter:
@@ -463,6 +501,8 @@ body[data-theme="light"] .feature-icon {
 
     -webkit-backdrop-filter:
         blur(10px);
+
+    z-index: 1;
 
 }
 
@@ -475,51 +515,65 @@ body[data-theme="light"] .feature-icon img {
 
     position: relative;
 
+    z-index: 2;
+
+    display: block;
+
     width: 54px;
 
     height: 54px;
 
     object-fit: contain;
 
-    z-index: 2;
 
     filter:
         drop-shadow(
             0 0 5px
-            rgba(56,189,248,.35)
+            rgba(56,189,248,.38)
         );
 
+
     transition:
-        transform .45s ease,
-        filter .45s ease;
+
+        transform .35s ease,
+
+        filter .35s ease;
 
 }
 
 
 /* =====================================================
-   ICON ATMOSPHERIC GLOW
+   ICON GLOW
 ===================================================== */
 
-body[data-theme="light"] .icon-glow {
+body[data-theme="light"]
+.feature-icon .icon-glow {
 
     position: absolute;
 
-    width: 44px;
+    width: 48px;
 
-    height: 44px;
+    height: 48px;
 
     border-radius: 50%;
+
 
     background:
         radial-gradient(
             circle,
-            rgba(56,189,248,.22),
-            rgba(56,189,248,.07),
+
+            rgba(34,211,238,.38) 0%,
+
+            rgba(56,189,248,.17) 42%,
+
             transparent 72%
         );
 
+
     filter:
         blur(5px);
+
+    pointer-events: none;
 
     z-index: 1;
 
@@ -585,10 +639,6 @@ body[data-theme="light"] .feature-content strong {
     line-height:
         1.25;
 
-    text-shadow:
-        0 1px 2px
-        rgba(255,255,255,.85);
-
 }
 
 
@@ -619,102 +669,35 @@ body[data-theme="light"] .feature-content p {
 body[data-theme="light"]
 .feature-card.is-active:hover {
 
-    transform:
-        translateY(-3px)
-        scale(1.01);
-
     border-color:
-        rgba(125,211,252,.98);
+        rgba(125,211,252,.95);
 
     box-shadow:
 
-        0 18px 42px
-        rgba(15,65,110,.18),
+        0 14px 32px
+        rgba(15,65,110,.14),
 
-        0 0 28px
-        rgba(56,189,248,.24),
-
-        0 0 55px
-        rgba(56,189,248,.09),
+        0 0 22px
+        rgba(56,189,248,.18),
 
         inset 0 1px 0
-        rgba(255,255,255,1);
+        rgba(255,255,255,.90);
 
 }
 
-
-/* =====================================================
-   HOVER ICON
-===================================================== */
 
 body[data-theme="light"]
 .feature-card.is-active:hover
 .feature-icon img {
 
     transform:
-        scale(1.10);
+        scale(1.06);
 
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 700px) {
-
-    body[data-theme="light"]
-    .feature-card {
-
-        gap: 12px;
-
-        padding: 14px 15px;
-
-        min-height: 112px;
-
-        border-radius: 17px;
-
-    }
-
-
-    body[data-theme="light"]
-    .feature-icon {
-
-        flex-basis: 52px;
-
-        width: 52px;
-
-        height: 52px;
-
-        border-radius: 15px;
-
-    }
-
-
-    body[data-theme="light"]
-    .feature-icon img {
-
-        width: 46px;
-
-        height: 46px;
-
-    }
-
-
-    body[data-theme="light"]
-    .feature-content strong {
-
-        font-size: 15px;
-
-    }
-
-
-    body[data-theme="light"]
-    .feature-content p {
-
-        font-size: 13px;
-
-    }
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(56,189,248,.55)
+        );
 
 }
 

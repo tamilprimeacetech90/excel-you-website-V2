@@ -533,99 +533,91 @@
 <script>
 
 /* =====================================================
-   EXCEL YOU
-   FEATURE CARD SLIDER
+   FEATURE CARD SLIDER — VERSION B
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    const featureList =
+        document.querySelector(".feature-list");
 
-    /* =================================================
-       GET ALL FEATURE CARDS
-    ================================================= */
+    if (!featureList) return;
 
-    const featureCards =
-        document.querySelectorAll(
-            ".feature-list .feature-card"
+
+    const cards =
+        featureList.querySelectorAll(
+            ".feature-card"
         );
 
 
-    /* =================================================
-       STOP IF NO CARDS EXIST
-    ================================================= */
+    if (cards.length < 2) return;
 
-    if (!featureCards.length) {
-
-        return;
-
-    }
-
-
-    /* =================================================
-       SETTINGS
-    ================================================= */
 
     let currentIndex = 0;
 
-
-    /*
-       How long each card stays visible.
-
-       3000 = 3 seconds
-    */
-
-    const displayTime = 3000;
+    let isAnimating = false;
 
 
-    /*
-       How long the slide animation takes.
-
-       650 = 0.65 seconds
-    */
+    const displayTime = 4000;
 
     const slideDuration = 650;
 
 
-    /* =================================================
-       SHOW FIRST CARD
+    /* ================================================
+       FIRST CARD
     ================================================= */
 
-    featureCards[0].classList.add(
+    cards.forEach(function(card) {
+
+        card.classList.remove(
+            "is-active",
+            "is-leaving"
+        );
+
+    });
+
+
+    cards[0].classList.add(
         "is-active"
     );
 
 
-    /* =================================================
-       SLIDE TO NEXT CARD
+    /* ================================================
+       NEXT CARD
     ================================================= */
 
-    function showNextFeature() {
+    function showNextCard() {
 
+        if (isAnimating) return;
 
-        /* ---------------------------------------------
-           CURRENT CARD
-        --------------------------------------------- */
+        isAnimating = true;
+
 
         const currentCard =
-            featureCards[currentIndex];
+            cards[currentIndex];
 
-
-        /* ---------------------------------------------
-           CALCULATE NEXT CARD
-        --------------------------------------------- */
 
         const nextIndex =
             (currentIndex + 1)
-            % featureCards.length;
+            % cards.length;
 
 
         const nextCard =
-            featureCards[nextIndex];
+            cards[nextIndex];
 
 
-        /* ---------------------------------------------
-           CURRENT CARD SLIDES OUT
-        --------------------------------------------- */
+        /* NEXT CARD ENTERS FROM RIGHT */
+
+        nextCard.classList.remove(
+            "is-leaving"
+        );
+
+        nextCard.classList.add(
+            "is-active"
+        );
+
+
+        /* CURRENT CARD EXITS LEFT */
 
         currentCard.classList.remove(
             "is-active"
@@ -636,18 +628,11 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /* ---------------------------------------------
-           NEXT CARD SLIDES IN
-        --------------------------------------------- */
-
-        nextCard.classList.add(
-            "is-active"
-        );
+        currentIndex =
+            nextIndex;
 
 
-        /* ---------------------------------------------
-           CLEAN UP OLD CARD
-        --------------------------------------------- */
+        /* CLEAN OLD CARD */
 
         setTimeout(function () {
 
@@ -655,28 +640,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 "is-leaving"
             );
 
+            isAnimating = false;
+
         }, slideDuration);
-
-
-        /* ---------------------------------------------
-           UPDATE INDEX
-        --------------------------------------------- */
-
-        currentIndex =
-            nextIndex;
 
     }
 
 
-    /* =================================================
-       AUTOMATIC FEATURE ROTATION
+    /* ================================================
+       AUTOMATIC SLIDER
     ================================================= */
 
     setInterval(
-        showNextFeature,
+        showNextCard,
         displayTime
     );
-
 
 });
 
