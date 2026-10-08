@@ -115,88 +115,124 @@
 
     <main class="login-wrapper">
 
-        <!-- =====================================
-                    LEFT PANEL
-        ====================================== -->
+<!-- =====================================
+                LEFT PANEL
+====================================== -->
 
-        <section class="login-left">
+<section class="login-left">
 
-            <div class="badge">
+    <h2>WELCOME BACK!</h2>
 
-                ⚡ AI Authentication System
+    <p>Continue your progress.</p>
+
+
+    <!-- =================================
+         FEATURE CARDS — SLIDING HUD
+    ================================== -->
+
+    <div class="feature-list">
+
+
+        <!-- =================================
+             RESUME LEARNING
+        ================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <div class="icon-glow"></div>
+
+                <img
+                    src="/assets/icons/study-progress.png"
+                    alt="Study Progress"
+                >
 
             </div>
 
-           <h2>WELCOME BACK!</h2>
+            <div class="feature-content">
 
-            <p>Continue your progress.</p>
+                <strong>
+                    Resume Learning
+                </strong>
 
-       
-            <!-- Feature Cards -->
-
-            <div class="feature-list">
-
-                <div class="feature-card">
-
-                    <strong>
-
-                        📈 Resume Learning
-
-                    </strong>
-
-                    <br>
-
+                <p>
                     Continue your unfinished lessons.
+                </p>
 
-                </div>
+            </div>
 
-                <div class="feature-card">
+        </div>
 
-                    <strong>
 
-                        🏆 XP Rewards
+        <!-- =================================
+             XP REWARDS
+        ================================== -->
 
-                    </strong>
+        <div class="feature-card">
 
-                    <br>
+            <div class="feature-icon">
 
+                <div class="icon-glow"></div>
+
+                <img
+                    src="/assets/icons/xp-rewards.png"
+                    alt="XP Rewards"
+                >
+
+            </div>
+
+            <div class="feature-content">
+
+                <strong>
+                    XP Rewards
+                </strong>
+
+                <p>
                     Earn experience by completing
                     today's activities.
-
-                </div>
-
-                <div class="feature-card">
-
-                    <strong>
-
-                        🔥 Daily Streak
-
-                    </strong>
-
-                    <br>
-
-                    Keep your learning streak alive.
-
-                </div>
-
-                <div class="feature-card">
-
-                    <strong>
-
-                        🧠 AI Recommendations
-
-                    </strong>
-
-                    <br>
-
-                    Personalized learning suggestions
-                    based on your progress.
-
-                </div>
+                </p>
 
             </div>
 
-        </section>
+        </div>
+
+
+        <!-- =================================
+             DAILY STREAK
+        ================================== -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <div class="icon-glow"></div>
+
+                <img
+                    src="/assets/icons/daily-streak.png"
+                    alt="Daily Streak"
+                >
+
+            </div>
+
+            <div class="feature-content">
+
+                <strong>
+                    Daily Streak
+                </strong>
+
+                <p>
+                    Keep your learning streak alive.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
         <!-- =====================================
@@ -494,6 +530,157 @@
         }
 
     </script>
+<script>
+
+/* =====================================================
+   EXCEL YOU
+   FEATURE CARD SLIDER
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    /* =================================================
+       GET ALL FEATURE CARDS
+    ================================================= */
+
+    const featureCards =
+        document.querySelectorAll(
+            ".feature-list .feature-card"
+        );
+
+
+    /* =================================================
+       STOP IF NO CARDS EXIST
+    ================================================= */
+
+    if (!featureCards.length) {
+
+        return;
+
+    }
+
+
+    /* =================================================
+       SETTINGS
+    ================================================= */
+
+    let currentIndex = 0;
+
+
+    /*
+       How long each card stays visible.
+
+       3000 = 3 seconds
+    */
+
+    const displayTime = 3000;
+
+
+    /*
+       How long the slide animation takes.
+
+       650 = 0.65 seconds
+    */
+
+    const slideDuration = 650;
+
+
+    /* =================================================
+       SHOW FIRST CARD
+    ================================================= */
+
+    featureCards[0].classList.add(
+        "is-active"
+    );
+
+
+    /* =================================================
+       SLIDE TO NEXT CARD
+    ================================================= */
+
+    function showNextFeature() {
+
+
+        /* ---------------------------------------------
+           CURRENT CARD
+        --------------------------------------------- */
+
+        const currentCard =
+            featureCards[currentIndex];
+
+
+        /* ---------------------------------------------
+           CALCULATE NEXT CARD
+        --------------------------------------------- */
+
+        const nextIndex =
+            (currentIndex + 1)
+            % featureCards.length;
+
+
+        const nextCard =
+            featureCards[nextIndex];
+
+
+        /* ---------------------------------------------
+           CURRENT CARD SLIDES OUT
+        --------------------------------------------- */
+
+        currentCard.classList.remove(
+            "is-active"
+        );
+
+        currentCard.classList.add(
+            "is-leaving"
+        );
+
+
+        /* ---------------------------------------------
+           NEXT CARD SLIDES IN
+        --------------------------------------------- */
+
+        nextCard.classList.add(
+            "is-active"
+        );
+
+
+        /* ---------------------------------------------
+           CLEAN UP OLD CARD
+        --------------------------------------------- */
+
+        setTimeout(function () {
+
+            currentCard.classList.remove(
+                "is-leaving"
+            );
+
+        }, slideDuration);
+
+
+        /* ---------------------------------------------
+           UPDATE INDEX
+        --------------------------------------------- */
+
+        currentIndex =
+            nextIndex;
+
+    }
+
+
+    /* =================================================
+       AUTOMATIC FEATURE ROTATION
+    ================================================= */
+
+    setInterval(
+        showNextFeature,
+        displayTime
+    );
+
+
+});
+
+</script>
 
 </body>
 

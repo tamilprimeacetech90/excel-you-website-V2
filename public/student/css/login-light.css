@@ -129,61 +129,154 @@ body[data-theme="light"] .login-left p{
 /* =========================
    FEATURE CARD
 ========================= */
-
-/* =========================================
+/* =====================================================
+   EXCEL YOU
    FEATURE CARDS — GAMING GLASS HUD
    LIGHT THEME
-========================================= */
+===================================================== */
 
-body[data-theme="light"] .feature-card {
 
-    padding: 18px 20px;
+/* =====================================================
+   FEATURE LIST
+   SLIDING AREA
+===================================================== */
 
-    border-radius: 18px;
-
-    /* Transparent frosted glass */
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.68),
-            rgba(230,245,255,.42)
-        );
-
-    /* Illuminated glass border */
-    border: 1px solid rgba(255,255,255,.82);
-
-    /* Glass depth + soft lighting */
-    box-shadow:
-
-        0 12px 30px rgba(15,65,110,.12),
-
-        0 0 18px rgba(56,189,248,.10),
-
-        0 0 40px rgba(56,189,248,.045),
-
-        inset 0 1px 0 rgba(255,255,255,.95),
-
-        inset 0 -1px 0 rgba(125,211,252,.10);
-
-    backdrop-filter: blur(20px) saturate(125%);
-    -webkit-backdrop-filter: blur(20px) saturate(125%);
+body[data-theme="light"] .feature-list {
 
     position: relative;
 
+    width: 100%;
+
+    min-height: 128px;
+
     overflow: hidden;
 
-    transition:
-        transform .45s cubic-bezier(.22,.61,.36,1),
-        opacity .45s ease,
-        filter .45s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
 }
 
 
-/* =========================================
+/* =====================================================
+   FEATURE CARD
+===================================================== */
+
+body[data-theme="light"] .feature-card {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 128px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 16px 18px;
+
+    border-radius: 20px;
+
+
+    /* ================================================
+       TRANSPARENT GLASS
+    ================================================= */
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.62),
+            rgba(232,246,255,.38)
+        );
+
+
+    /* ================================================
+       GLASS BORDER
+    ================================================= */
+
+    border:
+        1px solid rgba(255,255,255,.88);
+
+
+    /* ================================================
+       GLASS DEPTH
+    ================================================= */
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(15,65,110,.12),
+
+        0 0 18px
+        rgba(56,189,248,.10),
+
+        0 0 42px
+        rgba(56,189,248,.045),
+
+        inset 0 1px 0
+        rgba(255,255,255,.95),
+
+        inset 0 -1px 0
+        rgba(125,211,252,.10);
+
+
+    /* ================================================
+       FROSTED GLASS
+    ================================================= */
+
+    backdrop-filter:
+        blur(20px)
+        saturate(130%);
+
+    -webkit-backdrop-filter:
+        blur(20px)
+        saturate(130%);
+
+
+    /* ================================================
+       SLIDER INITIAL STATE
+    ================================================= */
+
+    opacity: 0;
+
+    transform:
+        translateX(80px)
+        scale(.96);
+
+    filter:
+        blur(5px);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+
+    /* ================================================
+       SLIDE TRANSITION
+    ================================================= */
+
+    transition:
+
+        transform .65s
+        cubic-bezier(.22,.61,.36,1),
+
+        opacity .50s ease,
+
+        filter .65s ease,
+
+        box-shadow .40s ease,
+
+        border-color .40s ease;
+
+}
+
+
+/* =====================================================
    GLASS REFLECTION
-========================================= */
+===================================================== */
 
 body[data-theme="light"] .feature-card::before {
 
@@ -198,20 +291,21 @@ body[data-theme="light"] .feature-card::before {
     background:
         linear-gradient(
             125deg,
-            rgba(255,255,255,.42) 0%,
-            rgba(255,255,255,.16) 22%,
-            transparent 45%,
+            rgba(255,255,255,.46),
+            rgba(255,255,255,.12) 26%,
+            transparent 48%,
             transparent 72%,
-            rgba(56,189,248,.06) 100%
+            rgba(56,189,248,.07)
         );
 
     pointer-events: none;
+
 }
 
 
-/* =========================================
-   LIGHTED TOP EDGE
-========================================= */
+/* =====================================================
+   TOP LIGHT LINE
+===================================================== */
 
 body[data-theme="light"] .feature-card::after {
 
@@ -220,8 +314,10 @@ body[data-theme="light"] .feature-card::after {
     position: absolute;
 
     top: 0;
-    left: 7%;
-    right: 7%;
+
+    left: 8%;
+
+    right: 8%;
 
     height: 1px;
 
@@ -230,93 +326,397 @@ body[data-theme="light"] .feature-card::after {
             90deg,
             transparent,
             rgba(255,255,255,.95),
-            rgba(125,211,252,.9),
+            rgba(125,211,252,.95),
             rgba(255,255,255,.95),
             transparent
         );
 
     box-shadow:
-        0 0 8px rgba(125,211,252,.45);
-
-    opacity: .9;
+        0 0 9px
+        rgba(125,211,252,.55);
 
     pointer-events: none;
-}
-
-
-/* =========================================
-   TITLE
-========================================= */
-
-body[data-theme="light"] .feature-card strong {
-
-    color: #0369a1;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    text-shadow:
-        0 1px 2px rgba(255,255,255,.8);
-}
-
-
-/* =========================================
-   DESCRIPTION
-========================================= */
-
-body[data-theme="light"] .feature-card p {
-
-    color: #334155;
 
 }
 
 
-/* =========================================
-   ACTIVE / HIGHLIGHTED CARD
-   Use .active when we build the carousel
-========================================= */
+/* =====================================================
+   ACTIVE CARD
+===================================================== */
 
-body[data-theme="light"] .feature-card.active {
+body[data-theme="light"]
+.feature-card.is-active {
+
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        scale(1);
+
+    filter:
+        blur(0);
+
+    pointer-events: auto;
+
+    z-index: 3;
 
     border-color:
         rgba(125,211,252,.85);
 
+
     box-shadow:
 
-        0 18px 38px rgba(15,65,110,.16),
+        0 16px 38px
+        rgba(15,65,110,.15),
 
-        0 0 22px rgba(56,189,248,.20),
+        0 0 22px
+        rgba(56,189,248,.20),
 
-        0 0 55px rgba(56,189,248,.08),
+        0 0 50px
+        rgba(56,189,248,.08),
 
-        inset 0 1px 0 rgba(255,255,255,1),
+        inset 0 1px 0
+        rgba(255,255,255,1),
 
-        inset 0 0 22px rgba(186,230,253,.16);
+        inset 0 0 22px
+        rgba(186,230,253,.15);
 
 }
 
 
-/* =========================================
+/* =====================================================
+   CARD LEAVING
+===================================================== */
+
+body[data-theme="light"]
+.feature-card.is-leaving {
+
+    opacity: 0;
+
+    transform:
+        translateX(-80px)
+        scale(.96);
+
+    filter:
+        blur(5px);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================================
+   ICON AREA
+===================================================== */
+
+body[data-theme="light"] .feature-icon {
+
+    position: relative;
+
+    flex: 0 0 62px;
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+
+    /* ================================================
+       SMALL GLASS HUD CONTAINER
+    ================================================= */
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.58),
+            rgba(186,230,253,.18)
+        );
+
+
+    border:
+        1px solid rgba(125,211,252,.42);
+
+
+    box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.90),
+
+        0 0 12px
+        rgba(56,189,248,.10),
+
+        0 6px 14px
+        rgba(15,65,110,.08);
+
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+}
+
+
+/* =====================================================
+   ICON IMAGE
+===================================================== */
+
+body[data-theme="light"] .feature-icon img {
+
+    position: relative;
+
+    width: 54px;
+
+    height: 54px;
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(56,189,248,.35)
+        );
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+
+}
+
+
+/* =====================================================
+   ICON ATMOSPHERIC GLOW
+===================================================== */
+
+body[data-theme="light"] .icon-glow {
+
+    position: absolute;
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56,189,248,.22),
+            rgba(56,189,248,.07),
+            transparent 72%
+        );
+
+    filter:
+        blur(5px);
+
+    z-index: 1;
+
+}
+
+
+/* =====================================================
+   ACTIVE ICON
+===================================================== */
+
+body[data-theme="light"]
+.feature-card.is-active
+.feature-icon img {
+
+    transform:
+        scale(1.05);
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(56,189,248,.55)
+        );
+
+}
+
+
+/* =====================================================
+   FEATURE CONTENT
+===================================================== */
+
+body[data-theme="light"] .feature-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+/* =====================================================
+   FEATURE TITLE
+===================================================== */
+
+body[data-theme="light"] .feature-content strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        #0369a1;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.25;
+
+    text-shadow:
+        0 1px 2px
+        rgba(255,255,255,.85);
+
+}
+
+
+/* =====================================================
+   FEATURE DESCRIPTION
+===================================================== */
+
+body[data-theme="light"] .feature-content p {
+
+    margin: 0;
+
+    color:
+        #334155;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.45;
+
+}
+
+
+/* =====================================================
    HOVER
-========================================= */
+===================================================== */
 
-body[data-theme="light"] .feature-card:hover {
+body[data-theme="light"]
+.feature-card.is-active:hover {
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px)
+        scale(1.01);
 
     border-color:
-        rgba(125,211,252,.72);
+        rgba(125,211,252,.98);
 
     box-shadow:
 
-        0 16px 34px rgba(15,65,110,.15),
+        0 18px 42px
+        rgba(15,65,110,.18),
 
-        0 0 24px rgba(56,189,248,.17),
+        0 0 28px
+        rgba(56,189,248,.24),
 
-        inset 0 1px 0 rgba(255,255,255,1);
+        0 0 55px
+        rgba(56,189,248,.09),
+
+        inset 0 1px 0
+        rgba(255,255,255,1);
+
 }
 
+
+/* =====================================================
+   HOVER ICON
+===================================================== */
+
+body[data-theme="light"]
+.feature-card.is-active:hover
+.feature-icon img {
+
+    transform:
+        scale(1.10);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    body[data-theme="light"]
+    .feature-card {
+
+        gap: 12px;
+
+        padding: 14px 15px;
+
+        min-height: 112px;
+
+        border-radius: 17px;
+
+    }
+
+
+    body[data-theme="light"]
+    .feature-icon {
+
+        flex-basis: 52px;
+
+        width: 52px;
+
+        height: 52px;
+
+        border-radius: 15px;
+
+    }
+
+
+    body[data-theme="light"]
+    .feature-icon img {
+
+        width: 46px;
+
+        height: 46px;
+
+    }
+
+
+    body[data-theme="light"]
+    .feature-content strong {
+
+        font-size: 15px;
+
+    }
+
+
+    body[data-theme="light"]
+    .feature-content p {
+
+        font-size: 13px;
+
+    }
+
+}
 
 
 
