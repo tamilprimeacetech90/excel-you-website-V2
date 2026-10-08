@@ -460,11 +460,10 @@ body[data-theme="light"] ::selection{
 /* =========================
    CENTER ROBOT — LIGHT THEME
 ========================= */
-
 body[data-theme="light"] .login-center {
-    transform: none;
+    transform: translate(30px, 50px);
 }
 
 body[data-theme="light"] #robotCanvas {
-    transform: none;
+    transform: scale(1.2);
 }
