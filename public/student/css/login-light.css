@@ -217,44 +217,54 @@ body[data-theme="light"] .hologram-ring{
    LOGIN CARD
 ========================= */
 
+/* =========================
+   LOGIN CARD — LIGHT GLASS
+========================= */
+
+
 body[data-theme="light"] .login-card{
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.72),
-            rgba(245,250,255,.62)
+            rgba(255,255,255,.78),
+            rgba(240,248,255,.64)
         );
 
     border:
-        1px solid rgba(56,189,248,.28);
+        1px solid rgba(255,255,255,.82);
 
     box-shadow:
-        0 18px 45px rgba(15,23,42,.08),
-        0 0 28px rgba(56,189,248,.10),
-        inset 0 0 18px rgba(255,255,255,.45);
+        0 18px 45px rgba(15,23,42,.10),
+        0 0 24px rgba(56,189,248,.14),
+        inset 0 1px 0 rgba(255,255,255,.85);
 
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
 
 }
+
+/* subtle luminous edge */
 
 body[data-theme="light"] .login-card::before{
 
     background:
         linear-gradient(
             135deg,
-            rgba(56,189,248,.20),
-            transparent 45%,
-            rgba(37,99,235,.08)
+            rgba(255,255,255,.85),
+            rgba(56,189,248,.18) 45%,
+            transparent 70%,
+            rgba(37,99,235,.12)
         );
 
 }
 
+/* remove the strong inner frame */
+
 body[data-theme="light"] .login-card::after{
 
     border:
-        1px solid rgba(56,189,248,.10);
+        1px solid rgba(255,255,255,.32);
 
 }
 
