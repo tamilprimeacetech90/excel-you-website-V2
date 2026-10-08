@@ -131,7 +131,8 @@ body[data-theme="light"] .login-left p{
 ========================= */
 
 /* =========================================
-   FEATURE CARDS — REFERENCE GLASS STYLE
+   FEATURE CARDS — GAMING GLASS HUD
+   LIGHT THEME
 ========================================= */
 
 body[data-theme="light"] .feature-card {
@@ -140,41 +141,48 @@ body[data-theme="light"] .feature-card {
 
     border-radius: 18px;
 
-    /* Reference: soft white translucent glass */
+    /* Transparent frosted glass */
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,0.92),
-            rgba(248,252,255,0.78)
+            rgba(255,255,255,.68),
+            rgba(230,245,255,.42)
         );
 
-    /* Very thin icy glass border */
-    border:
-        1px solid rgba(148, 210, 240, 0.38);
+    /* Illuminated glass border */
+    border: 1px solid rgba(255,255,255,.82);
 
-    /* Soft floating shadow */
+    /* Glass depth + soft lighting */
     box-shadow:
-        0 8px 20px rgba(30, 80, 120, 0.10),
-        0 2px 8px rgba(30, 80, 120, 0.06),
-        inset 0 1px 0 rgba(255,255,255,0.95);
 
-    /* Frosted glass */
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+        0 12px 30px rgba(15,65,110,.12),
+
+        0 0 18px rgba(56,189,248,.10),
+
+        0 0 40px rgba(56,189,248,.045),
+
+        inset 0 1px 0 rgba(255,255,255,.95),
+
+        inset 0 -1px 0 rgba(125,211,252,.10);
+
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
 
     position: relative;
 
     overflow: hidden;
 
     transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        border-color 0.28s ease;
+        transform .45s cubic-bezier(.22,.61,.36,1),
+        opacity .45s ease,
+        filter .45s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
 
 /* =========================================
-   SUBTLE GLASS HIGHLIGHT
+   GLASS REFLECTION
 ========================================= */
 
 body[data-theme="light"] .feature-card::before {
@@ -189,9 +197,12 @@ body[data-theme="light"] .feature-card::before {
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,255,255,0.42),
-            transparent 42%
+            125deg,
+            rgba(255,255,255,.42) 0%,
+            rgba(255,255,255,.16) 22%,
+            transparent 45%,
+            transparent 72%,
+            rgba(56,189,248,.06) 100%
         );
 
     pointer-events: none;
@@ -199,7 +210,7 @@ body[data-theme="light"] .feature-card::before {
 
 
 /* =========================================
-   VERY SUBTLE BLUE EDGE LIGHT
+   LIGHTED TOP EDGE
 ========================================= */
 
 body[data-theme="light"] .feature-card::after {
@@ -209,8 +220,8 @@ body[data-theme="light"] .feature-card::after {
     position: absolute;
 
     top: 0;
-    left: 8%;
-    right: 8%;
+    left: 7%;
+    right: 7%;
 
     height: 1px;
 
@@ -218,20 +229,23 @@ body[data-theme="light"] .feature-card::after {
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,0.95),
-            rgba(125,211,252,0.55),
-            rgba(255,255,255,0.95),
+            rgba(255,255,255,.95),
+            rgba(125,211,252,.9),
+            rgba(255,255,255,.95),
             transparent
         );
 
-    opacity: 0.9;
+    box-shadow:
+        0 0 8px rgba(125,211,252,.45);
+
+    opacity: .9;
 
     pointer-events: none;
 }
 
 
 /* =========================================
-   FEATURE TITLE
+   TITLE
 ========================================= */
 
 body[data-theme="light"] .feature-card strong {
@@ -241,36 +255,72 @@ body[data-theme="light"] .feature-card strong {
     font-size: 16px;
 
     font-weight: 700;
+
+    text-shadow:
+        0 1px 2px rgba(255,255,255,.8);
 }
 
 
 /* =========================================
-   FEATURE DESCRIPTION
+   DESCRIPTION
 ========================================= */
 
 body[data-theme="light"] .feature-card p {
 
     color: #334155;
+
+}
+
+
+/* =========================================
+   ACTIVE / HIGHLIGHTED CARD
+   Use .active when we build the carousel
+========================================= */
+
+body[data-theme="light"] .feature-card.active {
+
+    border-color:
+        rgba(125,211,252,.85);
+
+    box-shadow:
+
+        0 18px 38px rgba(15,65,110,.16),
+
+        0 0 22px rgba(56,189,248,.20),
+
+        0 0 55px rgba(56,189,248,.08),
+
+        inset 0 1px 0 rgba(255,255,255,1),
+
+        inset 0 0 22px rgba(186,230,253,.16);
+
 }
 
 
 /* =========================================
    HOVER
-   Keep it subtle like the reference
 ========================================= */
 
 body[data-theme="light"] .feature-card:hover {
 
-    transform: translateX(4px);
+    transform: translateY(-3px);
 
     border-color:
-        rgba(56,189,248,0.48);
+        rgba(125,211,252,.72);
 
     box-shadow:
-        0 12px 26px rgba(30,80,120,0.13),
-        0 0 16px rgba(56,189,248,0.10),
+
+        0 16px 34px rgba(15,65,110,.15),
+
+        0 0 24px rgba(56,189,248,.17),
+
         inset 0 1px 0 rgba(255,255,255,1);
-}/* =========================
+}
+
+
+
+
+/* =========================
    CENTER PANEL
 ========================= */
 
