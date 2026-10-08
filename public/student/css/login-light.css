@@ -130,34 +130,60 @@ body[data-theme="light"] .login-left p{
    FEATURE CARD
 ========================= */
 
+/* =========================================
+   FEATURE CARDS — LIGHT GLASS STYLE
+========================================= */
+
 body[data-theme="light"] .feature-card{
+    padding:18px 20px;
+    border-radius:18px;
 
     background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.88),
+            rgba(245,250,255,.72)
+        );
 
-        rgba(255,255,255,.82);
-
-    border:
-
-        1px solid rgba(15,23,42,.08);
+    border:1px solid rgba(56,189,248,.28);
 
     box-shadow:
+        0 8px 22px rgba(15,23,42,.08),
+        inset 0 0 12px rgba(255,255,255,.45);
 
-        0 10px 25px rgba(15,23,42,.04);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
+
+/* FEATURE TITLE */
 body[data-theme="light"] .feature-card strong{
-
     color:#0369a1;
-
+    font-size:16px;
+    font-weight:700;
 }
 
+
+/* DESCRIPTION */
+body[data-theme="light"] .feature-card p{
+    color:#334155;
+}
+
+
+/* HOVER */
 body[data-theme="light"] .feature-card:hover{
+    transform:translateX(5px);
 
-    border-color:
+    border-color:rgba(56,189,248,.48);
 
-        rgba(56,189,248,.30);
-
+    box-shadow:
+        0 10px 26px rgba(15,23,42,.10),
+        0 0 18px rgba(56,189,248,.12);
 }
 
 /* =========================
@@ -236,6 +262,7 @@ body[data-theme="light"] .login-card{
 
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
+transform: translate(60, 50);
 
 }
 
