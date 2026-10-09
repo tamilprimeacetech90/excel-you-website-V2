@@ -115,153 +115,214 @@
 
     <main class="login-wrapper">
 
+
 <!-- =====================================
-                LEFT PANEL
+     LEFT FEATURE CAROUSEL
 ====================================== -->
 
-<!-- FEATURE CAROUSEL -->
-<div class="feature-carousel">
+<section class="login-left">
 
-    <!-- CAROUSEL VIEWPORT -->
-    <div class="feature-carousel-viewport">
+    <div class="feature-carousel">
 
-        <div class="feature-carousel-track">
+        <!-- HEADER -->
+        <div class="feature-carousel-header">
+            <span class="feature-carousel-label">YOUR LEARNING JOURNEY</span>
+            <span class="feature-carousel-counter">01 / 04</span>
+        </div>
 
-            <!-- FEATURE 1: DAILY STREAK -->
-            <div class="stat-feature-card">
-                <div class="stat-card-top">
-                    <div class="stat-card-icon">
-                        <img src="images/daily-streak.png" alt="Daily Streak">
+        <!-- SLIDES VIEWPORT -->
+        <div class="feature-carousel-viewport">
+
+            <div class="feature-carousel-track">
+
+                <!-- FEATURE 1 -->
+                <article class="feature-slide">
+                    <div class="feature-slide-top">
+                        <div class="stat-card-icon">
+                            <img src="/assets/icons/daily-streak.png"
+                                 alt="Daily Streak">
+                        </div>
+
+                        <div>
+                            <h3 class="stat-card-heading">DAILY STREAK</h3>
+                            <p class="stat-card-description">
+                                Keep learning every day and build your streak.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="stat-card-heading">
-                        <h3>DAILY STREAK</h3>
-                        <p class="stat-card-description">
-                            Keep learning every day and build your streak.
+                    <div class="feature-slide-details">
+                        <div class="stat-card-value">7 Days</div>
+                        <p class="stat-card-footer">
+                            Consistency builds mastery.
                         </p>
-                    </div>
-                </div>
 
-                <div class="stat-card-bottom">
-                    <div class="stat-card-value">7 Days</div>
-                    <div class="stat-card-label">Consistency builds mastery</div>
-
-                    <div class="stat-card-progress">
-                        <div class="stat-card-progress-fill" style="width: 70%;"></div>
+                        <div class="stat-progress-track">
+                            <div class="stat-progress-fill"
+                                 style="width:70%"></div>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="feature-slide-visual">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                </article>
+
+                <!-- FEATURE 2 -->
+                <article class="feature-slide">
+                    <div class="feature-slide-top">
+                        <div class="stat-card-icon">
+                            <img src="/assets/icons/xp-rewards.png"
+                                 alt="XP Rewards">
+                        </div>
+
+                        <div>
+                            <h3 class="stat-card-heading">XP REWARDS</h3>
+                            <p class="stat-card-description">
+                                Earn experience points as you learn and progress.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-slide-details">
+                        <div class="stat-card-value">+250 XP</div>
+                        <p class="stat-card-footer">
+                            Every achievement counts.
+                        </p>
+
+                        <div class="stat-progress-track">
+                            <div class="stat-progress-fill"
+                                 style="width:80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="feature-slide-visual">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                </article>
+
+                <!-- FEATURE 3 -->
+                <article class="feature-slide">
+                    <div class="feature-slide-top">
+                        <div class="stat-card-icon">
+                            <img src="/assets/icons/scholar-rank.png"
+                                 alt="Scholar Rank">
+                        </div>
+
+                        <div>
+                            <h3 class="stat-card-heading">SCHOLAR RANK</h3>
+                            <p class="stat-card-description">
+                                Rise through the ranks with your knowledge.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-slide-details">
+                        <div class="stat-card-value">Rank Up</div>
+                        <p class="stat-card-footer">
+                            Your progress, your legacy.
+                        </p>
+
+                        <div class="stat-progress-track">
+                            <div class="stat-progress-fill"
+                                 style="width:55%"></div>
+                        </div>
+                    </div>
+
+                    <div class="feature-slide-visual">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                </article>
+
+                <!-- FEATURE 4 -->
+                <article class="feature-slide">
+                    <div class="feature-slide-top">
+                        <div class="stat-card-icon">
+                            <img src="/assets/icons/celestial-immortal.png"
+                                 alt="Celestial Immortal">
+                        </div>
+
+                        <div>
+                            <h3 class="stat-card-heading">
+                                CELESTIAL IMMORTAL
+                            </h3>
+                            <p class="stat-card-description">
+                                Master challenges and unlock legendary status.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-slide-details">
+                        <div class="stat-card-value">Legendary</div>
+                        <p class="stat-card-footer">
+                            Reach the ultimate level.
+                        </p>
+
+                        <div class="stat-progress-track">
+                            <div class="stat-progress-fill"
+                                 style="width:90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="feature-slide-visual">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="feature-carousel-navigation">
+
+            <button type="button"
+                    class="feature-carousel-arrow prev"
+                    aria-label="Previous feature">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="feature-carousel-dots">
+                <button type="button" class="feature-carousel-dot is-active"
+                        aria-label="Show Daily Streak"></button>
+                <button type="button" class="feature-carousel-dot"
+                        aria-label="Show XP Rewards"></button>
+                <button type="button" class="feature-carousel-dot"
+                        aria-label="Show Scholar Rank"></button>
+                <button type="button" class="feature-carousel-dot"
+                        aria-label="Show Celestial Immortal"></button>
             </div>
 
-            <!-- FEATURE 2: XP REWARDS -->
-            <div class="stat-feature-card">
-                <div class="stat-card-top">
-                    <div class="stat-card-icon">
-                        <img src="images/xp-rewards.png" alt="XP Rewards">
-                    </div>
-
-                    <div class="stat-card-heading">
-                        <h3>XP REWARDS</h3>
-                        <p class="stat-card-description">
-                            Earn experience points as you learn and progress.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="stat-card-bottom">
-                    <div class="stat-card-value">+250 XP</div>
-                    <div class="stat-card-label">Every achievement counts</div>
-
-                    <div class="stat-card-progress">
-                        <div class="stat-card-progress-fill" style="width: 80%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FEATURE 3: SCHOLAR RANK -->
-            <div class="stat-feature-card">
-                <div class="stat-card-top">
-                    <div class="stat-card-icon">
-                        <img src="images/scholar-rank.png" alt="Scholar Rank">
-                    </div>
-
-                    <div class="stat-card-heading">
-                        <h3>SCHOLAR RANK</h3>
-                        <p class="stat-card-description">
-                            Rise through the ranks with your knowledge.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="stat-card-bottom">
-                    <div class="stat-card-value">Rank Up</div>
-                    <div class="stat-card-label">Your progress, your legacy</div>
-
-                    <div class="stat-card-progress">
-                        <div class="stat-card-progress-fill" style="width: 55%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FEATURE 4: CELESTIAL IMMORTAL -->
-            <div class="stat-feature-card">
-                <div class="stat-card-top">
-                    <div class="stat-card-icon">
-                        <img src="images/celestial-immortal.png" alt="Celestial Immortal">
-                    </div>
-
-                    <div class="stat-card-heading">
-                        <h3>CELESTIAL IMMORTAL</h3>
-                        <p class="stat-card-description">
-                            Master challenges and unlock legendary status.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="stat-card-bottom">
-                    <div class="stat-card-value">Legendary</div>
-                    <div class="stat-card-label">Reach the ultimate level</div>
-
-                    <div class="stat-card-progress">
-                        <div class="stat-card-progress-fill" style="width: 90%;"></div>
-                    </div>
-                </div>
-            </div>
+            <button type="button"
+                    class="feature-carousel-arrow next"
+                    aria-label="Next feature">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
         </div>
     </div>
 
-    <!-- PREVIOUS / NEXT ARROWS -->
-    <button
-        type="button"
-        class="feature-carousel-arrow prev"
-        aria-label="Previous feature">
-        &#10094;
-    </button>
-
-    <button
-        type="button"
-        class="feature-carousel-arrow next"
-        aria-label="Next feature">
-        &#10095;
-    </button>
-
-    <!-- NAVIGATION DOTS -->
-    <div class="feature-carousel-dots">
-        <button type="button" class="feature-carousel-dot active" aria-label="Show Daily Streak"></button>
-        <button type="button" class="feature-carousel-dot" aria-label="Show XP Rewards"></button>
-        <button type="button" class="feature-carousel-dot" aria-label="Show Scholar Rank"></button>
-        <button type="button" class="feature-carousel-dot" aria-label="Show Celestial Immortal"></button>
-    </div>
-
-    <!-- FOUR FEATURE SELECTORS -->
+    <!-- FOUR SELECTORS BELOW THE PANEL -->
     <div class="feature-carousel-selectors">
-        <button type="button" class="feature-carousel-selector active">Daily Streak</button>
-        <button type="button" class="feature-carousel-selector">XP Rewards</button>
-        <button type="button" class="feature-carousel-selector">Scholar Rank</button>
-        <button type="button" class="feature-carousel-selector">Celestial Immortal</button>
+
+        <button type="button" class="feature-selector is-active">
+            Daily<br>Streak
+        </button>
+
+        <button type="button" class="feature-selector">
+            XP<br>Rewards
+        </button>
+
+        <button type="button" class="feature-selector">
+            Scholar<br>Rank
+        </button>
+
+        <button type="button" class="feature-selector">
+            Celestial<br>Immortal
+        </button>
+
     </div>
 
-</div>
+</section>
 
 
         <!-- =====================================
@@ -559,6 +620,142 @@
         }
 
     </script>
+
+
+<!-- =====================================
+     FEATURE CAROUSEL JAVASCRIPT
+     LEFT FEATURE LIST ONLY
+====================================== -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".feature-carousel").forEach(function (carousel) {
+
+        const track = carousel.querySelector(".feature-carousel-track");
+        const slides = Array.from(
+            carousel.querySelectorAll(".feature-slide")
+        );
+
+        const dots = Array.from(
+            carousel.querySelectorAll(".feature-carousel-dot")
+        );
+
+        const selectors = Array.from(
+            carousel.parentElement.querySelectorAll(".feature-selector")
+        );
+
+        const counter = carousel.querySelector(
+            ".feature-carousel-counter"
+        );
+
+        const previousButton = carousel.querySelector(
+            ".feature-carousel-arrow.prev"
+        );
+
+        const nextButton = carousel.querySelector(
+            ".feature-carousel-arrow.next"
+        );
+
+        if (!track || slides.length === 0) return;
+
+        let activeIndex = 0;
+
+        function showSlide(index) {
+
+            activeIndex =
+                (index + slides.length) % slides.length;
+
+            /* Slide movement */
+            track.style.transform =
+                "translateX(-" + (activeIndex * 100) + "%)";
+
+            /* Update navigation dots */
+            dots.forEach(function (dot, i) {
+
+                dot.classList.toggle(
+                    "is-active",
+                    i === activeIndex
+                );
+
+                dot.setAttribute(
+                    "aria-current",
+                    i === activeIndex ? "true" : "false"
+                );
+
+            });
+
+            /* Update four feature selectors */
+            selectors.forEach(function (selector, i) {
+
+                selector.classList.toggle(
+                    "is-active",
+                    i === activeIndex
+                );
+
+                selector.setAttribute(
+                    "aria-pressed",
+                    i === activeIndex ? "true" : "false"
+                );
+
+            });
+
+            /* Update slide counter */
+            if (counter) {
+
+                counter.textContent =
+                    String(activeIndex + 1).padStart(2, "0") +
+                    " / " +
+                    String(slides.length).padStart(2, "0");
+
+            }
+
+        }
+
+        /* Previous arrow */
+        if (previousButton) {
+
+            previousButton.addEventListener("click", function () {
+                showSlide(activeIndex - 1);
+            });
+
+        }
+
+        /* Next arrow */
+        if (nextButton) {
+
+            nextButton.addEventListener("click", function () {
+                showSlide(activeIndex + 1);
+            });
+
+        }
+
+        /* Navigation dots */
+        dots.forEach(function (dot, index) {
+
+            dot.addEventListener("click", function () {
+                showSlide(index);
+            });
+
+        });
+
+        /* Feature selectors */
+        selectors.forEach(function (selector, index) {
+
+            selector.addEventListener("click", function () {
+                showSlide(index);
+            });
+
+        });
+
+        /* Initialize first slide */
+        showSlide(0);
+
+    });
+
+});
+</script>
+
 
 </body>
 
