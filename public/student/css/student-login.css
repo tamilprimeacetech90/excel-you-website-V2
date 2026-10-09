@@ -330,50 +330,57 @@ body[data-theme="dark"]{
 
 
 
-/* ==========================================
-   COMPLETE REFERENCE-STYLE FEATURE CARDS
-   ========================================== */
 
 /* ==========================================
-   STATIC STAT FEATURE CARDS
-   Reference-inspired glass UI
+   EXCEL YOU — REFERENCE-STYLE FEATURE CARDS
+   STATIC 2 × 2 GLASS CARD LAYOUT
    ========================================== */
 
 .login-left .feature-list-static {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 14px;
+
     width: 100%;
-    max-width: 390px;
+    max-width: 410px;
     min-height: 0;
-    margin-top: 24px;
+    margin: 24px 0 0;
+
     overflow: visible;
 }
 
-/* Main card */
+/* ==========================================
+   MAIN FEATURE CARD
+   ========================================== */
+
 .login-left .stat-feature-card {
     position: relative;
     display: block;
     flex: none;
+
     width: 100%;
     min-width: 0;
-    min-height: 0;
-    box-sizing: border-box;
-    padding: 17px 19px 15px;
+    min-height: 178px;
 
-    border: 1px solid rgba(110, 184, 241, .62);
-    border-radius: 18px;
+    box-sizing: border-box;
+    padding: 15px 14px 13px;
+
+    border: 1px solid rgba(110, 184, 241, .68);
+    border-radius: 17px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(239, 248, 255, .96),
-            rgba(216, 235, 252, .88)
+            rgba(255, 255, 255, .95),
+            rgba(235, 246, 255, .89) 58%,
+            rgba(216, 235, 252, .84)
         );
 
     box-shadow:
-        0 7px 22px rgba(3, 36, 82, .12),
+        0 7px 22px rgba(3, 36, 82, .11),
+        0 0 0 1px rgba(255, 255, 255, .38),
         inset 0 1px 0 rgba(255, 255, 255, .98),
         inset 0 -1px 0 rgba(105, 174, 229, .12);
 
@@ -383,66 +390,111 @@ body[data-theme="dark"]{
     opacity: 1;
     visibility: visible;
     transform: none;
+
     transition:
         border-color .25s ease,
         box-shadow .25s ease;
 }
 
+/* Subtle glass highlight */
+
+.login-left .stat-feature-card::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 1),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* Hover glow */
+
 .login-left .stat-feature-card:hover {
     border-color: rgba(68, 166, 245, .95);
 
     box-shadow:
-        0 9px 26px rgba(3, 36, 82, .16),
-        0 0 15px rgba(67, 169, 246, .12),
+        0 9px 26px rgba(3, 36, 82, .15),
+        0 0 17px rgba(67, 169, 246, .17),
         inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
-/* Icon + heading row */
+/* ==========================================
+   ICON + HEADING ROW
+   ========================================== */
+
 .login-left .stat-card-top {
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 10px;
+
     min-width: 0;
 }
 
 /* Circular icon holder */
+
 .login-left .stat-card-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 48px;
 
-    width: 48px;
-    height: 48px;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+
     box-sizing: border-box;
 
-    border: 1px solid rgba(103, 177, 236, .62);
+    border: 1px solid rgba(103, 177, 236, .68);
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle at 35% 25%,
-            #ffffff,
-            #e6f4ff 75%
+            #ffffff 0%,
+            #f4faff 40%,
+            #e2f2ff 100%
         );
 
     box-shadow:
-        0 3px 10px rgba(44, 125, 198, .12),
+        0 3px 10px rgba(44, 125, 198, .13),
         inset 0 1px 2px #ffffff;
 }
 
+/* Inline SVG icons */
+
 .login-left .stat-card-icon svg {
     display: block;
-    width: 29px;
-    height: 29px;
-    fill: none;
-    stroke: #258bd9;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+
+    width: 26px;
+    height: 26px;
+
+    flex-shrink: 0;
 }
 
-/* Heading */
+/* Downloaded SVG image support */
+
+.login-left .stat-card-icon img {
+    display: block;
+
+    width: 26px;
+    height: 26px;
+
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* Heading wrapper */
+
 .login-left .stat-card-heading {
     flex: 1;
     min-width: 0;
@@ -450,76 +502,119 @@ body[data-theme="dark"]{
 
 .login-left .stat-card-heading h3 {
     margin: 0;
+
     color: #15335d;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 750;
     line-height: 1.4;
+
+    overflow-wrap: break-word;
 }
 
 .login-left .stat-card-heading p {
     margin: 3px 0 0;
+
     color: #64809f;
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.4;
 }
 
-/* Large metric */
+/* ==========================================
+   LARGE STATISTIC
+   ========================================== */
+
 .login-left .stat-card-value {
     display: block;
-    margin: 13px 0 10px;
+
+    margin: 12px 0 9px;
 
     color: #102d57;
-    font-size: 31px;
+    font-size: 29px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -1px;
+
     font-variant-numeric: tabular-nums;
 }
 
-/* Progress bar */
+/* ==========================================
+   PROGRESS BAR
+   ========================================== */
+
 .login-left .stat-progress-track {
     width: 100%;
     height: 7px;
+
     overflow: hidden;
 
     border-radius: 20px;
+
     background: #c5e2fa;
-    box-shadow: inset 0 1px 2px rgba(35, 104, 164, .12);
+
+    box-shadow:
+        inset 0 1px 2px rgba(35, 104, 164, .12);
 }
 
 .login-left .stat-progress-track span {
     display: block;
+
+    width: 0;
     height: 100%;
+
     border-radius: inherit;
 
     background: linear-gradient(
         90deg,
-        #2797ef,
+        #1687ed,
+        #279ff5 60%,
         #48b9ff
     );
 
-    box-shadow: 0 0 8px rgba(46, 157, 242, .23);
+    box-shadow:
+        0 0 8px rgba(46, 157, 242, .28);
 }
 
-/* Supporting descriptions */
+/* Excel Skills blue-to-purple progress bar */
+
+.login-left .excel-skills-card .stat-progress-track span {
+    background: linear-gradient(
+        90deg,
+        #1687ed,
+        #487ff2 55%,
+        #9360ef
+    );
+
+    box-shadow:
+        0 0 9px rgba(111, 102, 245, .28);
+}
+
+/* ==========================================
+   SUPPORTING DESCRIPTION
+   ========================================== */
+
 .login-left .stat-card-description {
-    margin: -3px 0 13px;
-    color: #5a7492;
+    margin: 5px 0 0;
+
+    color: #405b7b;
     font-size: 11px;
     line-height: 1.5;
 }
 
-/* Card footer */
+/* ==========================================
+   CARD FOOTER
+   ========================================== */
+
 .login-left .stat-card-footer {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 
-    margin-top: 11px;
-    color: #5680a9;
+    margin-top: 10px;
+
+    color: #486b91;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.5;
 }
 
@@ -528,40 +623,51 @@ body[data-theme="dark"]{
 }
 
 .login-left .skills-footer {
-    margin-top: 0;
-    gap: 5px;
+    margin-top: 8px;
+    gap: 4px;
 }
 
 .login-left .skill-star {
     margin-left: auto;
+
     color: #e8ad38;
     font-size: 15px;
+    line-height: 1;
 }
 
-/* Streak metric */
+/* ==========================================
+   STREAK METRIC
+   ========================================== */
+
 .login-left .streak-value-row {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: 7px;
 }
 
 .login-left .streak-value-row .stat-card-value {
-    margin-bottom: 12px;
+    margin: 12px 0 7px;
 }
 
 .login-left .streak-unit {
     color: #64809f;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
 }
 
-/* Weekday indicators */
+/* ==========================================
+   WEEKDAY INDICATORS
+   ========================================== */
+
 .login-left .streak-weekdays {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 7px;
+    gap: 3px;
+
+    width: 100%;
+    margin-top: 9px;
 }
 
 .login-left .streak-day {
@@ -569,74 +675,194 @@ body[data-theme="dark"]{
     align-items: center;
     justify-content: center;
 
-    width: 30px;
-    height: 30px;
-    flex: 0 1 30px;
+    width: 23px;
+    height: 23px;
+    flex: 0 1 23px;
+
+    box-sizing: border-box;
 
     border: 1px solid #c5e1f8;
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, .72);
+    background: rgba(255, 255, 255, .78);
     color: #64809f;
 
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
 }
 
 .login-left .streak-day.is-complete {
-    border-color: #91d0ff;
-    background: #d9efff;
-    color: #258bd9;
+    border-color: #2588eb;
+
+    background: linear-gradient(
+        145deg,
+        #319ff3,
+        #1474dd
+    );
+
+    color: #ffffff;
 }
 
 .login-left .streak-day.is-today {
     border: 2px solid #319ff0;
+
     background: #ffffff;
     color: #1478c6;
-    box-shadow: 0 0 9px rgba(49, 159, 240, .17);
+
+    box-shadow:
+        0 0 9px rgba(49, 159, 240, .20);
 }
+
+/* Optional streak sparkle */
 
 .login-left .streak-sparkle {
     margin-left: auto;
+
     color: #e8ad38;
     font-size: 14px;
 }
 
-/* Smaller screens */
+/* ==========================================
+   FEATURE CARD WIDTH SAFETY
+   ========================================== */
+
+.login-left .stat-feature-card,
+.login-left .stat-card-top,
+.login-left .stat-card-heading,
+.login-left .stat-progress-track,
+.login-left .streak-weekdays {
+    max-width: 100%;
+}
+
+/* ==========================================
+   TABLET / SMALL SCREENS
+   ========================================== */
+
 @media (max-width: 480px) {
     .login-left .feature-list-static {
-        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+
+        width: 100%;
         margin-top: 18px;
     }
 
     .login-left .stat-feature-card {
-        padding: 15px;
-        border-radius: 16px;
+        min-height: 165px;
+        padding: 12px 10px;
+
+        border-radius: 15px;
+    }
+
+    .login-left .stat-card-top {
+        gap: 7px;
     }
 
     .login-left .stat-card-icon {
-        flex-basis: 44px;
-        width: 44px;
-        height: 44px;
+        flex-basis: 35px;
+        width: 35px;
+        height: 35px;
     }
 
-    .login-left .stat-card-icon svg {
-        width: 26px;
-        height: 26px;
+    .login-left .stat-card-icon svg,
+    .login-left .stat-card-icon img {
+        width: 23px;
+        height: 23px;
+    }
+
+    .login-left .stat-card-heading h3 {
+        font-size: 11px;
+    }
+
+    .login-left .stat-card-heading p {
+        font-size: 9px;
     }
 
     .login-left .stat-card-value {
-        font-size: 28px;
+        margin: 11px 0 8px;
+        font-size: 25px;
+    }
+
+    .login-left .stat-card-description {
+        font-size: 10px;
+    }
+
+    .login-left .stat-card-footer {
+        gap: 3px;
+        font-size: 9px;
+    }
+
+    .login-left .streak-value-row .stat-card-value {
+        margin-bottom: 7px;
+    }
+
+    .login-left .streak-unit {
+        font-size: 9px;
+    }
+
+    .login-left .streak-weekdays {
+        gap: 2px;
     }
 
     .login-left .streak-day {
-        width: 27px;
-        height: 27px;
-        flex-basis: 27px;
+        width: 20px;
+        height: 20px;
+        flex-basis: 20px;
+        font-size: 8px;
     }
 }
 
+/* ==========================================
+   EXTRA SMALL SCREENS
+   ========================================== */
 
+@media (max-width: 350px) {
+    .login-left .feature-list-static {
+        gap: 8px;
+    }
+
+    .login-left .stat-feature-card {
+        padding: 10px 8px;
+        min-height: 158px;
+    }
+
+    .login-left .stat-card-icon {
+        flex-basis: 30px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .login-left .stat-card-icon svg,
+    .login-left .stat-card-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .login-left .stat-card-heading h3 {
+        font-size: 10px;
+    }
+
+    .login-left .stat-card-value {
+        font-size: 23px;
+    }
+
+    .login-left .streak-day {
+        width: 18px;
+        height: 18px;
+        flex-basis: 18px;
+        font-size: 7px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .login-left .stat-feature-card {
+        transition: none;
+    }
+}
 
 /* =====================================================
    EXCEL YOU LOGIN V2
