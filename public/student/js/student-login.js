@@ -384,6 +384,7 @@ else{
         "🌙";
 
     if (logo) {
+
         logo.src =
             "/assets/logo/full-logo-white.png";
     }
