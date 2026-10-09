@@ -331,535 +331,372 @@ body[data-theme="dark"]{
 
 
 
-/* ==========================================
-   EXCEL YOU — REFERENCE-STYLE FEATURE CARDS
-   STATIC 2 × 2 GLASS CARD LAYOUT
-   ========================================== */
+/* =========================================
+   FEATURE CAROUSEL — DARK APPEARANCE
+   ========================================= */
 
-.login-left .feature-list-static {
+.login-left .feature-carousel {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-    gap: 14px;
-
     width: 100%;
-    max-width: 410px;
-    min-height: 0;
-    margin: 24px 0 0;
-
-    overflow: visible;
+    max-width: 340px;
+    margin: 24px auto 0;
+    overflow: hidden;
 }
 
-/* ==========================================
-   MAIN FEATURE CARD
-   ========================================== */
+.login-left .feature-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
 
+.login-left .feature-carousel-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.55s cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+}
+
+/* Feature card */
 .login-left .stat-feature-card {
     position: relative;
-    display: block;
-    flex: none;
-
-    width: 100%;
-    min-width: 0;
-    min-height: 178px;
-
+    flex: 0 0 100%;
+    min-width: 100%;
+    min-height: 150px;
     box-sizing: border-box;
-    padding: 15px 14px 13px;
+    padding: 14px 15px;
 
-    border: 1px solid rgba(110, 184, 241, .68);
-    border-radius: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+
+    color: #e2e8f0;
 
     background:
+        radial-gradient(
+            circle at 90% 5%,
+            rgba(59, 130, 246, 0.18),
+            transparent 42%
+        ),
         linear-gradient(
-            135deg,
-            rgba(255, 255, 255, .95),
-            rgba(235, 246, 255, .89) 58%,
-            rgba(216, 235, 252, .84)
+            145deg,
+            rgba(15, 23, 42, 0.97),
+            rgba(8, 15, 32, 0.98)
         );
 
+    border: 1px solid rgba(59, 130, 246, 0.58);
+    border-radius: 18px;
+
     box-shadow:
-        0 7px 22px rgba(3, 36, 82, .11),
-        0 0 0 1px rgba(255, 255, 255, .38),
-        inset 0 1px 0 rgba(255, 255, 255, .98),
-        inset 0 -1px 0 rgba(105, 174, 229, .12);
+        0 0 0 1px rgba(96, 165, 250, 0.08),
+        0 5px 20px rgba(0, 0, 0, 0.28),
+        0 0 16px rgba(37, 99, 235, 0.18),
+        inset 0 1px 0 rgba(147, 197, 253, 0.10);
 
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-
-    transition:
-        border-color .25s ease,
-        box-shadow .25s ease;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-/* Subtle glass highlight */
-
+/* Subtle neon surface glow */
 .login-left .stat-feature-card::before {
     content: "";
     position: absolute;
-
-    top: 0;
-    left: 12%;
-
-    width: 76%;
-    height: 1px;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
 
     background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 1),
-        transparent
+        125deg,
+        rgba(96, 165, 250, 0.09),
+        transparent 45%,
+        rgba(37, 99, 235, 0.08)
     );
-
-    pointer-events: none;
 }
 
-/* Hover glow */
-
-.login-left .stat-feature-card:hover {
-    border-color: rgba(68, 166, 245, .95);
-
-    box-shadow:
-        0 9px 26px rgba(3, 36, 82, .15),
-        0 0 17px rgba(67, 169, 246, .17),
-        inset 0 1px 0 rgba(255, 255, 255, 1);
-}
-
-/* ==========================================
-   ICON + HEADING ROW
-   ========================================== */
-
+/* Card top row */
 .login-left .stat-card-top {
     display: flex;
     align-items: center;
-    gap: 10px;
-
-    min-width: 0;
+    gap: 11px;
 }
 
-/* Circular icon holder */
-
+/* Icon holder — preserve existing dimensions */
 .login-left .stat-card-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
+    background: linear-gradient(
+        145deg,
+        rgba(30, 58, 138, 0.48),
+        rgba(15, 23, 42, 0.94)
+    );
 
-    box-sizing: border-box;
-
-    border: 1px solid rgba(103, 177, 236, .68);
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 25%,
-            #ffffff 0%,
-            #f4faff 40%,
-            #e2f2ff 100%
-        );
+    border: 1px solid rgba(96, 165, 250, 0.55);
+    border-radius: 12px;
 
     box-shadow:
-        0 3px 10px rgba(44, 125, 198, .13),
-        inset 0 1px 2px #ffffff;
+        0 0 13px rgba(37, 99, 235, 0.20),
+        inset 0 1px 0 rgba(147, 197, 253, 0.12);
 }
 
-/* Inline SVG icons */
-
+.login-left .stat-card-icon img,
 .login-left .stat-card-icon svg {
-    display: block;
-
     width: 26px;
     height: 26px;
-
-    flex-shrink: 0;
-}
-
-/* Downloaded SVG image support */
-
-.login-left .stat-card-icon img {
-    display: block;
-
-    width: 26px;
-    height: 26px;
-
-    flex-shrink: 0;
     object-fit: contain;
 }
 
-/* Heading wrapper */
-
-.login-left .stat-card-heading {
-    flex: 1;
-    min-width: 0;
-}
-
+/* Heading */
 .login-left .stat-card-heading h3 {
     margin: 0;
-
-    color: #15335d;
+    color: #93c5fd;
     font-size: 13px;
     font-weight: 750;
     line-height: 1.4;
-
-    overflow-wrap: break-word;
+    letter-spacing: 0.35px;
 }
 
-.login-left .stat-card-heading p {
-    margin: 3px 0 0;
-
-    color: #64809f;
+/* Description */
+.login-left .stat-feature-card p,
+.login-left .stat-card-description {
+    margin: 5px 0 0;
+    color: #aabbd3;
     font-size: 10px;
-    line-height: 1.4;
+    line-height: 1.65;
 }
 
-/* ==========================================
-   LARGE STATISTIC
-   ========================================== */
-
+/* Main statistic */
 .login-left .stat-card-value {
-    display: block;
-
-    margin: 12px 0 9px;
-
-    color: #102d57;
+    color: #60a5fa;
     font-size: 29px;
     font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -1px;
+    line-height: 1.15;
+    letter-spacing: -0.7px;
 
-    font-variant-numeric: tabular-nums;
+    text-shadow:
+        0 0 8px rgba(59, 130, 246, 0.35),
+        0 0 18px rgba(37, 99, 235, 0.15);
 }
 
-/* ==========================================
-   PROGRESS BAR
-   ========================================== */
+/* Supporting text */
+.login-left .stat-card-label,
+.login-left .stat-card-footer {
+    color: #94a3b8;
+    font-size: 10px;
+    line-height: 1.5;
+}
 
-.login-left .stat-progress-track {
+/* Progress track */
+.login-left .stat-card-progress {
     width: 100%;
-    height: 7px;
+    height: 5px;
+    margin-top: 8px;
 
+    background: rgba(51, 65, 85, 0.85);
+    border-radius: 99px;
     overflow: hidden;
-
-    border-radius: 20px;
-
-    background: #c5e2fa;
-
-    box-shadow:
-        inset 0 1px 2px rgba(35, 104, 164, .12);
 }
 
-.login-left .stat-progress-track span {
-    display: block;
-
-    width: 0;
+/* Progress fill */
+.login-left .stat-card-progress-fill {
     height: 100%;
-
     border-radius: inherit;
 
     background: linear-gradient(
         90deg,
-        #1687ed,
-        #279ff5 60%,
-        #48b9ff
+        #2563eb,
+        #60a5fa,
+        #38bdf8
     );
 
     box-shadow:
-        0 0 8px rgba(46, 157, 242, .28);
+        0 0 8px rgba(59, 130, 246, 0.50),
+        0 0 15px rgba(37, 99, 235, 0.24);
 }
 
-/* Excel Skills blue-to-purple progress bar */
+/* Navigation arrows */
+.login-left .feature-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
 
-.login-left .excel-skills-card .stat-progress-track span {
-    background: linear-gradient(
-        90deg,
-        #1687ed,
-        #487ff2 55%,
-        #9360ef
-    );
+    width: 30px;
+    height: 30px;
+    padding: 0;
 
-    box-shadow:
-        0 0 9px rgba(111, 102, 245, .28);
-}
-
-/* ==========================================
-   SUPPORTING DESCRIPTION
-   ========================================== */
-
-.login-left .stat-card-description {
-    margin: 5px 0 0;
-
-    color: #405b7b;
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-/* ==========================================
-   CARD FOOTER
-   ========================================== */
-
-.login-left .stat-card-footer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 5px;
-
-    margin-top: 10px;
-
-    color: #486b91;
-    font-size: 10px;
-    font-weight: 500;
-    line-height: 1.5;
-}
-
-.login-left .footer-separator {
-    color: #64a8e1;
-}
-
-.login-left .skills-footer {
-    margin-top: 8px;
-    gap: 4px;
-}
-
-.login-left .skill-star {
-    margin-left: auto;
-
-    color: #e8ad38;
-    font-size: 15px;
-    line-height: 1;
-}
-
-/* ==========================================
-   STREAK METRIC
-   ========================================== */
-
-.login-left .streak-value-row {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 7px;
-}
-
-.login-left .streak-value-row .stat-card-value {
-    margin: 12px 0 7px;
-}
-
-.login-left .streak-unit {
-    color: #64809f;
-    font-size: 10px;
-    font-weight: 600;
-}
-
-/* ==========================================
-   WEEKDAY INDICATORS
-   ========================================== */
-
-.login-left .streak-weekdays {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3px;
-
-    width: 100%;
-    margin-top: 9px;
-}
-
-.login-left .streak-day {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 23px;
-    height: 23px;
-    flex: 0 1 23px;
+    color: #93c5fd;
+    background: rgba(15, 23, 42, 0.96);
 
-    box-sizing: border-box;
-
-    border: 1px solid #c5e1f8;
+    border: 1px solid rgba(96, 165, 250, 0.55);
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, .78);
-    color: #64809f;
+    box-shadow:
+        0 0 10px rgba(37, 99, 235, 0.18);
 
-    font-size: 9px;
-    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-.login-left .streak-day.is-complete {
-    border-color: #2588eb;
+.login-left .feature-carousel-arrow:hover {
+    color: #dbeafe;
+    background: #1e3a8a;
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 12px rgba(59, 130, 246, 0.38);
+}
+
+.login-left .feature-carousel-arrow.prev {
+    left: 7px;
+}
+
+.login-left .feature-carousel-arrow.next {
+    right: 7px;
+}
+
+/* Navigation dots */
+.login-left .feature-carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 13px;
+}
+
+.login-left .feature-carousel-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+
+    background: #334155;
+    border: none;
+    border-radius: 99px;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.login-left .feature-carousel-dot.active {
+    width: 23px;
+
+    background: linear-gradient(
+        90deg,
+        #3b82f6,
+        #60a5fa
+    );
+
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.45);
+}
+
+/* Four feature selectors */
+.login-left .feature-carousel-selectors {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 13px;
+}
+
+.login-left .feature-carousel-selector {
+    min-width: 0;
+    min-height: 38px;
+    padding: 7px 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: #94a3b8;
+    background: rgba(15, 23, 42, 0.88);
+
+    border: 1px solid rgba(71, 85, 105, 0.75);
+    border-radius: 10px;
+
+    font-size: 9px;
+    font-weight: 650;
+    line-height: 1.35;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.login-left .feature-carousel-selector:hover {
+    color: #bfdbfe;
+    background: rgba(30, 58, 138, 0.35);
+    border-color: #3b82f6;
+}
+
+.login-left .feature-carousel-selector.active {
+    color: #bfdbfe;
 
     background: linear-gradient(
         145deg,
-        #319ff3,
-        #1474dd
+        rgba(30, 58, 138, 0.48),
+        rgba(15, 23, 42, 0.96)
     );
 
-    color: #ffffff;
-}
-
-.login-left .streak-day.is-today {
-    border: 2px solid #319ff0;
-
-    background: #ffffff;
-    color: #1478c6;
+    border-color: rgba(96, 165, 250, 0.75);
 
     box-shadow:
-        0 0 9px rgba(49, 159, 240, .20);
+        0 0 0 1px rgba(59, 130, 246, 0.10),
+        0 0 12px rgba(37, 99, 235, 0.20);
 }
 
-/* Optional streak sparkle */
-
-.login-left .streak-sparkle {
-    margin-left: auto;
-
-    color: #e8ad38;
-    font-size: 14px;
-}
-
-/* ==========================================
-   FEATURE CARD WIDTH SAFETY
-   ========================================== */
-
-.login-left .stat-feature-card,
-.login-left .stat-card-top,
-.login-left .stat-card-heading,
-.login-left .stat-progress-track,
-.login-left .streak-weekdays {
-    max-width: 100%;
-}
-
-/* ==========================================
-   TABLET / SMALL SCREENS
-   ========================================== */
-
+/* Responsive */
 @media (max-width: 480px) {
-    .login-left .feature-list-static {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-
-        width: 100%;
+    .login-left .feature-carousel {
+        max-width: 320px;
         margin-top: 18px;
     }
 
     .login-left .stat-feature-card {
-        min-height: 165px;
-        padding: 12px 10px;
-
-        border-radius: 15px;
+        min-height: 145px;
+        padding: 12px;
     }
 
-    .login-left .stat-card-top {
-        gap: 7px;
+    .login-left .feature-carousel-selectors {
+        gap: 5px;
     }
 
-    .login-left .stat-card-icon {
-        flex-basis: 35px;
-        width: 35px;
-        height: 35px;
-    }
-
-    .login-left .stat-card-icon svg,
-    .login-left .stat-card-icon img {
-        width: 23px;
-        height: 23px;
-    }
-
-    .login-left .stat-card-heading h3 {
-        font-size: 11px;
-    }
-
-    .login-left .stat-card-heading p {
-        font-size: 9px;
-    }
-
-    .login-left .stat-card-value {
-        margin: 11px 0 8px;
-        font-size: 25px;
-    }
-
-    .login-left .stat-card-description {
-        font-size: 10px;
-    }
-
-    .login-left .stat-card-footer {
-        gap: 3px;
-        font-size: 9px;
-    }
-
-    .login-left .streak-value-row .stat-card-value {
-        margin-bottom: 7px;
-    }
-
-    .login-left .streak-unit {
-        font-size: 9px;
-    }
-
-    .login-left .streak-weekdays {
-        gap: 2px;
-    }
-
-    .login-left .streak-day {
-        width: 20px;
-        height: 20px;
-        flex-basis: 20px;
+    .login-left .feature-carousel-selector {
+        padding: 6px 2px;
         font-size: 8px;
     }
 }
 
-/* ==========================================
-   EXTRA SMALL SCREENS
-   ========================================== */
-
-@media (max-width: 350px) {
-    .login-left .feature-list-static {
-        gap: 8px;
-    }
-
-    .login-left .stat-feature-card {
-        padding: 10px 8px;
-        min-height: 158px;
-    }
-
-    .login-left .stat-card-icon {
-        flex-basis: 30px;
-        width: 30px;
-        height: 30px;
-    }
-
-    .login-left .stat-card-icon svg,
-    .login-left .stat-card-icon img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .login-left .stat-card-heading h3 {
-        font-size: 10px;
-    }
-
-    .login-left .stat-card-value {
-        font-size: 23px;
-    }
-
-    .login-left .streak-day {
-        width: 18px;
-        height: 18px;
-        flex-basis: 18px;
-        font-size: 7px;
-    }
-}
-
-/* ==========================================
-   REDUCED MOTION
-   ========================================== */
-
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .login-left .stat-feature-card {
+    .login-left .feature-carousel-track,
+    .login-left .feature-carousel-dot,
+    .login-left .feature-carousel-selector,
+    .login-left .feature-carousel-arrow {
         transition: none;
     }
 }
