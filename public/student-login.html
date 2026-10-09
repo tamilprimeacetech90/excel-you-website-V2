@@ -233,8 +233,6 @@
     </div>
 
 </section>
-
-
         <!-- =====================================
                     CENTER PANEL
         ====================================== -->
@@ -533,91 +531,99 @@
 <script>
 
 /* =====================================================
-   FEATURE CARD SLIDER — VERSION B
+   EXCEL YOU
+   FEATURE CARD SLIDER
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const featureList =
-        document.querySelector(".feature-list");
 
-    if (!featureList) return;
+    /* =================================================
+       GET ALL FEATURE CARDS
+    ================================================= */
 
-
-    const cards =
-        featureList.querySelectorAll(
-            ".feature-card"
+    const featureCards =
+        document.querySelectorAll(
+            ".feature-list .feature-card"
         );
 
 
-    if (cards.length < 2) return;
+    /* =================================================
+       STOP IF NO CARDS EXIST
+    ================================================= */
 
+    if (!featureCards.length) {
+
+        return;
+
+    }
+
+
+    /* =================================================
+       SETTINGS
+    ================================================= */
 
     let currentIndex = 0;
 
-    let isAnimating = false;
+
+    /*
+       How long each card stays visible.
+
+       3000 = 3 seconds
+    */
+
+    const displayTime = 3000;
 
 
-    const displayTime = 4000;
+    /*
+       How long the slide animation takes.
+
+       650 = 0.65 seconds
+    */
 
     const slideDuration = 650;
 
 
-    /* ================================================
-       FIRST CARD
+    /* =================================================
+       SHOW FIRST CARD
     ================================================= */
 
-    cards.forEach(function(card) {
-
-        card.classList.remove(
-            "is-active",
-            "is-leaving"
-        );
-
-    });
-
-
-    cards[0].classList.add(
+    featureCards[0].classList.add(
         "is-active"
     );
 
 
-    /* ================================================
-       NEXT CARD
+    /* =================================================
+       SLIDE TO NEXT CARD
     ================================================= */
 
-    function showNextCard() {
+    function showNextFeature() {
 
-        if (isAnimating) return;
 
-        isAnimating = true;
-
+        /* ---------------------------------------------
+           CURRENT CARD
+        --------------------------------------------- */
 
         const currentCard =
-            cards[currentIndex];
+            featureCards[currentIndex];
 
+
+        /* ---------------------------------------------
+           CALCULATE NEXT CARD
+        --------------------------------------------- */
 
         const nextIndex =
             (currentIndex + 1)
-            % cards.length;
+            % featureCards.length;
 
 
         const nextCard =
-            cards[nextIndex];
+            featureCards[nextIndex];
 
 
-        /* NEXT CARD ENTERS FROM RIGHT */
-
-        nextCard.classList.remove(
-            "is-leaving"
-        );
-
-        nextCard.classList.add(
-            "is-active"
-        );
-
-
-        /* CURRENT CARD EXITS LEFT */
+        /* ---------------------------------------------
+           CURRENT CARD SLIDES OUT
+        --------------------------------------------- */
 
         currentCard.classList.remove(
             "is-active"
@@ -628,11 +634,18 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        currentIndex =
-            nextIndex;
+        /* ---------------------------------------------
+           NEXT CARD SLIDES IN
+        --------------------------------------------- */
+
+        nextCard.classList.add(
+            "is-active"
+        );
 
 
-        /* CLEAN OLD CARD */
+        /* ---------------------------------------------
+           CLEAN UP OLD CARD
+        --------------------------------------------- */
 
         setTimeout(function () {
 
@@ -640,21 +653,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 "is-leaving"
             );
 
-            isAnimating = false;
-
         }, slideDuration);
+
+
+        /* ---------------------------------------------
+           UPDATE INDEX
+        --------------------------------------------- */
+
+        currentIndex =
+            nextIndex;
 
     }
 
 
-    /* ================================================
-       AUTOMATIC SLIDER
+    /* =================================================
+       AUTOMATIC FEATURE ROTATION
     ================================================= */
 
     setInterval(
-        showNextCard,
+        showNextFeature,
         displayTime
     );
+
 
 });
 
