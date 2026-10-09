@@ -701,6 +701,105 @@ body[data-theme="dark"]{
     }
 }
 
+/* FIX: FEATURE CAROUSEL LAYOUT */
+
+.login-left .feature-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 24px auto 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+}
+
+.login-left .feature-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.login-left .feature-carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform 0.45s ease;
+}
+
+.login-left .feature-carousel-track > .stat-feature-card {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 220px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+}
+
+/* Keep card content inside each card */
+.login-left .stat-card-top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.login-left .stat-card-heading {
+    min-width: 0;
+}
+
+.login-left .stat-card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Position arrows on opposite sides */
+.login-left .feature-carousel-arrow {
+    position: absolute;
+    top: 40%;
+    z-index: 5;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-left .feature-carousel-arrow.prev {
+    left: 8px;
+}
+
+.login-left .feature-carousel-arrow.next {
+    right: 8px;
+}
+
+/* Dots underneath the card */
+.login-left .feature-carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+/* Four selectors underneath the dots */
+.login-left .feature-carousel-selectors {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.login-left .feature-carousel-selector {
+    min-width: 0;
+    min-height: 36px;
+    padding: 5px 3px;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
 /* =====================================================
    EXCEL YOU LOGIN V2
    PART 2 / 3
