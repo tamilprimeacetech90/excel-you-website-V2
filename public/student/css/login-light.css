@@ -435,29 +435,42 @@ body[data-theme="light"] .login-left p{
    Background artwork only — no text inside the image
 ========================================================= */
 
+
+/* =====================================
+   LIGHT THEME — FEATURE CARD PNG ARTWORK
+===================================== */
+
 [data-theme="light"] .feature-card__visual {
     position: relative;
     z-index: 1;
 
     flex: 1 1 auto;
-    min-height: 215px;
-    overflow: hidden;
+    min-height: 160px;
+    max-height: 240px;
+    width: 100%;
 
+    overflow: hidden;
     margin-top: 8px;
 
     background-color: transparent;
+
     background-image:
         linear-gradient(
             180deg,
-            rgba(239, 249, 255, 0.05) 0%,
-            rgba(230, 246, 255, 0.03) 60%,
-            rgba(225, 243, 255, 0.18) 100%
+            rgba(255, 255, 255, 0.00) 0%,
+            rgba(255, 255, 255, 0.02) 60%,
+            rgba(235, 248, 255, 0.18) 100%
         ),
         var(--feature-image, none);
 
-    background-position: center center;
+    background-position: center bottom;
     background-repeat: no-repeat;
-    background-size: contain;
+
+    /* Fit large PNG artwork inside the card */
+    background-size: 100% auto;
+
+    /* Prevent artwork from stretching */
+    flex-shrink: 0;
 }
 
 [data-theme="light"] .feature-card__visual::before {
@@ -729,6 +742,7 @@ body[data-theme="light"] .login-left p{
         animation: none !important;
     }
 }
+
 
 
 /* =========================

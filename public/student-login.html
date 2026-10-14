@@ -116,18 +116,18 @@
     <main class="login-wrapper">
 
 
+<!-- =====================================
+     LEFT FEATURE CAROUSEL
+====================================== -->
+
 <!-- =============================================
-     EXCEL YOU — LIGHT THEME FEATURE CAROUSEL
-     FULL HTML REPLACEMENT
+     EXCEL YOU — FEATURE CAROUSEL
+     SVG ICONS + PNG BACKGROUND ARTWORK
 ============================================== -->
 
 <section class="login-left">
 
     <div class="feature-carousel">
-
-        <!-- =====================================
-             FEATURE 1 — DAILY STREAK
-        ====================================== -->
 
         <article
             class="feature-card"
@@ -135,7 +135,7 @@
             aria-live="polite"
         >
 
-            <!-- Header -->
+            <!-- HEADER -->
             <div class="feature-card__header">
 
                 <div class="feature-card__eyebrow">
@@ -151,14 +151,13 @@
 
             </div>
 
-
-            <!-- Feature icon and title -->
+            <!-- SVG FEATURE ICON + TITLE -->
             <div class="feature-card__identity">
 
                 <div class="feature-card__icon">
                     <img
                         id="featureIcon"
-                        src="assets/daily-streak.png"
+                        src="assets/icons/daily-streak.svg"
                         alt=""
                     >
                 </div>
@@ -169,69 +168,129 @@
                         class="feature-card__title"
                         id="featureTitle"
                     >
-                        Your Progress
+                        DAILY STREAK
                     </h2>
 
                     <p
                         class="feature-card__subtitle"
                         id="featureSubtitle"
                     >
-                        Keep going!
+                        Build your learning habit
                     </p>
 
                 </div>
 
             </div>
 
-
-            <!-- Main statistic -->
+            <!-- MAIN STATISTIC -->
             <div
                 class="feature-card__main-stat"
                 id="featureMainStat"
             >
-                72%
+                7 DAYS
             </div>
 
-
-            <!-- Progress bar -->
+            <!-- PROGRESS BAR -->
             <div
                 class="feature-card__progress"
                 id="featureProgress"
                 role="progressbar"
                 aria-label="Learning progress"
-                aria-valuenow="72"
+                aria-valuenow="70"
                 aria-valuemin="0"
                 aria-valuemax="100"
             >
                 <span
                     class="feature-card__progress-fill"
                     id="featureProgressFill"
-                    style="--progress: 72%;"
+                    style="--progress: 70%;"
                 ></span>
             </div>
 
-
-            <!-- Supporting statement -->
+            <!-- SUPPORTING STATEMENT -->
             <p
                 class="feature-card__support"
                 id="featureSupport"
             >
-                Level Up
-                <span class="feature-card__support-separator">
-                    •
-                </span>
-                Stay Consistent
+                Keep your streak alive
             </p>
 
-
-            <!-- Illustration background -->
+            <!-- PNG FEATURE ARTWORK -->
             <div
                 class="feature-card__visual"
                 id="featureVisual"
-                style="--feature-image: url('assets/daily-streak.png');"
+                style="--feature-image: url('assets/icons/daily-streak.png');"
                 role="img"
-                aria-label="Daily learning progress illustration"
+                aria-label="Daily streak illustration"
             ></div>
+
+            <!-- CAROUSEL NAVIGATION -->
+            <div class="feature-carousel__footer">
+
+                <button
+                    type="button"
+                    class="feature-carousel__arrow"
+                    id="featurePrev"
+                    aria-label="Previous feature"
+                >
+                    &#8249;
+                </button>
+
+                <div
+                    class="feature-carousel__selectors"
+                    id="featureDots"
+                    aria-label="Choose a feature"
+                >
+
+                    <button
+                        type="button"
+                        class="feature-carousel__selector"
+                        data-feature-index="0"
+                        aria-label="Daily Streak"
+                        aria-current="true"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="feature-carousel__selector"
+                        data-feature-index="1"
+                        aria-label="XP Rewards"
+                        aria-current="false"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="feature-carousel__selector"
+                        data-feature-index="2"
+                        aria-label="Scholar Rank"
+                        aria-current="false"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="feature-carousel__selector"
+                        data-feature-index="3"
+                        aria-label="Celestial Immortal"
+                        aria-current="false"
+                    ></button>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="feature-carousel__arrow"
+                    id="featureNext"
+                    aria-label="Next feature"
+                >
+                    &#8250;
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
 
 
             <!-- =================================
@@ -310,6 +369,7 @@
     </div>
 
 </section>
+
 
 
 
@@ -657,8 +717,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "DAILY STREAK",
             subtitle: "Build your learning habit",
-            icon: "assets/daily-streak.png",
-            image: "assets/daily-streak.png",
+            icon: "assets/icons/daily-streak.svg",
+            image: "assets/icons/daily-streak.png",
             stat: "7 DAYS",
             progress: 70,
             support: "Keep your streak alive",
@@ -668,8 +728,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "XP REWARDS",
             subtitle: "Every effort earns progress",
-            icon: "assets/xp-rewards.png",
-            image: "assets/xp-rewards.png",
+            icon: "assets/icons/xp-rewards.svg",
+            image: "assets/icons/xp-rewards (2).png",
             stat: "+250 XP",
             progress: 65,
             support: "Learn more. Earn more.",
@@ -679,8 +739,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "SCHOLAR RANK",
             subtitle: "Rise through the rankings",
-            icon: "assets/scholar-rank.png",
-            image: "assets/scholar-rank.png",
+            icon: "assets/icons/scholar-rank.svg",
+            image: "assets/icons/1scholar-rank.png",
             stat: "LEVEL UP",
             progress: 80,
             support: "Every step moves you forward",
@@ -690,8 +750,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "CELESTIAL IMMORTAL",
             subtitle: "Reach your highest potential",
-            icon: "assets/celestial-immortal.png",
-            image: "assets/celestial-immortal.png",
+            icon: "assets/icons/celestial-immortal.svg",
+            image: "assets/icons/1celestial-immortal.png",
             stat: "LEGENDARY",
             progress: 100,
             support: "Rise beyond every limit",
@@ -999,6 +1059,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 

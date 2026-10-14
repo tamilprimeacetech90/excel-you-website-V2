@@ -330,8 +330,6 @@ body[data-theme="dark"]{
 
 
 
-
-
 /* =========================================================
    EXCEL YOU — FEATURE CAROUSEL
    DARK THEME ONLY
@@ -647,17 +645,25 @@ body[data-theme="dark"]{
    Artwork only; text remains in HTML
 ========================================================= */
 
+
+/* =====================================
+   DARK THEME — FEATURE CARD PNG ARTWORK
+===================================== */
+
 [data-theme="dark"] .feature-card__visual {
     position: relative;
     z-index: 1;
 
     flex: 1 1 auto;
-    min-height: 215px;
-    overflow: hidden;
+    min-height: 160px;
+    max-height: 240px;
+    width: 100%;
 
+    overflow: hidden;
     margin-top: 8px;
 
     background-color: transparent;
+
     background-image:
         linear-gradient(
             180deg,
@@ -667,10 +673,16 @@ body[data-theme="dark"]{
         ),
         var(--feature-image, none);
 
-    background-position: center center;
+    background-position: center bottom;
     background-repeat: no-repeat;
-    background-size: contain;
+
+    /* Fit large PNG artwork inside the card */
+    background-size: 100% auto;
+
+    /* Prevent the artwork from stretching */
+    flex-shrink: 0;
 }
+
 
 [data-theme="dark"] .feature-card__visual::before {
     content: "";
@@ -948,6 +960,9 @@ body[data-theme="dark"]{
         animation: none !important;
     }
 }
+
+
+
 
 
 
