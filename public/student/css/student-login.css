@@ -650,37 +650,39 @@ body[data-theme="dark"]{
    DARK THEME — FEATURE CARD PNG ARTWORK
 ===================================== */
 
+/* =====================================
+   DARK THEME — FEATURE PNG ARTWORK
+===================================== */
+
 [data-theme="dark"] .feature-card__visual {
     position: relative;
     z-index: 1;
 
-    flex: 1 1 auto;
-    min-height: 160px;
-    max-height: 240px;
+    flex: 0 0 260px;
     width: 100%;
+    height: 260px;
+    min-height: 260px;
+    max-height: 260px;
 
-    overflow: hidden;
     margin-top: 8px;
+    overflow: visible;
 
     background-color: transparent;
 
     background-image:
         linear-gradient(
             180deg,
-            rgba(5, 17, 33, 0.02) 0%,
-            rgba(5, 17, 33, 0.02) 60%,
-            rgba(5, 17, 33, 0.20) 100%
+            rgba(5, 17, 33, 0) 0%,
+            rgba(5, 17, 33, 0.02) 65%,
+            rgba(5, 17, 33, 0.12) 100%
         ),
         var(--feature-image, none);
 
-    background-position: center bottom;
     background-repeat: no-repeat;
+    background-position: center center;
 
-    /* Fit large PNG artwork inside the card */
-    background-size: 100% auto;
-
-    /* Prevent the artwork from stretching */
-    flex-shrink: 0;
+    /* Scale large PNG artwork to fit */
+    background-size: auto 100%;
 }
 
 
