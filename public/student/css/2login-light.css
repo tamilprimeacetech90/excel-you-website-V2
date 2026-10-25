@@ -1,0 +1,1582 @@
+/* =====================================================
+   EXCEL YOU LOGIN V2
+   LIGHT THEME
+   PART 1 / 2
+===================================================== */
+
+
+/* =========================
+   LIGHT THEME VARIABLES
+========================= */
+
+body[data-theme="light"]{
+
+    --text:#1f2937;
+
+    --muted:#475569;
+
+    --card:rgba(255,255,255,.78);
+
+    --glass:rgba(255,255,255,.65);
+
+    --border:rgba(15,23,42,.08);
+
+    --login-card:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.96),
+            rgba(243,247,252,.95)
+        );
+
+    --login-border:
+        rgba(37,99,235,.14);
+
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body[data-theme="light"]{
+
+    background:
+        url("/assets/backgrounds/signup-light.png")
+        center center / cover
+        no-repeat fixed;
+
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+body[data-theme="light"] .topbar{
+
+    border-bottom:
+
+        1px solid rgba(15,23,42,.08);
+
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+body[data-theme="light"] .nav-links a{
+
+    color:#334155;
+
+}
+
+body[data-theme="light"] .nav-links a:hover{
+
+    color:#0284c7;
+
+}
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+body[data-theme="light"] .theme-btn{
+
+    color:#0f172a;
+
+    background:rgba(255,255,255,.75);
+
+}
+
+/* =========================
+   BADGE
+========================= */
+
+body[data-theme="light"] .badge{
+
+    color:#0369a1;
+
+    background:
+
+        rgba(56,189,248,.10);
+
+    border:
+
+        1px solid rgba(2,132,199,.18);
+
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+body[data-theme="light"] .login-left h1{
+
+    color:#0f172a;
+
+}
+
+body[data-theme="light"] .login-left h1 span{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .login-left p{
+
+    color:#475569;
+
+}
+
+
+/* =========================================================
+   EXCEL YOU — FEATURE CAROUSEL
+   LIGHT THEME ONLY
+   Reference: Icy Blue Glass / Neon Cyan
+========================================================= */
+
+[data-theme="light"] {
+    --fc-bg: #f5fbff;
+    --fc-text: #102c72;
+    --fc-muted: #5579ac;
+    --fc-blue: #078bff;
+    --fc-cyan: #24caff;
+    --fc-border: rgba(48, 178, 255, 0.64);
+    --fc-track: #d7eaff;
+    --fc-shadow: rgba(45, 164, 255, 0.18);
+}
+
+/* =========================================================
+   CAROUSEL WRAPPER
+========================================================= */
+
+[data-theme="light"] .feature-carousel {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 455px;
+    margin-inline: auto;
+    color: var(--fc-text);
+}
+
+[data-theme="light"] .feature-carousel,
+[data-theme="light"] .feature-carousel * {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   MAIN GLASS CARD
+========================================================= */
+
+[data-theme="light"] .feature-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 675px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 52%,
+            rgba(212, 240, 255, 0.34),
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.99),
+            rgba(237, 248, 255, 0.96) 60%,
+            rgba(226, 243, 255, 0.97)
+        );
+
+    border: 1.5px solid var(--fc-border);
+    border-radius: 29px;
+
+    box-shadow:
+        0 0 0 3px rgba(98, 203, 255, 0.08),
+        0 0 20px rgba(45, 188, 255, 0.17),
+        0 12px 34px rgba(52, 143, 221, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+
+    transition:
+        border-color 300ms ease,
+        box-shadow 300ms ease;
+}
+
+/* Fine cyan highlight along the top edge */
+
+[data-theme="light"] .feature-card::before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 2px;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #8ce5ff 20%,
+        #19c6ff 50%,
+        #8ce5ff 80%,
+        transparent
+    );
+
+    box-shadow: 0 0 9px rgba(30, 193, 255, 0.75);
+}
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+[data-theme="light"] .feature-card__header {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 26px 32px 0;
+}
+
+[data-theme="light"] .feature-card__eyebrow {
+    margin: 0;
+    color: #078bff;
+
+    font-size: 15px;
+    font-weight: 750;
+    line-height: 1.35;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}
+
+[data-theme="light"] .feature-card__counter {
+    flex-shrink: 0;
+
+    color: #5685bd;
+    font-size: 15px;
+    font-weight: 650;
+    line-height: 1.35;
+    font-variant-numeric: tabular-nums;
+}
+
+[data-theme="light"] .feature-card__counter-current {
+    color: #087dff;
+}
+
+/* =========================================================
+   FEATURE ICON + TITLE
+========================================================= */
+
+[data-theme="light"] .feature-card__identity {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 30px 32px 0;
+}
+
+[data-theme="light"] .feature-card__icon {
+  width: 78px;
+    height: 78px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    color: #078bff;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #ffffff 0%,
+            #f0faff 68%,
+            #d9f2ff 100%
+        );
+
+    border: 3px solid rgba(98, 215, 255, 0.58);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 4px rgba(78, 200, 255, 0.08),
+        0 0 18px rgba(53, 188, 255, 0.28),
+        inset 0 0 13px rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .feature-card__icon img,
+[data-theme="light"] .feature-card__icon svg {
+    width: 90%;
+    height: 90%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    display: block;
+}
+
+[data-theme="light"] .feature-card__identity-text {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+[data-theme="light"] .feature-card__title {
+    margin: 0;
+
+    color: #102c72;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.55px;
+    overflow-wrap: anywhere;
+}
+
+[data-theme="light"] .feature-card__subtitle {
+    margin: 0;
+
+    color: #5278ad;
+    font-size: 18px;
+    font-weight: 450;
+    line-height: 1.45;
+}
+
+/* =========================================================
+   MAIN STATISTIC
+========================================================= */
+
+[data-theme="light"] .feature-card__main-stat {
+    position: relative;
+    z-index: 2;
+
+    margin: 19px 32px 0;
+
+    color: #102b70;
+    font-size: 56px;
+    font-weight: 850;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    font-variant-numeric: tabular-nums;
+}
+
+[data-theme="light"] .feature-card__main-stat-label {
+    margin: 8px 32px 0;
+
+    color: #5579ac;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+[data-theme="light"] .feature-card__progress {
+    position: relative;
+    z-index: 2;
+
+    height: 13px;
+    margin: 15px 32px 0;
+    overflow: hidden;
+
+    background: var(--fc-track);
+    border-radius: 999px;
+}
+
+[data-theme="light"] .feature-card__progress-fill {
+    display: block;
+    width: var(--progress, 72%);
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #078cff 0%,
+        #11aaff 65%,
+        #20caff 100%
+    );
+
+    border-radius: inherit;
+
+    box-shadow:
+        0 0 9px rgba(0, 153, 255, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.30);
+
+    transition: width 450ms ease;
+}
+
+/* =========================================================
+   SUPPORTING TEXT
+========================================================= */
+
+[data-theme="light"] .feature-card__support {
+    position: relative;
+    z-index: 2;
+
+    margin: 12px 32px 0;
+
+    color: #5478ab;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+[data-theme="light"] .feature-card__support-separator {
+    margin: 0 7px;
+    color: #268fff;
+}
+
+/* =========================================================
+   ILLUSTRATION AREA
+   Background artwork only — no text inside the image
+========================================================= */
+
+
+/* =====================================
+   LIGHT THEME — FEATURE CARD PNG ARTWORK
+===================================== */
+
+[data-theme="light"] .feature-card__visual {
+    position: relative;
+    z-index: 1;
+
+    flex: 1 1 auto;
+    min-height: 160px;
+    max-height: 240px;
+    width: 100%;
+
+    overflow: hidden;
+    margin-top: 8px;
+
+    background-color: transparent;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.00) 0%,
+            rgba(255, 255, 255, 0.02) 60%,
+            rgba(235, 248, 255, 0.18) 100%
+        ),
+        var(--feature-image, none);
+
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    /* Fit large PNG artwork inside the card */
+    background-size: 100% auto;
+
+    /* Prevent artwork from stretching */
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .feature-card__visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 58%,
+            rgba(111, 213, 255, 0.12),
+            transparent 62%
+        );
+}
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+[data-theme="light"] .feature-carousel__footer {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 13px 28px 23px;
+}
+
+/* Circular arrow controls */
+
+[data-theme="light"] .feature-carousel__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 46px;
+
+    width: 46px;
+    height: 46px;
+    padding: 0;
+
+    color: #078bff;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(115, 194, 255, 0.17);
+    border-radius: 50%;
+
+    box-shadow:
+        0 5px 17px rgba(49, 133, 207, 0.15),
+        inset 0 1px 0 #ffffff;
+
+    font-size: 0;
+    line-height: 1;
+    cursor: pointer;
+
+    transition:
+        color 200ms ease,
+        background 200ms ease,
+        box-shadow 200ms ease,
+        transform 200ms ease;
+}
+
+[data-theme="light"] .feature-carousel__arrow::before {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+[data-theme="light"] .feature-carousel__arrow[aria-label="Previous feature"]::before {
+    content: "‹";
+    transform: translate(-1px, -2px);
+}
+
+[data-theme="light"] .feature-carousel__arrow[aria-label="Next feature"]::before {
+    content: "›";
+    transform: translate(1px, -2px);
+}
+
+[data-theme="light"] .feature-carousel__arrow:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #078bff, #23c5ff);
+
+    box-shadow:
+        0 0 0 4px rgba(39, 175, 255, 0.10),
+        0 6px 20px rgba(19, 155, 255, 0.26);
+
+    transform: translateY(-2px);
+}
+
+[data-theme="light"] .feature-carousel__arrow:active {
+    transform: scale(0.96);
+}
+
+/* Four round dot indicators */
+
+[data-theme="light"] .feature-carousel__selectors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+[data-theme="light"] .feature-carousel__selector {
+    display: block;
+    flex: 0 0 16px;
+
+    width: 16px;
+    height: 16px;
+    padding: 0;
+
+    background: #c4e0ff;
+    border: 0;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        background 220ms ease,
+        box-shadow 220ms ease,
+        transform 220ms ease;
+}
+
+[data-theme="light"] .feature-carousel__selector:hover {
+    background: #82c5ff;
+    transform: scale(1.12);
+}
+
+[data-theme="light"] .feature-carousel__selector[aria-current="true"] {
+    background: #078bff;
+
+    box-shadow:
+        0 0 0 3px rgba(7, 139, 255, 0.08),
+        0 0 12px rgba(7, 139, 255, 0.20);
+}
+
+/* Keyboard accessibility */
+
+[data-theme="light"] .feature-carousel__arrow:focus-visible,
+[data-theme="light"] .feature-carousel__selector:focus-visible {
+    outline: 2px solid #078bff;
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   FADE / MORPH TRANSITION
+========================================================= */
+
+[data-theme="light"] .feature-card__identity,
+[data-theme="light"] .feature-card__main-stat,
+[data-theme="light"] .feature-card__main-stat-label,
+[data-theme="light"] .feature-card__progress,
+[data-theme="light"] .feature-card__support,
+[data-theme="light"] .feature-card__visual {
+    transition:
+        opacity 260ms ease,
+        filter 260ms ease;
+}
+[data-theme="light"].feature-card__identity {
+    align-items: flex-start;
+    gap: 16px;
+}
+
+[data-theme="light"] .feature-card.is-transitioning
+.feature-card__identity,
+[data-theme="light"] .feature-card.is-transitioning
+.feature-card__main-stat,
+[data-theme="light"] .feature-card.is-transitioning
+.feature-card__main-stat-label,
+[data-theme="light"] .feature-card.is-transitioning
+.feature-card__progress,
+[data-theme="light"] .feature-card.is-transitioning
+.feature-card__support,
+[data-theme="light"] .feature-card.is-transitioning
+.feature-card__visual {
+    opacity: 0.25;
+    filter: blur(2px);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+    [data-theme="light"] .feature-card {
+        min-height: 590px;
+        border-radius: 23px;
+    }
+
+    [data-theme="light"] .feature-card__header {
+        padding: 22px 22px 0;
+    }
+
+    [data-theme="light"] .feature-card__eyebrow,
+    [data-theme="light"] .feature-card__counter {
+        font-size: 12px;
+    }
+
+    [data-theme="light"] .feature-card__identity {
+        gap: 15px;
+        padding: 26px 22px 0;
+    }
+
+    [data-theme="light"] .feature-card__icon {
+        flex-basis: 72px;
+        width: 72px;
+        height: 72px;
+         margin-top: -2px;
+    }
+
+    [data-theme="light"] .feature-card__title {
+        font-size: 20px;
+    }
+
+    [data-theme="light"] .feature-card__subtitle {
+        font-size: 15px;
+    }
+
+    [data-theme="light"] .feature-card__main-stat {
+        margin: 22px 22px 0;
+        font-size: 49px;
+    }
+
+    [data-theme="light"] .feature-card__main-stat-label,
+    [data-theme="light"] .feature-card__support {
+        margin-left: 22px;
+        margin-right: 22px;
+        font-size: 13px;
+    }
+
+    [data-theme="light"] .feature-card__progress {
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+
+    [data-theme="light"] .feature-card__visual {
+        min-height: 175px;
+    }
+
+    [data-theme="light"] .feature-carousel__footer {
+        padding: 12px 20px 19px;
+    }
+
+    [data-theme="light"] .feature-carousel__arrow {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+    [data-theme="light"] .feature-carousel__selectors {
+        gap: 11px;
+    }
+
+    [data-theme="light"] .feature-carousel__selector {
+        flex-basis: 12px;
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    [data-theme="light"] .feature-card,
+    [data-theme="light"] .feature-card *,
+    [data-theme="light"] .feature-carousel__arrow,
+    [data-theme="light"] .feature-carousel__selector {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+
+/* =========================
+   CENTER PANEL
+========================= */
+
+body[data-theme="light"] .hologram-card{
+
+background:rgba(255,255,255,.72);
+
+border:1px solid rgba(37,99,235,.20);
+
+}
+
+body[data-theme="light"] .hologram-card h2{
+
+color:#1e3a8a;
+
+}
+
+body[data-theme="light"] .hologram-card p{
+
+color:#475569;
+
+}
+
+/* =========================
+   HOLOGRAM
+========================= */
+
+body[data-theme="light"] .hologram-ring{
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(56,189,248,.55),
+
+            rgba(59,130,246,.20),
+
+            transparent 75%
+
+        );
+
+}
+
+/* =====================================================
+   EXCEL YOU LOGIN V2
+   LIGHT THEME
+   PART 2 / 2
+===================================================== */
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+body[data-theme="light"] .login-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.72),
+            rgba(245,250,255,.62)
+        );
+
+    border:
+        1px solid rgba(56,189,248,.28);
+
+    box-shadow:
+        0 18px 45px rgba(15,23,42,.08),
+        0 0 28px rgba(56,189,248,.10),
+        inset 0 0 18px rgba(255,255,255,.45);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+
+}
+
+body[data-theme="light"] .login-card::before{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(56,189,248,.20),
+            transparent 45%,
+            rgba(37,99,235,.08)
+        );
+
+}
+
+body[data-theme="light"] .login-card::after{
+
+    border:
+        1px solid rgba(56,189,248,.10);
+
+}
+
+/* =========================
+   LOGIN TITLE
+========================= */
+
+body[data-theme="light"] .login-title{
+
+    color:#1e3a8a;
+
+}
+
+body[data-theme="light"] .login-subtitle{
+
+    color:#64748b;
+
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+body[data-theme="light"] .input-group input{
+
+    color:#1f2937;
+
+    border-bottom:
+
+        2px solid rgba(100,116,139,.40);
+
+}
+
+body[data-theme="light"] .input-group label{
+
+    color:#64748b;
+
+}
+
+body[data-theme="light"] .input-group input:focus{
+
+    border-bottom:
+
+        2px solid #0284c7;
+
+}
+
+body[data-theme="light"] .input-group input:focus + label,
+
+body[data-theme="light"] .input-group input:not(:placeholder-shown) + label{
+
+    color:#0284c7;
+
+}
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
+body[data-theme="light"] .password-toggle{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .password-toggle:hover{
+
+    color:#0369a1;
+
+}
+
+/* =========================
+   REMEMBER ROW
+========================= */
+
+body[data-theme="light"] .remember-row{
+
+    color:#475569;
+
+}
+
+body[data-theme="light"] .remember-row a{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .remember-row a:hover{
+
+    color:#0369a1;
+
+}
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+body[data-theme="light"] .login-btn{
+
+    box-shadow:
+
+        0 10px 25px rgba(56,189,248,.18);
+
+}
+
+body[data-theme="light"] .login-btn:hover{
+
+    box-shadow:
+
+        0 16px 35px rgba(56,189,248,.28);
+
+}
+
+/* =========================
+   SOCIAL DIVIDER
+========================= */
+
+body[data-theme="light"] .social-divider span{
+
+    color:#64748b;
+
+}
+
+/* =========================
+   SOCIAL BUTTONS
+========================= */
+
+body[data-theme="light"] .social-btn{
+
+    background:#ffffff;
+
+    border:1px solid rgba(15,23,42,.08);
+
+    box-shadow:
+
+        0 6px 18px rgba(15,23,42,.05);
+
+}
+
+body[data-theme="light"] .social-btn:hover{
+
+    border-color:rgba(2,132,199,.35);
+
+    box-shadow:
+
+        0 12px 24px rgba(56,189,248,.16);
+
+}
+
+/* =========================
+   GITHUB ICON
+========================= */
+
+body[data-theme="light"] .github-icon{
+
+    filter:none;
+
+}
+
+/* =========================
+   BOTTOM TEXT
+========================= */
+
+body[data-theme="light"] .bottom-text{
+
+    color:#64748b;
+
+}
+
+body[data-theme="light"] .bottom-text a{
+
+    color:#0284c7;
+
+}
+
+body[data-theme="light"] .bottom-text a:hover{
+
+    color:#0369a1;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+body[data-theme="light"] footer{
+
+    color:#64748b;
+
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+body[data-theme="light"] ::selection{
+
+    background:#38bdf8;
+
+    color:#ffffff;
+
+}
+/* =========================
+   CENTER ROBOT — LIGHT THEME
+========================= */
+body[data-theme="light"] .login-center {
+    transform: translate(30px, 50px);
+}
+
+body[data-theme="light"] #robotCanvas {
+    transform: scale(1.2);
+}
+
+/* ==========================================
+   LIGHT THEME — FEATURE CARD SIZE REFINEMENT
+   Keep existing card design and artwork
+========================================== */
+
+/* 1. Reduce the outer icon circle */
+[data-theme="light"] .feature-card__icon {
+    width: 68px;
+    height: 68px;
+    flex: 0 0 66px;
+    padding: 2px;
+    border-width: 2px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 3px rgba(78, 200, 255, 0.07),
+        0 0 12px rgba(53, 188, 255, 0.22),
+        inset 0 0 9px rgba(255, 255, 255, 0.95);
+}
+
+/* 2. Enlarge the icon relative to its circle */
+[data-theme="light"] .feature-card__icon img,
+[data-theme="light"] .feature-card__icon svg {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* 3. Slightly reduce the feature subtitle */
+[data-theme="light"] .feature-card__subtitle {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* 4. Reduce the main statistic slightly */
+[data-theme="light"] .feature-card__main-stat {
+    font-size: 28px;
+    line-height: 1.05;
+letter-spacing: 0.3px;
+}
+
+/* 5. Make the progress bar slimmer */
+[data-theme="light"] .feature-card__progress {
+    height: 11px;
+}
+
+/* 6. Reduce the supporting sentence size */
+[data-theme="light"] .feature-card__support {
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* 7. Keep the illustration background unchanged */
+[data-theme="light"] .feature-card__visual {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.00) 0%,
+            rgba(255, 255, 255, 0.02) 60%,
+            rgba(235, 248, 255, 0.18) 100%
+        ),
+        var(--feature-image, none);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+/* 8. Match icon sizing on smaller screens */
+@media (max-width: 600px) {
+    [data-theme="light"] .feature-card__icon {
+        width: 62px;
+        height: 62px;
+        flex-basis: 62px;
+    }
+
+    [data-theme="light"] .feature-card__subtitle {
+        font-size: 14px;
+    }
+
+    [data-theme="light"] .feature-card__main-stat {
+        font-size: 45px;
+    }
+
+    [data-theme="light"] .feature-card__progress {
+        height: 10px;
+    }
+
+    [data-theme="light"] .feature-card__support {
+        font-size: 13px;
+    }
+}
+/* FEATURE CARD ONLY — PNG WALLPAPER */
+
+/* =========================================
+   FEATURE CARD — FULL-CARD PNG WALLPAPER
+   Light theme only
+========================================= */
+
+body[data-theme="light"] .feature-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* PNG wallpaper covers the entire card,
+   including the navigation footer area */
+body[data-theme="light"] .feature-card__visual {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
+    flex: none;
+
+    pointer-events: none;
+
+    background-image: var(--feature-image, none);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Keep card content above the wallpaper */
+body[data-theme="light"] .feature-card__header,
+body[data-theme="light"] .feature-card__identity,
+body[data-theme="light"] .feature-card__main-stat,
+body[data-theme="light"] .feature-card__progress,
+body[data-theme="light"] .feature-card__support,
+body[data-theme="light"] .feature-carousel__footer {
+    position: relative;
+    z-index: 2;
+}
+/* =========================================
+   FEATURE CARD — MOVE FOOTER DOWN
+   Light theme only
+========================================= */
+
+body[data-theme="light"] .feature-card {
+    display: flex;
+    flex-direction: column;
+}
+
+body[data-theme="light"] .feature-carousel__footer {
+    margin-top: auto;
+    padding-top: 13px;
+    padding-bottom: 23px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   EXCEL YOU — FEATURE CARD
+   DARK BLUE BORDER GLOW
+   LIGHT THEME ONLY
+========================================= */
+
+body[data-theme="light"] .feature-card {
+    border: 2px solid #1d4ed8 !important;
+
+    box-shadow:
+        0 0 0 1px rgba(29, 78, 216, 0.30),
+        0 0 12px rgba(29, 78, 216, 0.30),
+        0 0 26px rgba(29, 78, 216, 0.22),
+        0 0 42px rgba(30, 64, 175, 0.14),
+        0 12px 34px rgba(30, 64, 175, 0.10) !important;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Stronger dark-blue glow on hover */
+
+body[data-theme="light"] .feature-card:hover {
+    border-color: #1e40af !important;
+
+    box-shadow:
+        0 0 0 2px rgba(29, 78, 216, 0.25),
+        0 0 16px rgba(29, 78, 216, 0.42),
+        0 0 32px rgba(29, 78, 216, 0.30),
+        0 0 48px rgba(30, 64, 175, 0.20),
+        0 12px 34px rgba(30, 64, 175, 0.12) !important;
+}
+/* =========================================
+   EXCEL YOU — FEATURE CARD
+   SHORTER HEIGHT + MORE WIDTH
+   STRONGER DARK BLUE GLOW
+========================================= */
+
+body[data-theme="light"] .feature-card {
+    /* Increase width */
+    width: 111%;
+    max-width: 620px;
+
+/* Reduce height slightly */
+min-height: 595px;
+padding-bottom: 20px;
+
+    /* Remove previous scaling */
+    transform: none;
+
+    /* Stronger, slightly thicker border */
+    border: 2px solid rgba(37, 99, 235, 0.75) !important;
+
+    /* Soft dark-blue outer glow */
+    box-shadow:
+        0 0 5px rgba(37, 99, 235, 0.25),
+        0 0 14px rgba(37, 99, 235, 0.28),
+        0 0 28px rgba(37, 99, 235, 0.20),
+        0 0 42px rgba(30, 64, 175, 0.12),
+        0 12px 30px rgba(30, 64, 175, 0.08) !important;
+
+    transition: box-shadow 300ms ease, border-color 300ms ease;
+}
+
+/* Hover glow */
+
+body[data-theme="light"] .feature-card:hover {
+    border-color: rgba(37, 99, 235, 0.95) !important;
+
+    box-shadow:
+        0 0 7px rgba(37, 99, 235, 0.32),
+        0 0 18px rgba(37, 99, 235, 0.35),
+        0 0 34px rgba(37, 99, 235, 0.25),
+        0 0 48px rgba(30, 64, 175, 0.15) !important;
+}
+
+/* =========================================
+   EXCEL YOU — STRONG BLUE LOGIN BORDER
+   LIGHT THEME ONLY
+========================================= */
+
+body[data-theme="light"] .login-card {
+    /* Stronger blue border line */
+    border: 2px solid rgba(37, 99, 235, 0.88) !important;
+
+    /* Stronger outer blue glow */
+    box-shadow:
+        0 0 4px rgba(37, 99, 235, 0.35),
+        0 0 12px rgba(37, 99, 235, 0.32),
+        0 0 24px rgba(37, 99, 235, 0.22),
+        0 0 38px rgba(37, 99, 235, 0.12),
+        0 12px 32px rgba(38, 91, 170, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Enhanced glow on hover */
+
+body[data-theme="light"] .login-card:hover {
+    border-color: rgba(29, 78, 216, 1) !important;
+
+    box-shadow:
+        0 0 6px rgba(37, 99, 235, 0.42),
+        0 0 16px rgba(37, 99, 235, 0.40),
+        0 0 30px rgba(37, 99, 235, 0.28),
+        0 0 44px rgba(37, 99, 235, 0.16),
+        0 12px 32px rgba(38, 91, 170, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98);
+}
+
+/* =========================================================
+   EXCEL YOU — PREMIUM ACADEMIC REFINEMENT
+   Final overrides: preserve layout, artwork and functionality
+   Keep visible blue card borders for separation from the light
+   background; use restrained shadows instead of large neon halos.
+========================================================= */
+
+body[data-theme="light"] {
+    --text: #17345f;
+    --muted: #526985;
+    --card: rgba(250, 253, 255, 0.94);
+    --glass: rgba(248, 252, 255, 0.88);
+    --border: rgba(43, 111, 211, 0.20);
+    --login-card: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(242,248,255,0.94));
+    --login-border: rgba(49, 119, 224, 0.42);
+}
+
+/* Header: clean, light and professional */
+body[data-theme="light"] .topbar {
+    background: rgba(246, 251, 255, 0.60);
+    border-bottom: 1px solid rgba(48, 103, 177, 0.14);
+    box-shadow: 0 2px 12px rgba(31, 78, 140, 0.035);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+body[data-theme="light"] .nav-links a {
+    color: #293f60;
+    transition: color 180ms ease;
+}
+
+body[data-theme="light"] .nav-links a:hover,
+body[data-theme="light"] .nav-links a:focus-visible {
+    color: #1267cf;
+}
+
+body[data-theme="light"] .theme-btn {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(68, 119, 187, 0.15);
+    box-shadow: 0 2px 8px rgba(31, 78, 140, 0.06);
+}
+
+/* Feature carousel: retain the distinct blue outline, soften only its halo */
+body[data-theme="light"] .feature-card {
+    border: 2px solid #347ee8 !important;
+    background-color: rgba(248, 252, 255, 0.96);
+    box-shadow:
+        0 0 0 1px rgba(52, 126, 232, 0.12),
+        0 4px 16px rgba(34, 96, 181, 0.13),
+        0 12px 28px rgba(34, 96, 181, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98) !important;
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+body[data-theme="light"] .feature-card:hover {
+    border-color: #246bd0 !important;
+    box-shadow:
+        0 0 0 1px rgba(36, 107, 208, 0.16),
+        0 5px 18px rgba(34, 96, 181, 0.16),
+        0 12px 28px rgba(34, 96, 181, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98) !important;
+}
+
+/* A quiet veil improves text readability over the feature artwork.
+   The image remains visible, especially in the lower illustration area. */
+body[data-theme="light"] .feature-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        rgba(248, 252, 255, 0.22) 0%,
+        rgba(248, 252, 255, 0.12) 38%,
+        rgba(248, 252, 255, 0.02) 68%,
+        transparent 100%
+    );
+}
+
+/* Keep all carousel content above the artwork and its readability veil */
+body[data-theme="light"] .feature-card__header,
+body[data-theme="light"] .feature-card__identity,
+body[data-theme="light"] .feature-card__main-stat,
+body[data-theme="light"] .feature-card__main-stat-label,
+body[data-theme="light"] .feature-card__progress,
+body[data-theme="light"] .feature-card__support,
+body[data-theme="light"] .feature-carousel__footer {
+    position: relative;
+    z-index: 2;
+}
+
+body[data-theme="light"] .feature-card__eyebrow,
+body[data-theme="light"] .feature-card__counter-current {
+    color: #096bd2;
+}
+
+body[data-theme="light"] .feature-card__title,
+body[data-theme="light"] .feature-card__main-stat {
+    color: #173675;
+}
+
+body[data-theme="light"] .feature-card__subtitle,
+body[data-theme="light"] .feature-card__main-stat-label,
+body[data-theme="light"] .feature-card__support {
+    color: #405875;
+}
+
+/* Keep the cyan top highlight, but make it a fine edge detail */
+body[data-theme="light"] .feature-card::before {
+    height: 1px;
+    box-shadow: 0 0 4px rgba(30, 193, 255, 0.30);
+}
+
+/* Carousel controls: polished, readable and consistent */
+body[data-theme="light"] .feature-carousel__arrow {
+    border: 1px solid rgba(46, 113, 204, 0.18);
+    box-shadow: 0 3px 10px rgba(39, 91, 157, 0.11);
+}
+
+body[data-theme="light"] .feature-carousel__arrow:hover {
+    box-shadow: 0 4px 12px rgba(19, 112, 214, 0.20);
+}
+
+body[data-theme="light"] .feature-carousel__selector[aria-current="true"] {
+    box-shadow: 0 0 0 2px rgba(7, 107, 210, 0.10);
+}
+
+/* Central panel and hologram: preserve the futuristic identity,
+   while keeping the login form and mascot visually balanced. */
+body[data-theme="light"] .hologram-card {
+    background: rgba(248, 252, 255, 0.80);
+    border: 1px solid rgba(55, 117, 203, 0.18);
+    box-shadow: 0 6px 22px rgba(30, 92, 168, 0.07);
+}
+
+body[data-theme="light"] .hologram-ring {
+    background: radial-gradient(
+        ellipse,
+        rgba(56, 189, 248, 0.34),
+        rgba(59, 130, 246, 0.12) 48%,
+        transparent 75%
+    );
+}
+
+/* Login panel: solid enough for readability, still softly glass-like.
+   Keep the clear blue outline so the card does not merge into the page. */
+body[data-theme="light"] .login-card {
+    background: linear-gradient(
+        145deg,
+        rgba(250, 253, 255, 0.96),
+        rgba(239, 247, 255, 0.93)
+    ) !important;
+    border: 1.5px solid #347ee8 !important;
+    box-shadow:
+        0 0 0 1px rgba(52, 126, 232, 0.10),
+        0 5px 18px rgba(35, 91, 165, 0.12),
+        0 12px 28px rgba(35, 91, 165, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+body[data-theme="light"] .login-card:hover {
+    border-color: #246bd0 !important;
+    box-shadow:
+        0 0 0 1px rgba(36, 107, 208, 0.14),
+        0 6px 20px rgba(35, 91, 165, 0.14),
+        0 12px 28px rgba(35, 91, 165, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98) !important;
+}
+
+body[data-theme="light"] .login-card::before {
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.10),
+        transparent 48%,
+        rgba(37, 99, 235, 0.035)
+    );
+}
+
+body[data-theme="light"] .login-card::after {
+    border-color: rgba(52, 126, 232, 0.08);
+}
+
+/* Academic typography and supporting text contrast */
+body[data-theme="light"] .login-title {
+    color: #173675;
+}
+
+body[data-theme="light"] .login-subtitle,
+body[data-theme="light"] .social-divider span,
+body[data-theme="light"] .bottom-text,
+body[data-theme="light"] footer {
+    color: #526985;
+}
+
+body[data-theme="light"] .input-group input {
+    color: #172b46;
+    border-bottom: 1.5px solid rgba(71, 98, 133, 0.48);
+}
+
+body[data-theme="light"] .input-group label,
+body[data-theme="light"] .remember-row {
+    color: #526985;
+}
+
+body[data-theme="light"] .input-group input:focus {
+    border-bottom-color: #1677d2;
+}
+
+body[data-theme="light"] .input-group input:focus + label,
+body[data-theme="light"] .input-group input:not(:placeholder-shown) + label,
+body[data-theme="light"] .password-toggle,
+body[data-theme="light"] .remember-row a,
+body[data-theme="light"] .bottom-text a {
+    color: #096bc7;
+}
+
+/* Main action: retain the gradient but avoid an oversized neon shadow */
+body[data-theme="light"] .login-btn {
+    box-shadow: 0 5px 14px rgba(45, 112, 221, 0.16);
+}
+
+body[data-theme="light"] .login-btn:hover {
+    box-shadow: 0 7px 18px rgba(45, 112, 221, 0.22);
+}
+
+/* Social login buttons: quiet, crisp surfaces */
+body[data-theme="light"] .social-btn {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(57, 91, 136, 0.13);
+    box-shadow: 0 3px 10px rgba(31, 66, 112, 0.07);
+}
+
+body[data-theme="light"] .social-btn:hover {
+    border-color: rgba(22, 119, 210, 0.35);
+    box-shadow: 0 5px 14px rgba(35, 107, 185, 0.12);
+}
+
+body[data-theme="light"] ::selection {
+    background: #2678d8;
+    color: #ffffff;
+}
+
+/* Accessibility: do not animate the refinements for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+    body[data-theme="light"] .topbar,
+    body[data-theme="light"] .feature-card,
+    body[data-theme="light"] .login-card,
+    body[data-theme="light"] .login-btn,
+    body[data-theme="light"] .social-btn {
+        transition: none !important;
+    }
+}

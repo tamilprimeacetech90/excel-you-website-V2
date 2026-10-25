@@ -219,7 +219,7 @@
             <div
                 class="feature-card__visual"
                 id="featureVisual"
-                style="--feature-image: url('assets/icons/daily-streak.png');"
+               style="--feature-image: url('/assets/icons/daily-streak.png');"
                 role="img"
                 aria-label="Daily streak illustration"
             ></div>
@@ -291,82 +291,6 @@
 
     </div>
 
-
-
-            <!-- =================================
-                 NAVIGATION
-            ================================== -->
-
-            <div class="feature-carousel__footer">
-
-                <!-- Previous -->
-                <button
-                    type="button"
-                    class="feature-carousel__arrow"
-                    id="featurePrev"
-                    aria-label="Previous feature"
-                >
-                    &#8249;
-                </button>
-
-
-                <!-- Four dots -->
-                <div
-                    class="feature-carousel__selectors"
-                    id="featureDots"
-                    aria-label="Choose a feature"
-                >
-
-                    <button
-                        type="button"
-                        class="feature-carousel__selector"
-                        data-feature-index="0"
-                        aria-label="Show Daily Streak"
-                        aria-current="true"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="feature-carousel__selector"
-                        data-feature-index="1"
-                        aria-label="Show XP Rewards"
-                        aria-current="false"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="feature-carousel__selector"
-                        data-feature-index="2"
-                        aria-label="Show Scholar Rank"
-                        aria-current="false"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="feature-carousel__selector"
-                        data-feature-index="3"
-                        aria-label="Show Celestial Immortal"
-                        aria-current="false"
-                    ></button>
-
-                </div>
-
-
-                <!-- Next -->
-                <button
-                    type="button"
-                    class="feature-carousel__arrow"
-                    id="featureNext"
-                    aria-label="Next feature"
-                >
-                    &#8250;
-                </button>
-
-            </div>
-
-        </article>
-
-    </div>
 
 </section>
 
@@ -718,7 +642,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "DAILY STREAK",
             subtitle: "Build your learning habit",
             icon: "assets/icons/daily-streak.svg",
-            image: "assets/icons/daily-streak.png",
+            image: "/assets/icons/daily-streak.png",
             stat: "7 DAYS",
             progress: 70,
             support: "Keep your streak alive",
@@ -729,7 +653,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "XP REWARDS",
             subtitle: "Every effort earns progress",
             icon: "assets/icons/xp-rewards.svg",
-            image: "assets/icons/xp-rewards (2).png",
+            image: "/assets/icons/xp-rewards (2).png",
             stat: "+250 XP",
             progress: 65,
             support: "Learn more. Earn more.",
@@ -740,7 +664,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "SCHOLAR RANK",
             subtitle: "Rise through the rankings",
             icon: "assets/icons/scholar-rank.svg",
-            image: "assets/icons/1scholar-rank.png",
+            image: "/assets/icons/1scholar-rank.png",
             stat: "LEVEL UP",
             progress: 80,
             support: "Every step moves you forward",
@@ -751,7 +675,7 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "CELESTIAL IMMORTAL",
             subtitle: "Reach your highest potential",
             icon: "assets/icons/celestial-immortal.svg",
-            image: "assets/icons/1celestial-immortal.png",
+            image: "/assets/icons/1celestial-immortal.png",
             stat: "LEGENDARY",
             progress: 100,
             support: "Rise beyond every limit",
@@ -1049,6 +973,56 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
     }
+/* =========================================
+   FEATURE CAROUSEL — AUTO PLAY
+========================================= */
+
+const featureCarousel = document.querySelector(
+    ".feature-carousel"
+);
+
+const nextFeatureButton = document.querySelector(
+    '.feature-carousel__arrow[aria-label="Next feature"]'
+);
+
+let featureAutoPlay;
+
+function startFeatureAutoPlay() {
+    clearInterval(featureAutoPlay);
+
+    featureAutoPlay = setInterval(() => {
+        if (!document.hidden && featureCarousel && 
+            !featureCarousel.matches(":hover")) {
+            nextFeatureButton?.click();
+        }
+    }, 5000);
+}
+
+function stopFeatureAutoPlay() {
+    clearInterval(featureAutoPlay);
+}
+
+if (featureCarousel && nextFeatureButton) {
+    startFeatureAutoPlay();
+
+    featureCarousel.addEventListener(
+        "mouseenter",
+        stopFeatureAutoPlay
+    );
+
+    featureCarousel.addEventListener(
+        "mouseleave",
+        startFeatureAutoPlay
+    );
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stopFeatureAutoPlay();
+        } else {
+            startFeatureAutoPlay();
+        }
+    });
+}
 
     /* =====================================================
        INITIALIZE
@@ -1058,6 +1032,8 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
 
 });
+
+
 </script>
 
 

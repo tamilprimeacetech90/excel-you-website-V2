@@ -1,25 +1,18 @@
 /* =====================================================
    EXCEL YOU LOGIN V2
    LIGHT THEME
-   PART 1 / 2
 ===================================================== */
-
 
 /* =========================
    LIGHT THEME VARIABLES
 ========================= */
 
-body[data-theme="light"]{
-
-    --text:#1f2937;
-
-    --muted:#475569;
-
-    --card:rgba(255,255,255,.78);
-
-    --glass:rgba(255,255,255,.65);
-
-    --border:rgba(15,23,42,.08);
+body[data-theme="light"] {
+    --text: #1f2937;
+    --muted: #475569;
+    --card: rgba(255,255,255,.78);
+    --glass: rgba(255,255,255,.65);
+    --border: rgba(15,23,42,.08);
 
     --login-card:
         linear-gradient(
@@ -28,109 +21,77 @@ body[data-theme="light"]{
             rgba(243,247,252,.95)
         );
 
-    --login-border:
-        rgba(37,99,235,.14);
-
+    --login-border: rgba(37,99,235,.14);
 }
 
 /* =========================
    BACKGROUND
 ========================= */
 
-body[data-theme="light"]{
-
+body[data-theme="light"] {
     background:
         url("/assets/backgrounds/signup-light.png")
         center center / cover
         no-repeat fixed;
-
 }
 
 /* =========================
    TOPBAR
 ========================= */
 
-body[data-theme="light"] .topbar{
-
-    border-bottom:
-
-        1px solid rgba(15,23,42,.08);
-
+body[data-theme="light"] .topbar {
+    border-bottom: 1px solid rgba(15,23,42,.08);
 }
 
 /* =========================
    NAVIGATION
 ========================= */
 
-body[data-theme="light"] .nav-links a{
-
-    color:#334155;
-
+body[data-theme="light"] .nav-links a {
+    color: #334155;
 }
 
-body[data-theme="light"] .nav-links a:hover{
-
-    color:#0284c7;
-
+body[data-theme="light"] .nav-links a:hover {
+    color: #0284c7;
 }
 
 /* =========================
    THEME BUTTON
 ========================= */
 
-body[data-theme="light"] .theme-btn{
-
-    color:#0f172a;
-
-    background:rgba(255,255,255,.75);
-
+body[data-theme="light"] .theme-btn {
+    color: #0f172a;
+    background: rgba(255,255,255,.75);
 }
 
 /* =========================
    BADGE
 ========================= */
 
-body[data-theme="light"] .badge{
-
-    color:#0369a1;
-
-    background:
-
-        rgba(56,189,248,.10);
-
-    border:
-
-        1px solid rgba(2,132,199,.18);
-
+body[data-theme="light"] .badge {
+    color: #0369a1;
+    background: rgba(56,189,248,.10);
+    border: 1px solid rgba(2,132,199,.18);
 }
 
 /* =========================
    LEFT PANEL
 ========================= */
 
-body[data-theme="light"] .login-left h1{
-
-    color:#0f172a;
-
+body[data-theme="light"] .login-left h1 {
+    color: #0f172a;
 }
 
-body[data-theme="light"] .login-left h1 span{
-
-    color:#0284c7;
-
+body[data-theme="light"] .login-left h1 span {
+    color: #0284c7;
 }
 
-body[data-theme="light"] .login-left p{
-
-    color:#475569;
-
+body[data-theme="light"] .login-left p {
+    color: #475569;
 }
-
 
 /* =========================================================
-   EXCEL YOU — FEATURE CAROUSEL
-   LIGHT THEME ONLY
-   Reference: Icy Blue Glass / Neon Cyan
+   FEATURE CAROUSEL — LIGHT THEME
 ========================================================= */
 
 [data-theme="light"] {
@@ -144,9 +105,9 @@ body[data-theme="light"] .login-left p{
     --fc-shadow: rgba(45, 164, 255, 0.18);
 }
 
-/* =========================================================
+/* =========================
    CAROUSEL WRAPPER
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-carousel {
     position: relative;
@@ -162,15 +123,14 @@ body[data-theme="light"] .login-left p{
     box-sizing: border-box;
 }
 
-/* =========================================================
-   MAIN GLASS CARD
-========================================================= */
+/* =========================
+   FEATURE CARD
+========================= */
 
 [data-theme="light"] .feature-card {
     position: relative;
     display: flex;
     flex-direction: column;
-
     width: 100%;
     min-height: 675px;
     overflow: hidden;
@@ -203,7 +163,7 @@ body[data-theme="light"] .login-left p{
         box-shadow 300ms ease;
 }
 
-/* Fine cyan highlight along the top edge */
+/* Fine cyan highlight */
 
 [data-theme="light"] .feature-card::before {
     content: "";
@@ -227,26 +187,23 @@ body[data-theme="light"] .login-left p{
     box-shadow: 0 0 9px rgba(30, 193, 255, 0.75);
 }
 
-/* =========================================================
+/* =========================
    TOP HEADER
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-card__header {
     position: relative;
     z-index: 2;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-
     padding: 26px 32px 0;
 }
 
 [data-theme="light"] .feature-card__eyebrow {
     margin: 0;
     color: #078bff;
-
     font-size: 15px;
     font-weight: 750;
     line-height: 1.35;
@@ -256,7 +213,6 @@ body[data-theme="light"] .login-left p{
 
 [data-theme="light"] .feature-card__counter {
     flex-shrink: 0;
-
     color: #5685bd;
     font-size: 15px;
     font-weight: 650;
@@ -268,32 +224,32 @@ body[data-theme="light"] .login-left p{
     color: #087dff;
 }
 
-/* =========================================================
+/* =========================
    FEATURE ICON + TITLE
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-card__identity {
     position: relative;
     z-index: 2;
-
     display: flex;
     align-items: center;
     gap: 20px;
-
     padding: 30px 32px 0;
 }
 
 [data-theme="light"] .feature-card__icon {
+    width: 68px;
+    height: 68px;
+    flex: 0 0 66px;
+    padding: 2px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 92px;
-
-    width: 92px;
-    height: 92px;
-    overflow: hidden;
+    flex-shrink: 0;
 
     color: #078bff;
+
     background:
         radial-gradient(
             circle at 50% 35%,
@@ -302,21 +258,23 @@ body[data-theme="light"] .login-left p{
             #d9f2ff 100%
         );
 
-    border: 3px solid rgba(98, 215, 255, 0.58);
+    border: 2px solid rgba(98, 215, 255, 0.58);
     border-radius: 50%;
 
     box-shadow:
-        0 0 0 4px rgba(78, 200, 255, 0.08),
-        0 0 18px rgba(53, 188, 255, 0.28),
-        inset 0 0 13px rgba(255, 255, 255, 0.95);
+        0 0 0 3px rgba(78, 200, 255, 0.07),
+        0 0 12px rgba(53, 188, 255, 0.22),
+        inset 0 0 9px rgba(255, 255, 255, 0.95);
 }
 
 [data-theme="light"] .feature-card__icon img,
 [data-theme="light"] .feature-card__icon svg {
-    display: block;
-    width: 58%;
-    height: 58%;
+    width: 80px;
+    height: 80px;
+    max-width: none;
+    max-height: none;
     object-fit: contain;
+    display: block;
 }
 
 [data-theme="light"] .feature-card__identity-text {
@@ -328,7 +286,6 @@ body[data-theme="light"] .login-left p{
 
 [data-theme="light"] .feature-card__title {
     margin: 0;
-
     color: #102c72;
     font-size: 24px;
     font-weight: 800;
@@ -339,51 +296,45 @@ body[data-theme="light"] .login-left p{
 
 [data-theme="light"] .feature-card__subtitle {
     margin: 0;
-
     color: #5278ad;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 450;
-    line-height: 1.45;
+    line-height: 1.4;
 }
 
-/* =========================================================
+/* =========================
    MAIN STATISTIC
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-card__main-stat {
     position: relative;
     z-index: 2;
-
     margin: 19px 32px 0;
-
     color: #102b70;
-    font-size: clamp(48px, 5vw, 60px);
+    font-size: 28px;
     font-weight: 850;
     line-height: 1.05;
-    letter-spacing: -2px;
+    letter-spacing: 0.3px;
     font-variant-numeric: tabular-nums;
 }
 
 [data-theme="light"] .feature-card__main-stat-label {
     margin: 8px 32px 0;
-
     color: #5579ac;
     font-size: 14px;
     line-height: 1.5;
 }
 
-/* =========================================================
+/* =========================
    PROGRESS BAR
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-card__progress {
     position: relative;
     z-index: 2;
-
-    height: 13px;
+    height: 11px;
     margin: 15px 32px 0;
     overflow: hidden;
-
     background: var(--fc-track);
     border-radius: 999px;
 }
@@ -409,20 +360,18 @@ body[data-theme="light"] .login-left p{
     transition: width 450ms ease;
 }
 
-/* =========================================================
+/* =========================
    SUPPORTING TEXT
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-card__support {
     position: relative;
     z-index: 2;
-
     margin: 12px 32px 0;
-
     color: #5478ab;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 [data-theme="light"] .feature-card__support-separator {
@@ -430,47 +379,27 @@ body[data-theme="light"] .login-left p{
     color: #268fff;
 }
 
-/* =========================================================
-   ILLUSTRATION AREA
-   Background artwork only — no text inside the image
-========================================================= */
-
-
-/* =====================================
-   LIGHT THEME — FEATURE CARD PNG ARTWORK
-===================================== */
+/* =========================
+   FEATURE CARD ARTWORK
+========================= */
 
 [data-theme="light"] .feature-card__visual {
-    position: relative;
-    z-index: 1;
-
-    flex: 1 1 auto;
-    min-height: 160px;
-    max-height: 240px;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     width: 100%;
-
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
+    flex: none;
     overflow: hidden;
-    margin-top: 8px;
+    pointer-events: none;
 
-    background-color: transparent;
-
-    background-image:
-        linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.00) 0%,
-            rgba(255, 255, 255, 0.02) 60%,
-            rgba(235, 248, 255, 0.18) 100%
-        ),
-        var(--feature-image, none);
-
-    background-position: center bottom;
+    background-image: var(--feature-image, none);
+    background-position: center center;
     background-repeat: no-repeat;
-
-    /* Fit large PNG artwork inside the card */
-    background-size: 100% auto;
-
-    /* Prevent artwork from stretching */
-    flex-shrink: 0;
+    background-size: cover;
 }
 
 [data-theme="light"] .feature-card__visual::before {
@@ -487,34 +416,34 @@ body[data-theme="light"] .login-left p{
         );
 }
 
-/* =========================================================
+/* =========================
    BOTTOM NAVIGATION
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-carousel__footer {
     position: relative;
     z-index: 3;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
-
+    margin-top: auto;
     padding: 13px 28px 23px;
+    padding-bottom: 23px;
+    flex-shrink: 0;
 }
 
 /* Circular arrow controls */
 
 [data-theme="light"] .feature-carousel__arrow {
-    display: inline-flex;
+    display: none !important;
+
     align-items: center;
     justify-content: center;
     flex: 0 0 46px;
-
     width: 46px;
     height: 46px;
     padding: 0;
-
     color: #078bff;
     background: rgba(255, 255, 255, 0.94);
     border: 1px solid rgba(115, 194, 255, 0.17);
@@ -568,27 +497,25 @@ body[data-theme="light"] .login-left p{
     transform: scale(0.96);
 }
 
-/* Four round dot indicators */
+/* Dot indicators */
 
 [data-theme="light"] .feature-carousel__selectors {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
+    margin-inline: auto;
 }
 
 [data-theme="light"] .feature-carousel__selector {
     display: block;
     flex: 0 0 16px;
-
     width: 16px;
     height: 16px;
     padding: 0;
-
     background: #c4e0ff;
     border: 0;
     border-radius: 50%;
-
     cursor: pointer;
 
     transition:
@@ -618,9 +545,9 @@ body[data-theme="light"] .login-left p{
     outline-offset: 4px;
 }
 
-/* =========================================================
+/* =========================
    FADE / MORPH TRANSITION
-========================================================= */
+========================= */
 
 [data-theme="light"] .feature-card__identity,
 [data-theme="light"] .feature-card__main-stat,
@@ -633,25 +560,24 @@ body[data-theme="light"] .login-left p{
         filter 260ms ease;
 }
 
-[data-theme="light"] .feature-card.is-transitioning
-.feature-card__identity,
-[data-theme="light"] .feature-card.is-transitioning
-.feature-card__main-stat,
-[data-theme="light"] .feature-card.is-transitioning
-.feature-card__main-stat-label,
-[data-theme="light"] .feature-card.is-transitioning
-.feature-card__progress,
-[data-theme="light"] .feature-card.is-transitioning
-.feature-card__support,
-[data-theme="light"] .feature-card.is-transitioning
-.feature-card__visual {
+[data-theme="light"].feature-card__identity {
+    align-items: flex-start;
+    gap: 16px;
+}
+
+[data-theme="light"] .feature-card.is-transitioning .feature-card__identity,
+[data-theme="light"] .feature-card.is-transitioning .feature-card__main-stat,
+[data-theme="light"] .feature-card.is-transitioning .feature-card__main-stat-label,
+[data-theme="light"] .feature-card.is-transitioning .feature-card__progress,
+[data-theme="light"] .feature-card.is-transitioning .feature-card__support,
+[data-theme="light"] .feature-card.is-transitioning .feature-card__visual {
     opacity: 0.25;
     filter: blur(2px);
 }
 
-/* =========================================================
+/* =========================
    RESPONSIVE
-========================================================= */
+========================= */
 
 @media (max-width: 600px) {
     [data-theme="light"] .feature-card {
@@ -674,9 +600,10 @@ body[data-theme="light"] .login-left p{
     }
 
     [data-theme="light"] .feature-card__icon {
-        flex-basis: 72px;
-        width: 72px;
-        height: 72px;
+        width: 62px;
+        height: 62px;
+        flex-basis: 62px;
+        margin-top: -2px;
     }
 
     [data-theme="light"] .feature-card__title {
@@ -684,12 +611,12 @@ body[data-theme="light"] .login-left p{
     }
 
     [data-theme="light"] .feature-card__subtitle {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     [data-theme="light"] .feature-card__main-stat {
         margin: 22px 22px 0;
-        font-size: 49px;
+        font-size: 45px;
     }
 
     [data-theme="light"] .feature-card__main-stat-label,
@@ -702,6 +629,7 @@ body[data-theme="light"] .login-left p{
     [data-theme="light"] .feature-card__progress {
         margin-left: 22px;
         margin-right: 22px;
+        height: 10px;
     }
 
     [data-theme="light"] .feature-card__visual {
@@ -729,9 +657,9 @@ body[data-theme="light"] .login-left p{
     }
 }
 
-/* =========================================================
+/* =========================
    REDUCED MOTION
-========================================================= */
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
     [data-theme="light"] .feature-card,
@@ -743,309 +671,216 @@ body[data-theme="light"] .login-left p{
     }
 }
 
-
-
 /* =========================
    CENTER PANEL
 ========================= */
 
-body[data-theme="light"] .hologram-card{
-
-background:rgba(255,255,255,.72);
-
-border:1px solid rgba(37,99,235,.20);
-
+body[data-theme="light"] .hologram-card {
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(37,99,235,.20);
 }
 
-body[data-theme="light"] .hologram-card h2{
-
-color:#1e3a8a;
-
+body[data-theme="light"] .hologram-card h2 {
+    color: #1e3a8a;
 }
 
-body[data-theme="light"] .hologram-card p{
-
-color:#475569;
-
+body[data-theme="light"] .hologram-card p {
+    color: #475569;
 }
 
 /* =========================
    HOLOGRAM
 ========================= */
 
-body[data-theme="light"] .hologram-ring{
-
+body[data-theme="light"] .hologram-ring {
     background:
-
         radial-gradient(
-
             ellipse,
-
             rgba(56,189,248,.55),
-
             rgba(59,130,246,.20),
-
             transparent 75%
-
         );
-
 }
-
-/* =====================================================
-   EXCEL YOU LOGIN V2
-   LIGHT THEME
-   PART 2 / 2
-===================================================== */
-
 
 /* =========================
    LOGIN CARD
 ========================= */
 
-body[data-theme="light"] .login-card{
+body[data-theme="light"] .login-card {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.94),
+        rgba(242, 249, 255, 0.91)
+    ) !important;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.72),
-            rgba(245,250,255,.62)
-        );
-
-    border:
-        1px solid rgba(56,189,248,.28);
-
-    box-shadow:
-        0 18px 45px rgba(15,23,42,.08),
-        0 0 28px rgba(56,189,248,.10),
-        inset 0 0 18px rgba(255,255,255,.45);
-
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-
-
+    border: 2px solid #66D9FF !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: border-color 0.3s ease;
 }
 
-body[data-theme="light"] .login-card::before{
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(56,189,248,.20),
-            transparent 45%,
-            rgba(37,99,235,.08)
-        );
-
+body[data-theme="light"] .login-card::before {
+    background: linear-gradient(
+        135deg,
+        rgba(56,189,248,.20),
+        transparent 45%,
+        rgba(37,99,235,.08)
+    );
 }
 
-body[data-theme="light"] .login-card::after{
+body[data-theme="light"] .login-card::after {
+    border: 1px solid rgba(56,189,248,.10);
+}
 
-    border:
-        1px solid rgba(56,189,248,.10);
-
+body[data-theme="light"] .login-card:hover {
+    border-color: #40C4F4 !important;
+    box-shadow: none !important;
 }
 
 /* =========================
    LOGIN TITLE
 ========================= */
 
-body[data-theme="light"] .login-title{
-
-    color:#1e3a8a;
-
+body[data-theme="light"] .login-title {
+    color: #1e3a8a;
 }
 
-body[data-theme="light"] .login-subtitle{
-
-    color:#64748b;
-
+body[data-theme="light"] .login-subtitle {
+    color: #64748b;
 }
 
 /* =========================
    INPUTS
 ========================= */
 
-body[data-theme="light"] .input-group input{
-
-    color:#1f2937;
-
-    border-bottom:
-
-        2px solid rgba(100,116,139,.40);
-
+body[data-theme="light"] .input-group input {
+    color: #1f2937;
+    border-bottom: 2px solid rgba(100,116,139,.40);
 }
 
-body[data-theme="light"] .input-group label{
-
-    color:#64748b;
-
+body[data-theme="light"] .input-group label {
+    color: #64748b;
 }
 
-body[data-theme="light"] .input-group input:focus{
-
-    border-bottom:
-
-        2px solid #0284c7;
-
+body[data-theme="light"] .input-group input:focus {
+    border-bottom: 2px solid #0284c7;
 }
 
 body[data-theme="light"] .input-group input:focus + label,
-
-body[data-theme="light"] .input-group input:not(:placeholder-shown) + label{
-
-    color:#0284c7;
-
+body[data-theme="light"] .input-group input:not(:placeholder-shown) + label {
+    color: #0284c7;
 }
 
 /* =========================
    PASSWORD TOGGLE
 ========================= */
 
-body[data-theme="light"] .password-toggle{
-
-    color:#0284c7;
-
+body[data-theme="light"] .password-toggle {
+    color: #0284c7;
 }
 
-body[data-theme="light"] .password-toggle:hover{
-
-    color:#0369a1;
-
+body[data-theme="light"] .password-toggle:hover {
+    color: #0369a1;
 }
 
 /* =========================
    REMEMBER ROW
 ========================= */
 
-body[data-theme="light"] .remember-row{
-
-    color:#475569;
-
+body[data-theme="light"] .remember-row {
+    color: #475569;
 }
 
-body[data-theme="light"] .remember-row a{
-
-    color:#0284c7;
-
+body[data-theme="light"] .remember-row a {
+    color: #0284c7;
 }
 
-body[data-theme="light"] .remember-row a:hover{
-
-    color:#0369a1;
-
+body[data-theme="light"] .remember-row a:hover {
+    color: #0369a1;
 }
 
 /* =========================
    LOGIN BUTTON
 ========================= */
 
-body[data-theme="light"] .login-btn{
-
-    box-shadow:
-
-        0 10px 25px rgba(56,189,248,.18);
-
+body[data-theme="light"] .login-btn {
+    box-shadow: 0 10px 25px rgba(56,189,248,.18);
 }
 
-body[data-theme="light"] .login-btn:hover{
-
-    box-shadow:
-
-        0 16px 35px rgba(56,189,248,.28);
-
+body[data-theme="light"] .login-btn:hover {
+    box-shadow: 0 16px 35px rgba(56,189,248,.28);
 }
 
 /* =========================
    SOCIAL DIVIDER
 ========================= */
 
-body[data-theme="light"] .social-divider span{
-
-    color:#64748b;
-
+body[data-theme="light"] .social-divider span {
+    color: #64748b;
 }
 
 /* =========================
    SOCIAL BUTTONS
 ========================= */
 
-body[data-theme="light"] .social-btn{
-
-    background:#ffffff;
-
-    border:1px solid rgba(15,23,42,.08);
-
-    box-shadow:
-
-        0 6px 18px rgba(15,23,42,.05);
-
+body[data-theme="light"] .social-btn {
+    background: #ffffff;
+    border: 1px solid rgba(15,23,42,.08);
+    box-shadow: 0 6px 18px rgba(15,23,42,.05);
 }
 
-body[data-theme="light"] .social-btn:hover{
-
-    border-color:rgba(2,132,199,.35);
-
-    box-shadow:
-
-        0 12px 24px rgba(56,189,248,.16);
-
+body[data-theme="light"] .social-btn:hover {
+    border-color: rgba(2,132,199,.35);
+    box-shadow: 0 12px 24px rgba(56,189,248,.16);
 }
 
 /* =========================
    GITHUB ICON
 ========================= */
 
-body[data-theme="light"] .github-icon{
-
-    filter:none;
-
+body[data-theme="light"] .github-icon {
+    filter: none;
 }
 
 /* =========================
    BOTTOM TEXT
 ========================= */
 
-body[data-theme="light"] .bottom-text{
-
-    color:#64748b;
-
+body[data-theme="light"] .bottom-text {
+    color: #64748b;
 }
 
-body[data-theme="light"] .bottom-text a{
-
-    color:#0284c7;
-
+body[data-theme="light"] .bottom-text a {
+    color: #0284c7;
 }
 
-body[data-theme="light"] .bottom-text a:hover{
-
-    color:#0369a1;
-
+body[data-theme="light"] .bottom-text a:hover {
+    color: #0369a1;
 }
 
 /* =========================
    FOOTER
 ========================= */
 
-body[data-theme="light"] footer{
-
-    color:#64748b;
-
+body[data-theme="light"] footer {
+    color: #334155 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.65);
 }
 
 /* =========================
    TEXT SELECTION
 ========================= */
 
-body[data-theme="light"] ::selection{
-
-    background:#38bdf8;
-
-    color:#ffffff;
-
+body[data-theme="light"] ::selection {
+    background: #38bdf8;
+    color: #ffffff;
 }
+
 /* =========================
-   CENTER ROBOT — LIGHT THEME
+   CENTER ROBOT
 ========================= */
+
 body[data-theme="light"] .login-center {
     transform: translate(30px, 50px);
 }
@@ -1053,3 +888,51 @@ body[data-theme="light"] .login-center {
 body[data-theme="light"] #robotCanvas {
     transform: scale(1.2);
 }
+
+/* =========================
+   FEATURE CARD — FULL-CARD PNG WALLPAPER
+========================= */
+
+body[data-theme="light"] .feature-card {
+    width: 111%;
+    max-width: 620px;
+    min-height: 588px;
+    padding-bottom: 20px;
+    transform: translateX(-22px);
+    border: 2px solid #66D9FF !important;
+    box-shadow: none !important;
+    transition: border-color 0.3s ease;
+}
+
+/* Keep card content above wallpaper */
+
+body[data-theme="light"] .feature-card__header,
+body[data-theme="light"] .feature-card__identity,
+body[data-theme="light"] .feature-card__main-stat,
+body[data-theme="light"] .feature-card__progress,
+body[data-theme="light"] .feature-card__support,
+body[data-theme="light"] .feature-carousel__footer {
+    position: relative;
+    z-index: 2;
+}
+
+body[data-theme="light"] .feature-card:hover {
+    border-color: #40C4F4 !important;
+    box-shadow: none !important;
+}
+
+/* =========================
+   LOGIN CARD — FINAL POSITION
+========================= */
+
+body[data-theme="light"] .login-card {
+    transform: translateX(22px);
+}
+
+body[data-theme="light"] footer 
+{
+    color: #0B2D5C !important;
+    font-weight: 700 !important;
+    margin-top: 35px;
+}
+

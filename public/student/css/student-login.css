@@ -894,9 +894,10 @@ body[data-theme="dark"]{
     }
 
     [data-theme="dark"] .feature-card__icon {
-        flex-basis: 72px;
-        width: 72px;
-        height: 72px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     }
 
     [data-theme="dark"] .feature-card__title {
