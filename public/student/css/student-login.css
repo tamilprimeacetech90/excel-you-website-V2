@@ -1906,3 +1906,129 @@ body[data-theme="dark"] .feature-carousel__footer {
         border-radius: 23px;
     }
 }
+
+
+/* =====================================================
+   EXCEL YOU — DARK THEME
+   FEATURE CARD SIZE MATCH — LIGHT THEME
+   Size and typography only
+===================================================== */
+
+/* OUTER CIRCULAR ICON */
+[data-theme="dark"] .feature-card__icon {
+    width: 68px;
+    height: 68px;
+    flex: 0 0 66px;
+    padding: 2px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* ICON IMAGE / SVG */
+[data-theme="dark"] .feature-card__icon img,
+[data-theme="dark"] .feature-card__icon svg {
+    width: 80px;
+    height: 80px;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    display: block;
+}
+
+/* FEATURE TITLE — already matches at 24px */
+[data-theme="dark"] .feature-card__title {
+    font-size: 24px;
+}
+
+/* SUBTITLE */
+[data-theme="dark"] .feature-card__subtitle {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* MAIN STATISTIC */
+[data-theme="dark"] .feature-card__main-stat {
+    font-size: 28px;
+    letter-spacing: 0.3px;
+}
+
+/* STATISTIC LABEL */
+[data-theme="dark"] .feature-card__main-stat-label {
+    font-size: 14px;
+}
+
+/* PROGRESS BAR */
+[data-theme="dark"] .feature-card__progress {
+    height: 11px;
+}
+
+/* SUPPORTING TEXT */
+[data-theme="dark"] .feature-card__support {
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* MOBILE — MATCH LIGHT THEME SIZES */
+@media (max-width: 600px) {
+
+    [data-theme="dark"] .feature-card__icon {
+        width: 62px;
+        height: 62px;
+        flex-basis: 62px;
+        margin-top: -2px;
+    }
+
+    [data-theme="dark"] .feature-card__title {
+        font-size: 20px;
+    }
+
+    [data-theme="dark"] .feature-card__subtitle {
+        font-size: 14px;
+    }
+
+    [data-theme="dark"] .feature-card__main-stat {
+        font-size: 45px;
+    }
+
+    [data-theme="dark"] .feature-card__main-stat-label,
+    [data-theme="dark"] .feature-card__support {
+        font-size: 13px;
+    }
+
+    [data-theme="dark"] .feature-card__progress {
+        height: 10px;
+    }
+}
+/* =====================================================
+   FEATURE CARD — REMOVE ARROWS
+   KEEP FOOTER AT THE BOTTOM
+===================================================== */
+
+/* Hide previous/next arrow controls */
+[data-theme="dark"] .feature-card__arrow,
+[data-theme="dark"] .feature-card__arrows,
+[data-theme="dark"] .feature-card__prev,
+[data-theme="dark"] .feature-card__next,
+[data-theme="dark"] .feature-card__nav {
+    display: none !important;
+}
+
+/* Make the feature card a vertical layout */
+[data-theme="dark"] .feature-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Let the main content occupy the available space */
+[data-theme="dark"] .feature-card__content,
+[data-theme="dark"] .feature-card__body {
+    flex: 1 0 auto;
+}
+
+/* Keep the footer at the bottom */
+[data-theme="dark"] .feature-card__footer {
+    margin-top: auto;
+    flex-shrink: 0;
+    width: 100%;
+}
