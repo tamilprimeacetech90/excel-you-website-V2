@@ -897,7 +897,7 @@ body[data-theme="light"] .feature-card {
     width: 111%;
     max-width: 620px;
     min-height: 588px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     transform: translateX(-22px);
     border: 2px solid #66D9FF !important;
     box-shadow: none !important;
@@ -935,4 +935,6 @@ body[data-theme="light"] footer
     font-weight: 700 !important;
     margin-top: 35px;
 }
+
+
 

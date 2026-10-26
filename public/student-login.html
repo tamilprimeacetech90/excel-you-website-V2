@@ -643,6 +643,7 @@ document.addEventListener("DOMContentLoaded", () => {
             subtitle: "Build your learning habit",
             icon: "assets/icons/daily-streak.svg",
             image: "/assets/icons/daily-streak.png",
+            darkImage: "/assets/icons/dark daily-streak.png",
             stat: "7 DAYS",
             progress: 70,
             support: "Keep your streak alive",
@@ -654,6 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
             subtitle: "Every effort earns progress",
             icon: "assets/icons/xp-rewards.svg",
             image: "/assets/icons/xp-rewards (2).png",
+            darkImage: "/assets/icons/dark xp-rewards (2).png",
             stat: "+250 XP",
             progress: 65,
             support: "Learn more. Earn more.",
@@ -665,6 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
             subtitle: "Rise through the rankings",
             icon: "assets/icons/scholar-rank.svg",
             image: "/assets/icons/1scholar-rank.png",
+            darkImage: "/assets/icons/dark scholar-rank.png",
             stat: "LEVEL UP",
             progress: 80,
             support: "Every step moves you forward",
@@ -676,6 +679,7 @@ document.addEventListener("DOMContentLoaded", () => {
             subtitle: "Reach your highest potential",
             icon: "assets/icons/celestial-immortal.svg",
             image: "/assets/icons/1celestial-immortal.png",
+            darkImage: "/assets/icons/dark celestial-immortal.png",
             stat: "LEGENDARY",
             progress: 100,
             support: "Rise beyond every limit",
@@ -748,10 +752,15 @@ document.addEventListener("DOMContentLoaded", () => {
             document.createTextNode(feature.support)
         );
 
-        /* Illustration background */
+        /* Illustration background — keep existing light images unchanged */
+        const isDarkTheme = document.body.dataset.theme === "dark";
+        const featureImage = isDarkTheme
+            ? (feature.darkImage || feature.image)
+            : feature.image;
+
         visual.style.setProperty(
             "--feature-image",
-            'url("' + feature.image + '")'
+            'url("' + featureImage + '")'
         );
 
         visual.setAttribute("aria-label", feature.alt);
@@ -772,6 +781,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+
+    /* Refresh only the artwork when the page theme changes */
+    const themeObserver = new MutationObserver(() => {
+        updateFeature(currentIndex);
+    });
+
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ["data-theme"]
+    });
 
     /* =====================================================
        CHANGE FEATURE WITH FADE / MORPH
