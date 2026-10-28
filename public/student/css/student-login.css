@@ -2249,3 +2249,24 @@ body[data-theme="dark"] footer {
     position: relative;
     z-index: 5;
 }
+/* DARK THEME — THICKER LOGIN CARD BORDER */
+body[data-theme="dark"] .login-card {
+    border-width: 2px !important;
+    border-style: solid;
+    border-color: #38dfff;
+    box-sizing: border-box;
+}
+
+/* LOGIN ERROR MESSAGE */
+
+body[data-theme="dark"].login-error {
+    display: none;
+    padding: 10px 14px;
+    margin: 0 0 4px;
+    border: 1px solid rgba(239, 68, 68, 0.45);
+    border-radius: 10px;
+    background: rgba(239, 68, 68, 0.10);
+    color: #ef4444;
+    font-size: 13px;
+    line-height: 1.5;
+}
