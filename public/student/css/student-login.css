@@ -1813,7 +1813,7 @@ html{
 body[data-theme="dark"] .feature-card {
     width: 111%;
     max-width: 620px;
-    min-height: 588px;
+    min-height: 580px;
     padding-bottom: 30px;
     transform: translateX(-22px);
 
@@ -1999,36 +1999,253 @@ body[data-theme="dark"] .feature-carousel__footer {
         height: 10px;
     }
 }
-/* =====================================================
-   FEATURE CARD — REMOVE ARROWS
-   KEEP FOOTER AT THE BOTTOM
-===================================================== */
 
-/* Hide previous/next arrow controls */
-[data-theme="dark"] .feature-card__arrow,
-[data-theme="dark"] .feature-card__arrows,
-[data-theme="dark"] .feature-card__prev,
-[data-theme="dark"] .feature-card__next,
-[data-theme="dark"] .feature-card__nav {
+/* =====================================================
+   EXCEL YOU — DARK THEME
+   REMOVE ARROWS + DOTS
+   ANCHOR FOOTER AT CARD BOTTOM
+   ===================================================== */
+
+/* Hide both arrow buttons */
+body[data-theme="dark"] .feature-carousel__arrow {
     display: none !important;
 }
 
-/* Make the feature card a vertical layout */
-[data-theme="dark"] .feature-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+/* Hide the navigation dots */
+body[data-theme="dark"] .feature-carousel__selectors {
+    display: none !important;
 }
 
-/* Let the main content occupy the available space */
-[data-theme="dark"] .feature-card__content,
-[data-theme="dark"] .feature-card__body {
+/* Keep the card as a vertical flex layout */
+body[data-theme="dark"] .feature-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Push the footer to the bottom of the card */
+body[data-theme="dark"] .feature-carousel__footer {
+    margin-top: auto;
+    width: 100%;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 0 28px 24px;
+}
+
+/* Mobile footer spacing */
+@media (max-width: 600px) {
+    body[data-theme="dark"] .feature-carousel__footer {
+        padding: 0 20px 19px;
+    }
+}
+/* REMOVE ONLY THE ARROW BUTTONS */
+body[data-theme="dark"] .feature-carousel__arrow {
+    display: none !important;
+}
+
+/* KEEP THE DOTS VISIBLE */
+body[data-theme="dark"] .feature-carousel__selectors {
+    display: flex !important;
+}
+
+/* DARK THEME — MATCH LIGHT THEME IMAGE ZOOM */
+body[data-theme="dark"] .feature-card__visual {
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* =====================================================
+   EXCEL YOU — LOGIN CARD
+   MATCH DARK THEME FEATURE CARD BORDER
+   Deep Navy Glass + Neon Cyan Border
+===================================================== */
+
+.login-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 400px;
+    max-width: 520px;
+    padding: 30px;
+
+    border: 1.5px solid rgba(48, 174, 255, 0.72);
+    border-radius: 29px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 46%,
+            rgba(13, 74, 123, 0.20),
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(9, 25, 46, 0.99),
+            rgba(5, 17, 33, 0.98) 60%,
+            rgba(7, 26, 47, 0.99)
+        );
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+        0 0 0 3px rgba(42, 169, 255, 0.055),
+        0 0 22px rgba(0, 153, 255, 0.15),
+        0 15px 38px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(139, 211, 255, 0.10);
+
+    transition:
+        border-color 300ms ease,
+        box-shadow 300ms ease,
+        transform 350ms ease;
+}
+
+/* TOP NEON HIGHLIGHT */
+
+.login-card::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 2px;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #5adfff 20%,
+        #078bff 50%,
+        #5adfff 80%,
+        transparent
+    );
+
+    box-shadow:
+        0 0 11px rgba(28, 188, 255, 0.65);
+}
+
+/* SUBTLE INNER CYAN BORDER */
+
+.login-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+
+    inset: 12px;
+    border-radius: 18px;
+
+    border: 1px solid rgba(48, 174, 255, 0.22);
+
+    pointer-events: none;
+}
+
+/* KEEP LOGIN CONTENT ABOVE THE BORDER EFFECTS */
+
+.login-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* HOVER — FEATURE CARD STYLE */
+
+.login-card:hover {
+    border-color: #66D9FF;
+
+    box-shadow:
+        0 0 0 3px rgba(42, 169, 255, 0.07),
+        0 0 28px rgba(0, 153, 255, 0.22),
+        0 15px 38px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(139, 211, 255, 0.12);
+
+    transform: translateY(-3px);
+}
+
+/* MOBILE — KEEP EXISTING FORM SPACING */
+
+@media (max-width: 768px) {
+    .login-card {
+        padding: 24px;
+        border-radius: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px;
+        border-radius: 23px;
+    }
+}
+/* Fix Chrome's automatic password autofill styling */
+body[data-theme="dark"] .login-card input:-webkit-autofill,
+body[data-theme="dark"] .login-card input:-webkit-autofill:hover,
+body[data-theme="dark"] .login-card input:-webkit-autofill:focus,
+body[data-theme="dark"] .login-card input:-webkit-autofill:active {
+    -webkit-text-fill-color: #e2e8f0 !important;
+    caret-color: #ffffff;
+
+    -webkit-box-shadow: 0 0 0 1000px #071a2d inset !important;
+    box-shadow: 0 0 0 1000px #071a2d inset !important;
+
+    transition: background-color 99999s ease-out 0s;
+}
+
+/* =========================================
+   DARK THEME — FOOTER AT BOTTOM
+========================================= */
+
+body[data-theme="dark"] {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body[data-theme="dark"] .login-wrapper {
     flex: 1 0 auto;
 }
 
-/* Keep the footer at the bottom */
-[data-theme="dark"] .feature-card__footer {
+body[data-theme="dark"] footer {
     margin-top: auto;
-    flex-shrink: 0;
-    width: 100%;
+}
+
+
+body[data-theme="dark"] footer,
+body[data-theme="dark"] footer p,
+body[data-theme="dark"] footer a {
+    color: #ffffff;
+}
+
+
+/* DARK THEME — Move Login Card Slightly Right */
+body[data-theme="dark"] .login-card {
+    transform: translateX(45px);
+}
+/* =========================================
+   DARK THEME — REDUCE BOTH CARD HEIGHTS
+========================================= */
+
+/* Left feature card */
+body[data-theme="dark"] .feature-card {
+    min-height: 0;
+    height: 580px;
+ box-sizing: border-box;
+
+}
+
+/* Right login card */
+body[data-theme="dark"] .login-card {
+    min-height: 0;
+    height: 580px;
+    box-sizing: border-box;
+}
+/* DARK THEME — FOOTER */
+body[data-theme="dark"] footer {
+    color: #ffffff;
+    text-align: center;
+    margin-top: auto;
+    padding: 10px 0 14px;
+    position: relative;
+    z-index: 5;
 }

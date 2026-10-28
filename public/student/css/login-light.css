@@ -895,8 +895,8 @@ body[data-theme="light"] #robotCanvas {
 
 body[data-theme="light"] .feature-card {
     width: 111%;
-    max-width: 620px;
-    min-height: 588px;
+    max-width: 580px;
+    min-height: 580px;
     padding-bottom: 30px;
     transform: translateX(-22px);
     border: 2px solid #66D9FF !important;
@@ -921,20 +921,90 @@ body[data-theme="light"] .feature-card:hover {
     box-shadow: none !important;
 }
 
-/* =========================
-   LOGIN CARD — FINAL POSITION
-========================= */
+/* Fix Chrome's automatic password autofill styling */
+body[data-theme="light"] .login-card input:-webkit-autofill,
+body[data-theme="light"] .login-card input:-webkit-autofill:hover,
+body[data-theme="light"] .login-card input:-webkit-autofill:focus,
+body[data-theme="light"] .login-card input:-webkit-autofill:active {
+    -webkit-text-fill-color: #e2e8f0 !important;
+    caret-color: #ffffff;
+
+    -webkit-box-shadow: 0 0 0 1000px #071a2d inset !important;
+    box-shadow: 0 0 0 1000px #071a2d inset !important;
+
+    transition: background-color 99999s ease-out 0s;
+}
+body[data-theme="light"] {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body[data-theme="light"] .login-wrapper {
+    flex: 1 0 auto;
+}
+
+body[data-theme="light"] footer {
+    margin-top: 20;
+}
+
+/* =========================================
+   LIGHT THEME — MOVE BOTH CARDS DOWN
+========================================= */
+
+body[data-theme="light"] .login-left,
+body[data-theme="light"] .login-right {
+    transform: translateY(30px);
+}
+/* LIGHT THEME — REDUCE LOGIN CARD HEIGHT */
 
 body[data-theme="light"] .login-card {
-    transform: translateX(22px);
+    min-height: 0;
+    height: 580px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
-body[data-theme="light"] footer 
-{
-    color: #0B2D5C !important;
-    font-weight: 700 !important;
-    margin-top: 35px;
+/* LIGHT THEME — MOVE LOGIN CARD UPWARD */
+
+body[data-theme="light"] .feature-card {
+    transform: translateY(20px);
+}
+/* LIGHT THEME — MOVE LOGIN CARD RIGHT */
+
+body[data-theme="light"] .login-wrapper .login-card, body[data-theme="light"] .feature-wrapper .feature-card {
+    position: relative;
+    left: 20px;
+}
+/* =========================================
+   LIGHT THEME — ADJUST CARD POSITIONS
+========================================= */
+
+/* Move feature card slightly left */
+body[data-theme="light"] .login-left {
+    transform: translateX(-15px);
 }
 
+/* Move login card slightly right */
+body[data-theme="light"] .login-right {
+    transform: translateX(15px);
+}
+body[data-theme="light"] .login-card {
+    transform: translateY(20px);
+}
+/* DARK THEME — BLACK FOOTER TEXT */
 
-
+body[data-theme="light"] footer,
+body[data-theme="light"] footer p,
+body[data-theme="light"] footer a {
+    color: #000000 !important;
+}
+/* LIGHT THEME — FOOTER */
+body[data-theme="light"] footer {
+    color: #334155;
+    text-align: center;
+    margin-top: auto;
+    padding: 10px 0 14px;
+    position: relative;
+    z-index: 5;
+}
