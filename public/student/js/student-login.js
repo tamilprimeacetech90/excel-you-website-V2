@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loginForm =
         document.getElementById(
-            "studentLoginForm"
+            "loginForm"
         );
 
     const errorBox =
@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "themeBtn"
         );
  
+
+
 // =========================
 // EMAIL EXISTS ERROR
 // =========================
@@ -41,11 +43,12 @@ if (params.get("error") === "email_exists") {
     localStorage.removeItem("studentLoggedIn");
     localStorage.removeItem("student");
 
-    errorBox.textContent =
-    "This email is already registered. Please login.";
+    if (errorBox) {
+        errorBox.textContent =
+            "This email is already registered. Please login.";
 
-errorBox.style.display =
-    "block";
+        errorBox.style.display = "block";
+    }
 
     window.history.replaceState(
         {},
