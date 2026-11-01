@@ -52,10 +52,23 @@ const studentSchema = new mongoose.Schema({
         default: 0
     },
 
-    avatar: {
-        type: String,
-        default: "/assets/avatars/male-beginner.png"
-    }
+   
+avatar: {
+    type: String,
+    default: "/assets/avatars/male-beginner.png"
+},
+
+// FORGOT PASSWORD
+resetPasswordTokenHash: {
+    type: String,
+    default: null
+},
+
+resetPasswordExpires: {
+    type: Date,
+    default: null
+}
+
 
 }, {
     timestamps: true

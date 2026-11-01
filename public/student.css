@@ -1,0 +1,693 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================
+   THEME SYSTEM
+========================= */
+
+:root {
+
+    /* LIGHT MODE */
+    --bg: #f8fafc;
+    --card: rgba(255,255,255,0.78);
+    --glass: rgba(255,255,255,0.55);
+
+    --text: #0f172a;
+    --text-muted: #64748b;
+
+    --border:
+        rgba(15,23,42,0.08);
+
+    --primary: #38bdf8;
+    --accent: #2563eb;
+
+    --shadow:
+        0 10px 35px rgba(15,23,42,0.08);
+
+    --radius: 24px;
+
+}
+
+[data-theme="dark"] {
+
+    /* DARK MODE */
+    --bg: #07111f;
+    --card: rgba(255,255,255,0.06);
+    --glass: rgba(255,255,255,0.05);
+
+    --text: #ffffff;
+    --text-muted: #94a3b8;
+
+    --border:
+        rgba(255,255,255,0.08);
+
+    --primary: #38bdf8;
+    --accent: #8b5cf6;
+
+    --shadow:
+        0 10px 40px rgba(0,0,0,0.4);
+
+}
+
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    margin: 0;
+
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+body::before,
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: 0.18;
+
+    z-index: -1;
+
+}
+
+body::before {
+
+    top: -120px;
+    left: -120px;
+
+    background: #2563eb;
+
+}
+
+body::after {
+
+    right: -120px;
+    bottom: -120px;
+
+    background: #7c3aed;
+
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    width: 100%;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 16px 5%;
+
+    background:
+        rgba(6,11,20,0.72);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-wrap {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.logo-img {
+
+    height:
+        clamp(44px,5vw,62px);
+
+    width: auto;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================
+   NAVIGATION LINKS
+========================= */
+
+.links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+}
+
+.links a {
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+}
+
+.links a:hover {
+
+    color: var(--primary);
+
+    text-shadow:
+        0 0 10px rgba(56,189,248,0.5);
+
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        140px 20px 80px;
+
+}
+
+.hero-badge {
+
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    background: var(--glass);
+
+    border:
+        1px solid var(--border);
+
+    color: var(--text-muted);
+
+    margin-bottom: 28px;
+
+    backdrop-filter: blur(18px);
+
+}
+
+.hero h1 {
+
+    font-size:
+        clamp(42px,7vw,78px);
+
+    line-height: 1.1;
+
+    margin-bottom: 24px;
+
+    max-width: 1000px;
+
+}
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            135deg,
+            #60a5fa,
+            #a855f7
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+.hero p {
+
+    max-width: 760px;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: var(--text-muted);
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn {
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 14px;
+
+    transition: 0.3s ease;
+
+}
+
+button:hover,
+.btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
+.primary-btn {
+
+    padding: 14px 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--accent)
+        );
+
+    color: white;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 24px rgba(37,99,235,0.25);
+
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+
+    padding: 90px 5%;
+
+}
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+.section-title h2 {
+
+    font-size:
+        clamp(34px,5vw,54px);
+
+    margin-bottom: 18px;
+
+}
+
+.section-title p {
+
+    color: var(--text-muted);
+
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================
+   CARD GRID
+========================= */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap: 24px;
+
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    backdrop-filter: blur(18px);
+
+    transition: 0.3s ease;
+
+    box-shadow: var(--shadow);
+
+}
+
+.card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(96,165,250,0.35);
+
+    box-shadow:
+        0 20px 50px rgba(96,165,250,0.12);
+
+}
+
+.card h3 {
+
+    margin-bottom: 14px;
+
+    font-size: 22px;
+
+}
+
+.card p {
+
+    color: var(--text-muted);
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+.profile {
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    border:
+        4px solid var(--primary);
+
+    object-fit: cover;
+
+    margin-bottom: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(56,189,248,0.25);
+
+}
+
+
+/* =========================
+   LOADER
+========================= */
+
+.loader {
+
+    width: 60px;
+    height: 60px;
+
+    margin: 40px auto;
+
+    border-radius: 50%;
+
+    border:
+        5px solid rgba(255,255,255,0.08);
+
+    border-top:
+        5px solid #60a5fa;
+
+    animation:
+        spin 1s linear infinite;
+
+}
+
+@keyframes spin {
+
+    100% {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================
+   SKELETON
+========================= */
+
+.skeleton {
+
+    width: 100%;
+
+    height: 140px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.03)
+        );
+
+    background-size: 300% 100%;
+
+    animation:
+        shimmer 1.6s infinite;
+
+}
+
+@keyframes shimmer {
+
+    0% {
+
+        background-position: 200% 0;
+
+    }
+
+    100% {
+
+        background-position: -200% 0;
+
+    }
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    border-top:
+        1px solid var(--border);
+
+    margin-top: 80px;
+
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+    .navbar {
+
+        padding: 16px 20px;
+
+    }
+
+    .hero {
+
+        padding:
+            130px 20px 60px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        text-align: center;
+
+    }
+
+    .links {
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 42px;
+
+    }
+
+    .hero p {
+
+        font-size: 16px;
+
+    }
+
+    .section {
+
+        padding: 70px 20px;
+
+    }
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .card {
+
+        padding: 24px;
+
+    }
+
+    .logo-img {
+
+        height: 50px;
+
+    }
+
+}

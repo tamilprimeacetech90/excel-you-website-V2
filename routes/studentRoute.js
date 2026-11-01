@@ -4,6 +4,7 @@ const router = express.Router();
 const Student =
     require("../models/Student");
 const passport = require("passport");
+const bcrypt = require("bcrypt");
 
 // ======================
 // SIGNUP
@@ -43,17 +44,28 @@ router.post("/signup", async (req, res) => {
 
         : "/assets/avatars/male-beginner.png";
 
-        const student =
-             new Student({
-             username,
-             email,
-             password,
-             gender,
-              learningPath,
-             avatar
-          });
+              // ======================
+        // HASH PASSWORD
+        // ======================
 
-       await student.save();
+        const hashedPassword =
+            await bcrypt.hash(password, 10);
+
+        // ======================
+        // CREATE STUDENT
+        // ======================
+
+        const student =
+            new Student({
+                username,
+                email,
+                password: hashedPassword,
+                gender,
+                learningPath,
+                avatar
+            });
+
+        await student.save();
 
 // Automatically log in the student
 req.login(student, (err) => {
@@ -116,16 +128,21 @@ router.post("/login", async (req, res) => {
             });
 
         }
+// ======================
+// VERIFY BCRYPT PASSWORD
+// ======================
 
-        if (student.password !== password) {
+const isPasswordValid =
+    await bcrypt.compare(password, student.password);
 
-            return res.status(400).json({
-                success: false,
-                message: "Invalid email or password"
-            });
+if (!isPasswordValid) {
 
-        }
+    return res.status(400).json({
+        success: false,
+        message: "Invalid email or password"
+    });
 
+}
        req.login(student, (err) => {
 
     if (err) {
