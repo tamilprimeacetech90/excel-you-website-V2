@@ -30,6 +30,7 @@ const uploadRoutes = require("./routes/uploadRoutes");
 const subjectRoutes = require("./routes/subjectRoutes");
 const studentRoute = require("./routes/studentRoute");
 const authRoutes = require("./routes/authRoutes");
+const passwordResetRoute = require("./routes/passwordresetroute");
 
 
 
@@ -141,6 +142,20 @@ app.use(
     "/api/student",
     studentRoute
 );
+
+// =====================
+// 🔐 PASSWORD RESET ROUTES
+// =====================
+
+app.use(
+    "/api/student",
+    passwordResetRoute
+);
+
+
+
+
+
 // =====================
 // 🌍 WEBSITE PAGES
 // =====================
