@@ -1021,3 +1021,39 @@ body[data-theme="light"].login-error {
     font-size: 13px;
     line-height: 1.5;
 }
+
+
+
+#errorBox {
+    padding: 7px 12px;
+    margin: 8px 0 10px;
+
+    font-size: 13px;
+    line-height: 1.35;
+    border-radius: 8px;
+}
+
+
+/* Light theme */
+[data-theme="light"] #errorBox {
+    color: #dc2626;
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(220, 38, 38, 0.3);
+}
+/* =====================================
+   CHROME AUTOFILL — LIGHT THEME
+===================================== */
+
+[data-theme="light"] input:-webkit-autofill,
+[data-theme="light"] input:-webkit-autofill:hover,
+[data-theme="light"] input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #1e293b !important;
+
+    -webkit-box-shadow: 0 0 0 1000px #f1f8ff inset !important;
+
+    box-shadow: 0 0 0 1000px #f1f8ff inset !important;
+
+    caret-color: #1e293b;
+
+    transition: background-color 9999s ease-in-out 0s;
+}

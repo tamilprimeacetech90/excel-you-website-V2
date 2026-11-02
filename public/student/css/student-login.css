@@ -2313,18 +2313,12 @@ body[data-theme="dark"].login-error {
 ===================================== */
 
 #errorBox {
-    padding: 11px 14px;
-    margin: 12px 0 16px;
+    padding: 7px 12px;
+    margin: 8px 0 10px;
 
-    color: #dc2626;
-    background: rgba(239, 68, 68, 0.09);
-
-    border: 1px solid rgba(239, 68, 68, 0.35);
-    border-radius: 9px;
-
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.35;
+    border-radius: 8px;
 }
 
 /* Dark theme */
