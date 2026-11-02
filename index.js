@@ -30,8 +30,7 @@ const uploadRoutes = require("./routes/uploadRoutes");
 const subjectRoutes = require("./routes/subjectRoutes");
 const studentRoute = require("./routes/studentRoute");
 const authRoutes = require("./routes/authRoutes");
-const passwordResetRoute = require("./routes/passwordresetroute");
-
+const passwordResetRoute = require("./routes/passwordResetRoute");
 
 
 const app = express();
