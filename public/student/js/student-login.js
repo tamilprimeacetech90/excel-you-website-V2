@@ -83,28 +83,46 @@ if (!hasError) {
 
 }
 
-    // =========================
-    // ERROR FUNCTIONS
-    // =========================
+// =========================
+// ERROR NOTIFICATION
+// =========================
 
-    function showError(message) {
+let errorTimeout;
 
-        if (!errorBox) return;
+function showError(message) {
 
-        errorBox.textContent =
-            message;
+    if (!errorBox) return;
 
-        errorBox.style.display =
-            "block";
-    }
+    clearTimeout(errorTimeout);
 
-    function hideError() {
+    errorBox.textContent = message;
+    errorBox.style.display = "block";
 
-        if (!errorBox) return;
+    requestAnimationFrame(() => {
+        errorBox.classList.add("show");
+    });
 
-        errorBox.style.display =
-            "none";
-    }
+    errorTimeout = setTimeout(() => {
+        hideError();
+    }, 5000);
+}
+
+function hideError() {
+
+    if (!errorBox) return;
+
+    clearTimeout(errorTimeout);
+
+    errorBox.classList.remove("show");
+
+    setTimeout(() => {
+
+        if (!errorBox.classList.contains("show")) {
+            errorBox.style.display = "none";
+        }
+
+    }, 300);
+}
 
     // =========================
     // LOADING BUTTON
