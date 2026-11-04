@@ -1424,4 +1424,143 @@ body[data-theme="light"] .login-error::before {
     }
 }
 
+/* =====================================================
+   EXCEL YOU — LIGHT THEME
+   MOBILE REFINEMENT V2
+   Header • Robot • Login Card Spacing
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    /* HEADER — REDUCE HEIGHT */
+
+    body[data-theme="light"] .topbar {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        padding: 10px 16px;
+    }
+
+    body[data-theme="light"] .logo-img {
+        width: 135px;
+    }
+
+    body[data-theme="light"] .topbar-right {
+        gap: 9px;
+    }
+
+    body[data-theme="light"] .signup-btn {
+        padding: 8px 13px;
+        font-size: 13px;
+    }
+
+    body[data-theme="light"] .theme-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    /* ROBOT — REDUCE SIZE AND VERTICAL SPACE */
+
+    body[data-theme="light"] .login-center {
+        min-height: 0;
+        height: 290px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body[data-theme="light"] .login-center .main-avatar {
+        width: min(78vw, 320px);
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* LOGIN CARD — COMPACT SPACING */
+
+    body[data-theme="light"] .login-card {
+        width: 100%;
+        max-width: 100%;
+
+        height: auto;
+        min-height: 0;
+
+        padding: 19px 16px;
+
+        margin: 0;
+
+        transform: none !important;
+    }
+
+
+    /* LOGIN TITLE */
+
+    body[data-theme="light"] .login-title {
+        font-size: 24px;
+        margin-bottom: 7px;
+    }
+
+    body[data-theme="light"] .login-subtitle {
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+
+    /* INPUT FIELD SPACING */
+
+    body[data-theme="light"] .login-form {
+        gap: 17px;
+    }
+
+    body[data-theme="light"] .input-group input {
+        padding-top: 14px;
+        padding-bottom: 8px;
+        font-size: 15px;
+    }
+
+
+    /* REMEMBER ROW */
+
+    body[data-theme="light"] .remember-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        flex-wrap: wrap;
+        gap: 8px;
+
+        font-size: 12px;
+    }
+
+
+    /* LOGIN BUTTON */
+
+    body[data-theme="light"] .login-btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+
+    /* SOCIAL LOGIN */
+
+    body[data-theme="light"] .social-divider {
+        margin: 8px 0 7px;
+    }
+
+    body[data-theme="light"] .social-btn {
+        width: 46px;
+        height: 46px;
+    }
+
+    body[data-theme="light"] .bottom-text {
+        margin-top: 12px;
+        font-size: 12px;
+    }
+
+}
+
 
