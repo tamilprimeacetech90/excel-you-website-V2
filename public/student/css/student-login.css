@@ -2881,3 +2881,10 @@ body[data-theme="dark"] .login-error {
     }
 
 }
+
+/* MOBILE — DARK NAVY TOP MENU */
+@media screen and (max-width: 480px) {
+    body[data-theme="dark"] .topbar {
+        background: #06152f !important;
+    }
+}

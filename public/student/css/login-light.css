@@ -1746,13 +1746,8 @@ body[data-theme="light"] .login-error::before {
 }  
 
 @media screen and (max-width: 480px) {
-
     body[data-theme="light"] .login-wrapper {
-
         gap: 0 !important;
-
-        padding: 100px 9px 25px !important;
-
+        padding: 95px 12px 25px !important;
     }
-
 }
