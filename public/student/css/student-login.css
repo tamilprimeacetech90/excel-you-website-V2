@@ -2866,3 +2866,18 @@ body[data-theme="dark"] .login-error {
     }
 
 }
+/* ==========================================
+   MOBILE — LOGIN CARD VERTICAL POSITION
+   DARK + LIGHT THEME
+========================================== */
+
+@media screen and (max-width: 480px) {
+
+    body[data-theme="dark"] .login-wrapper,
+    body[data-theme="light"] .login-wrapper {
+
+        padding-top: 65px !important;
+
+    }
+
+}

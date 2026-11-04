@@ -1563,4 +1563,186 @@ body[data-theme="light"] .login-error::before {
 
 }
 
+/* =====================================================
+   EXCEL YOU — LIGHT THEME
+   MOBILE LOGIN PAGE CORRECTIONS
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    /* =====================================
+       1. LOGIN WRAPPER
+       FIX DESKTOP GRID AND WIDTH
+    ===================================== */
+
+    body[data-theme="light"] .login-wrapper {
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+
+        padding: 130px 12px 25px !important;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* =====================================
+       2. LOGIN RIGHT PANEL
+       REMOVE DESKTOP POSITIONING
+    ===================================== */
+
+    body[data-theme="light"] .login-right {
+
+        display: flex;
+
+        width: 100%;
+        max-width: 100%;
+
+        justify-content: center;
+        align-items: flex-start;
+
+        position: relative;
+
+        left: auto !important;
+        right: auto !important;
+
+        margin: 0 !important;
+
+        transform: none !important;
+
+    }
+
+
+    /* =====================================
+       3. LOGIN CARD
+       FIX HORIZONTAL OVERFLOW
+    ===================================== */
+
+    body[data-theme="light"] .login-card {
+
+        position: relative;
+
+        left: auto !important;
+        right: auto !important;
+
+        width: 100% !important;
+        max-width: 520px !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: 0 auto !important;
+
+        padding: 24px 16px !important;
+
+        transform: none !important;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* =====================================
+       4. INPUT FIELDS
+    ===================================== */
+
+    body[data-theme="light"] .input-group {
+
+        width: 100%;
+        min-width: 0;
+
+    }
+
+    body[data-theme="light"] .input-group input {
+
+        width: 100%;
+        max-width: 100%;
+
+        box-sizing: border-box;
+
+        font-size: 15px;
+
+    }
+
+
+    /* =====================================
+       5. REMEMBER PASSWORD ROW
+    ===================================== */
+
+    body[data-theme="light"] .remember-row {
+
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        font-size: 12px;
+
+    }
+
+    body[data-theme="light"] .remember-row a {
+
+        white-space: nowrap;
+
+    }
+
+
+    /* =====================================
+       6. LOGIN BUTTON
+    ===================================== */
+
+    body[data-theme="light"] .login-btn {
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 15px 10px;
+
+        font-size: 16px;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* =====================================
+       7. SOCIAL LOGIN
+    ===================================== */
+
+    body[data-theme="light"] .social-login {
+
+        justify-content: center;
+        gap: 14px;
+
+    }
+
+
+    /* =====================================
+       8. ERROR NOTIFICATION
+    ===================================== */
+
+    body[data-theme="light"] .login-error {
+
+        top: 85px !important;
+
+        left: 50% !important;
+
+        width: max-content;
+        max-width: calc(100vw - 36px);
+
+        z-index: 100000;
+
+    }
+
+}
+
 
