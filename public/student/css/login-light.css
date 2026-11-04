@@ -1638,8 +1638,7 @@ body[data-theme="light"] .login-error::before {
 
         margin: 0 auto !important;
 
-        padding: 24px 16px !important;
-
+padding: 100px 12px 25px !important;
         transform: none !important;
 
         box-sizing: border-box;
