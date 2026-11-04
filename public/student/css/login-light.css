@@ -1751,3 +1751,16 @@ body[data-theme="light"] .login-error::before {
         padding: 80px 12px 25px !important;
     }
 }
+
+/* =========================================
+   LIGHT THEME — EMAIL AUTOFILL FIX
+========================================= */
+
+body[data-theme="light"] .input-group input:-webkit-autofill,
+body[data-theme="light"] .input-group input:-webkit-autofill:hover,
+body[data-theme="light"] .input-group input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #1f2937 !important;
+    caret-color: #1f2937;
+    transition: background-color 9999s ease-in-out 0s;
+}
