@@ -1027,3 +1027,401 @@ body[data-theme="light"] footer {
 
     transition: background-color 9999s ease-in-out 0s;
 }
+
+
+
+
+/* ==========================================
+   LIGHT THEME — RED DANGER ALERT BORDER
+========================================== */
+
+body[data-theme="light"] .login-error {
+
+    background: rgba(255, 245, 247, 0.28);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    border: 1px solid rgba(220, 20, 60, 0.75);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 0 5px rgba(220, 20, 60, 0.12);
+
+    color: #17365c;
+
+    text-shadow: none;
+}
+
+
+/* ==========================================
+   LIGHT THEME — SHARP DANGER ICON
+========================================== */
+
+body[data-theme="light"] .login-error::before {
+
+    color: #dc143c;
+
+    text-shadow: none;
+    filter: none;
+}
+
+
+/* ==========================================
+   LIGHT THEME — SIMPLE RECTANGULAR ERROR
+========================================== */
+
+body[data-theme="light"] .login-error {
+
+    background: rgba(255, 245, 247, 0.25);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    border: 1px solid #dc143c;
+
+    border-radius: 5px;
+
+    box-shadow: none;
+
+    color: #17365c;
+    text-shadow: none;
+}
+
+
+/* SHARP RED WARNING ICON */
+
+body[data-theme="light"] .login-error::before {
+
+    color: #dc143c;
+    text-shadow: none;
+    filter: none;
+}
+
+/* ==========================================
+   EXCEL YOU — LOGIN ERROR
+   FIXED TOP-CENTRE POSITION
+========================================== */
+
+.login-error {
+    position: fixed !important;
+
+    top: 100px;
+    left: 50%;
+
+    width: calc(100% - 40px);
+    max-width: 420px;
+
+    margin: 0 !important;
+
+    box-sizing: border-box;
+
+    z-index: 99999;
+
+    transform: translate(-50%, -8px);
+
+    pointer-events: none;
+}
+
+/* ERROR VISIBLE */
+
+.login-error.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%, 0);
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    .login-error {
+        top: 85px;
+        width: calc(100% - 30px);
+    }
+
+}
+
+
+
+/* ==========================================
+   LIGHT THEME — RED DANGER ALERT BORDER
+========================================== */
+
+body[data-theme="light"] .login-error {
+
+    background: rgba(255, 245, 247, 0.28);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    border: 1px solid rgba(220, 20, 60, 0.75);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 0 5px rgba(220, 20, 60, 0.12);
+
+    color: #17365c;
+
+    text-shadow: none;
+}
+
+
+/* ==========================================
+   LIGHT THEME — SHARP DANGER ICON
+========================================== */
+
+body[data-theme="light"] .login-error::before {
+
+    color: #dc143c;
+
+    text-shadow: none;
+    filter: none;
+}
+
+
+/* ==========================================
+   LIGHT THEME — SIMPLE RECTANGULAR ERROR
+========================================== */
+
+body[data-theme="light"] .login-error {
+
+    background: rgba(255, 245, 247, 0.25);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    border: 1px solid #dc143c;
+
+    border-radius: 5px;
+
+    box-shadow: none;
+
+    color: #17365c;
+    text-shadow: none;
+}
+
+
+/* SHARP RED WARNING ICON */
+
+body[data-theme="light"] .login-error::before {
+
+    color: #dc143c;
+    text-shadow: none;
+    filter: none;
+}
+
+
+/* =====================================================
+   EXCEL YOU — LIGHT THEME
+   MOBILE LOGIN LAYOUT ONLY
+   Desktop styling remains unchanged
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* PREVENT HORIZONTAL OVERFLOW */
+
+    html,
+    body[data-theme="light"] {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* MOBILE HEADER */
+
+    body[data-theme="light"] .topbar {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 16px;
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    body[data-theme="light"] .logo-img {
+        width: 135px;
+        max-width: 40vw;
+    }
+
+    body[data-theme="light"] .nav-links {
+        display: none;
+    }
+
+    body[data-theme="light"] .topbar-right {
+        gap: 9px;
+        flex-shrink: 0;
+    }
+
+    body[data-theme="light"] .signup-btn {
+        padding: 8px 13px;
+        font-size: 13px;
+    }
+
+    body[data-theme="light"] .theme-btn {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    /* MAIN LOGIN LAYOUT */
+
+    body[data-theme="light"] .login-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        box-sizing: border-box;
+        padding: 20px 14px 24px;
+        gap: 22px;
+
+        margin: 0 auto;
+    }
+
+    /* HIDE LEFT FEATURE AREA ON MOBILE */
+
+    body[data-theme="light"] .login-left {
+        display: none;
+    }
+
+    /* CENTER ROBOT AREA */
+
+    body[data-theme="light"] .login-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+        min-height: 190px;
+
+        box-sizing: border-box;
+    }
+
+    body[data-theme="light"] .main-avatar {
+        width: clamp(155px, 42vw, 210px);
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* RIGHT LOGIN AREA */
+
+    body[data-theme="light"] .login-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    /* LOGIN CARD */
+
+    body[data-theme="light"] .login-card {
+        width: 100%;
+        max-width: 520px;
+        min-width: 0;
+
+        height: auto;
+        min-height: 0;
+
+        box-sizing: border-box;
+        padding: 25px 20px;
+
+        margin: 0;
+        transform: none !important;
+    }
+
+    /* FORM ELEMENTS */
+
+    body[data-theme="light"] .login-card input {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    body[data-theme="light"] .login-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    body[data-theme="light"] .remember-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        text-align: left;
+    }
+
+    body[data-theme="light"] .bottom-text {
+        overflow-wrap: anywhere;
+    }
+
+    /* FOOTER */
+
+    body[data-theme="light"] footer {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 12px;
+        font-size: 11px;
+        text-align: center;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media screen and (max-width: 480px) {
+
+    body[data-theme="light"] .login-wrapper {
+        padding: 16px 12px 22px;
+        gap: 18px;
+    }
+
+    body[data-theme="light"] .login-center {
+        min-height: 165px;
+    }
+
+    body[data-theme="light"] .main-avatar {
+        width: 165px;
+    }
+
+    body[data-theme="light"] .login-card {
+        padding: 22px 16px;
+        border-radius: 23px;
+    }
+
+    body[data-theme="light"] .login-title {
+        font-size: 24px;
+    }
+
+    body[data-theme="light"] .login-subtitle {
+        font-size: 13px;
+    }
+
+    body[data-theme="light"] .remember-row {
+        font-size: 12px;
+    }
+
+    body[data-theme="light"] .login-btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+

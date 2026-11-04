@@ -2259,201 +2259,6 @@ body[data-theme="dark"] .login-card {
 
 
 
-
-/* ==========================================
-   EXCEL YOU — CYBER HUD ERROR TOAST
-   NEON HEXAGON DESIGN
-========================================== */
-
-.login-error {
-
-    position: fixed;
-    top: 100px;
-    left: 50%;
-
-    transform: translate(-50%, -18px);
-
-    width: 460px;
-    max-width: calc(100vw - 32px);
-    min-height: 62px;
-
-    padding: 17px 22px 17px 68px;
-
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-
-    box-sizing: border-box;
-    overflow: hidden;
-    z-index: 100000;
-
-    /* THICK CYAN HEXAGON BORDER */
-
-    border: 3px solid transparent;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(5, 29, 61, .97),
-            rgba(3, 17, 43, .96)
-        ) padding-box,
-
-        linear-gradient(
-            135deg,
-            #75f2ff,
-            #00cfff 35%,
-            #00aaff 70%,
-            #67edff
-        ) border-box;
-
-    /* POINTED HEXAGON SHAPE */
-
-    clip-path: polygon(
-        6% 0,
-        94% 0,
-        100% 50%,
-        94% 100%,
-        6% 100%,
-        0 50%
-    );
-
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 1.6;
-    letter-spacing: .15px;
-
-    color: #eaf6ff;
-
-    /* NEON GLOW AROUND ALL SIX EDGES */
-
-    filter:
-        drop-shadow(0 0 2px #00e5ff)
-        drop-shadow(0 0 5px rgba(0, 210, 255, .95))
-        drop-shadow(0 0 12px rgba(0, 175, 255, .75))
-        drop-shadow(0 0 22px rgba(0, 125, 255, .45))
-        drop-shadow(0 0 32px rgba(0, 100, 255, .25));
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    transition:
-        opacity .3s ease,
-        transform .35s cubic-bezier(.22, 1, .36, 1),
-        visibility .3s ease;
-}
-
-
-/* ==========================================
-   WARNING ICON
-========================================== */
-
-.login-error::before {
-
-    content: "⚠";
-
-    position: absolute;
-
-    left: 32px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    font-size: 22px;
-    line-height: 1;
-
-    color: #ff526b;
-
-    text-shadow:
-        0 0 5px rgba(255, 65, 90, .95),
-        0 0 12px rgba(255, 65, 90, .8),
-        0 0 20px rgba(255, 65, 90, .4);
-}
-
-
-/* ==========================================
-   SHOW NOTIFICATION
-========================================== */
-
-.login-error.show {
-
-    opacity: 1;
-    visibility: visible;
-
-    transform: translate(-50%, 0);
-}
-
-
-/* ==========================================
-   LIGHT THEME
-========================================== */
-
-body[data-theme="light"] .login-error {
-
-    color: #15365e;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(219, 234, 254, .82),
-            rgba(255, 255, 255, .75)
-        ) padding-box,
-
-        linear-gradient(
-            135deg,
-            #7dd3fc,
-            #2593e8,
-            #38bdf8
-        ) border-box;
-
-    filter:
-        drop-shadow(0 0 2px rgba(37, 147, 232, .6))
-        drop-shadow(0 0 7px rgba(37, 147, 232, .4))
-        drop-shadow(0 0 15px rgba(37, 147, 232, .2));
-
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 480px) {
-
-    .login-error {
-
-        top: 16px;
-
-        width: calc(100vw - 28px);
-        min-height: 58px;
-
-        padding: 15px 15px 15px 55px;
-
-        font-size: 12px;
-    }
-
-    .login-error::before {
-
-        left: 27px;
-        font-size: 19px;
-    }
-}
-
-
-/* ==========================================
-   REDUCED MOTION
-========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .login-error {
-        transition: none;
-    }
-}
-
-
 /* =====================================
    CHROME AUTOFILL — DARK THEME
 ===================================== */
@@ -2473,3 +2278,425 @@ body[data-theme="light"] .login-error {
 }
 
 
+/* ==========================================
+   EXCEL YOU — LOGIN CARD ERROR MESSAGE
+========================================== */
+
+.login-error {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 10px 14px 10px 45px;
+
+    display: block;
+
+    box-sizing: border-box;
+
+    margin: 0 0 14px 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    /* TRANSPARENT CYBER BORDER */
+
+    background: rgba(3, 18, 42, .22);
+
+border: 1px solid #dc143c;
+    border-radius: 5px;
+
+    /* TEXT */
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: .2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px rgba(255, 45, 75, .35);
+
+    /* SUBTLE CYAN LIGHTING */
+
+    box-shadow:
+        0 0 6px rgba(0, 170, 255, .18);
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity .3s ease,
+        transform .35s cubic-bezier(.22, 1, .36, 1),
+        visibility .3s ease;
+}
+
+
+/* ==========================================
+   DANGER SYMBOL
+========================================== */
+
+.login-error::before {
+
+    content: "⚠";
+
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    line-height: 1;
+
+    color: #ff304f;
+
+    text-shadow:
+        0 0 4px #ff304f,
+        0 0 9px rgba(255, 35, 65, .85),
+        0 0 16px rgba(255, 25, 55, .5);
+}
+
+
+/* ==========================================
+   SHOW ERROR
+========================================== */
+
+.login-error.show {
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   LIGHT THEME
+========================================== */
+
+body[data-theme="light"] .login-error {
+
+    background: rgba(255, 245, 247, .25);
+
+    border-color: rgba(220, 20, 60, .65);
+
+    box-shadow: none;
+
+    color: #17365c;
+
+    text-shadow: none;
+}
+
+
+/* LIGHT THEME — CRISP WARNING ICON */
+
+body[data-theme="light"] .login-error::before {
+
+    color: #dc143c;
+
+    text-shadow: none;
+    filter: none;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .login-error {
+
+        padding: 9px 10px 9px 39px;
+
+        font-size: 12px;
+
+        margin-bottom: 12px;
+    }
+
+    .login-error::before {
+
+        left: 11px;
+        font-size: 20px;
+    }
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .login-error {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   ERROR BOX — TIGHT CONTENT WIDTH
+========================================== */
+
+.login-error {
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 32px);
+
+    padding: 12px 12px 12px 48px;
+
+    box-sizing: border-box;
+
+    left: 50%;
+    text-align: left;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/* ALERT ICON */
+
+.login-error::before {
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ==========================================
+   DARK THEME — GLASS ERROR NOTIFICATION
+========================================== */
+
+body[data-theme="dark"] .login-error {
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(2, 12, 30, 0.78),
+            rgba(5, 20, 45, 0.68),
+            rgba(2, 12, 30, 0.78)
+        );
+
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+
+    border-color: transparent;
+
+    box-shadow:
+        inset 0 0 18px rgba(0, 190, 255, 0.06);
+}
+
+
+/* =====================================================
+   EXCEL YOU — DARK THEME
+   MOBILE LOGIN LAYOUT ONLY
+   Desktop styling remains unchanged
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* PREVENT HORIZONTAL OVERFLOW */
+
+    html,
+    body[data-theme="dark"] {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* MOBILE HEADER */
+
+    body[data-theme="dark"] .topbar {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 16px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    body[data-theme="dark"] .logo-img {
+        width: 135px;
+        max-width: 40vw;
+    }
+
+    body[data-theme="dark"] .nav-links {
+        display: none;
+    }
+
+    body[data-theme="dark"] .topbar-right {
+        gap: 9px;
+        flex-shrink: 0;
+    }
+
+    body[data-theme="dark"] .signup-btn {
+        padding: 8px 13px;
+        font-size: 13px;
+    }
+
+    body[data-theme="dark"] .theme-btn {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    /* MAIN LOGIN LAYOUT */
+
+    body[data-theme="dark"] .login-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        box-sizing: border-box;
+        padding: 20px 14px 24px;
+        gap: 22px;
+
+        margin: 0 auto;
+    }
+
+    /* HIDE LEFT FEATURE AREA ON MOBILE */
+
+    body[data-theme="dark"] .login-left {
+        display: none;
+    }
+
+    /* CENTER ROBOT AREA */
+
+    body[data-theme="dark"] .login-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+        min-height: 190px;
+
+        box-sizing: border-box;
+    }
+
+    body[data-theme="dark"] .main-avatar {
+        width: clamp(155px, 42vw, 210px);
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* RIGHT LOGIN AREA */
+
+    body[data-theme="dark"] .login-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    /* LOGIN CARD */
+
+    body[data-theme="dark"] .login-card {
+        width: 100%;
+        max-width: 520px;
+        min-width: 0;
+
+        height: auto;
+        min-height: 0;
+
+        box-sizing: border-box;
+        padding: 25px 20px;
+
+        margin: 0;
+
+        transform: none !important;
+    }
+
+    /* FORM ELEMENTS */
+
+    body[data-theme="dark"] .login-card input {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    body[data-theme="dark"] .login-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    body[data-theme="dark"] .remember-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        text-align: left;
+    }
+
+    body[data-theme="dark"] .bottom-text {
+        overflow-wrap: anywhere;
+    }
+
+    /* FOOTER */
+
+    body[data-theme="dark"] footer {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 12px;
+        font-size: 11px;
+        text-align: center;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media screen and (max-width: 480px) {
+
+    body[data-theme="dark"] .login-wrapper {
+        padding: 16px 12px 22px;
+        gap: 18px;
+    }
+
+    body[data-theme="dark"] .login-center {
+        min-height: 165px;
+    }
+
+    body[data-theme="dark"] .main-avatar {
+        width: 165px;
+    }
+
+    body[data-theme="dark"] .login-card {
+        padding: 22px 16px;
+        border-radius: 23px;
+    }
+
+    body[data-theme="dark"] .login-title {
+        font-size: 24px;
+    }
+
+    body[data-theme="dark"] .login-subtitle {
+        font-size: 13px;
+    }
+
+    body[data-theme="dark"] .remember-row {
+        font-size: 12px;
+    }
+
+    body[data-theme="dark"] .login-btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
