@@ -2840,3 +2840,29 @@ body[data-theme="dark"] .login-error {
     }
 
 }
+
+/* ==========================================
+   MOBILE — HIDE ROBOT VIDEO
+   LOGIN CARD ONLY
+========================================== */
+
+@media screen and (max-width: 480px) {
+
+    body[data-theme="dark"] .login-center,
+    body[data-theme="light"] .login-center {
+
+        display: none !important;
+
+    }
+
+    /* Reduce space after hiding robot */
+
+    body[data-theme="dark"] .login-wrapper,
+    body[data-theme="light"] .login-wrapper {
+
+        gap: 0;
+        padding-top: 18px;
+
+    }
+
+}
