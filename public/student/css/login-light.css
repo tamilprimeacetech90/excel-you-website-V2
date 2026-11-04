@@ -1746,5 +1746,5 @@ body[data-theme="light"] .login-error::before {
 }  
 
 body[data-theme="light"] .login-wrapper {
-    padding: 100px 12px 25px !important;
-}
+        gap: 0;
+        padding-top: 18px;}
