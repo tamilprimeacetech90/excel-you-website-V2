@@ -1745,7 +1745,14 @@ body[data-theme="light"] .login-error::before {
 
 }  
 
-body[data-theme="light"] .login-wrapper {
-           gap: 0 !important;
+@media screen and (max-width: 480px) {
 
-        padding: 100px 12px 25px !important;}
+    body[data-theme="light"] .login-wrapper {
+
+        gap: 0 !important;
+
+        padding: 100px 9px 25px !important;
+
+    }
+
+}
