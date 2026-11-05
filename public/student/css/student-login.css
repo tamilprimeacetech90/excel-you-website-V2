@@ -2888,3 +2888,134 @@ body[data-theme="dark"] .login-error {
         background: #06152f !important;
     }
 }
+
+
+/* =====================================================
+   EXCEL YOU — IPAD LANDSCAPE LAYOUT
+   FIRST TEST VERSION
+   Desktop and mobile layouts remain unchanged
+===================================================== */
+
+@media screen
+and (min-width: 769px)
+and (max-width: 1180px)
+and (orientation: landscape) {
+
+    /* MAIN LAYOUT */
+
+    body[data-theme="light"] .login-wrapper {
+
+        display: grid !important;
+
+        grid-template-columns:
+            minmax(280px, 0.9fr)
+            minmax(390px, 1fr) !important;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 94%;
+        max-width: 1100px;
+
+        min-width: 0;
+
+        margin: 0 auto;
+
+        padding: 20px 0 30px;
+
+        gap: 20px;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* HIDE LEFT FEATURE CAROUSEL */
+
+    body[data-theme="light"] .login-left {
+
+        display: none !important;
+
+    }
+
+
+    /* CENTRE ROBOT AREA */
+
+    body[data-theme="light"] .login-center {
+
+        display: flex !important;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+
+        min-height: 0;
+        height: auto;
+
+        box-sizing: border-box;
+
+        transform: translateX(-10px);
+
+    }
+
+
+    /* ROBOT SIZE */
+
+    body[data-theme="light"] .login-center .main-avatar {
+
+        width: clamp(260px, 34vw, 370px);
+
+        max-width: 100%;
+
+        height: auto;
+
+        object-fit: contain;
+
+    }
+
+
+    /* RIGHT LOGIN AREA */
+
+    body[data-theme="light"] .login-right {
+
+        display: flex !important;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        margin: 0;
+
+        transform: none !important;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* LOGIN CARD — PRESERVE ITS EXISTING DESIGN */
+
+    body[data-theme="light"] .login-card {
+
+        width: 100%;
+
+        max-width: 470px;
+
+        min-width: 0;
+
+        height: auto;
+
+        margin: 0 auto;
+
+        transform: none !important;
+
+        box-sizing: border-box;
+
+    }
+
+}
