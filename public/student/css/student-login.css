@@ -3075,3 +3075,54 @@ and (max-width: 1180px) {
         box-sizing: border-box;
     }
 }
+
+/* ==========================================
+   EXCEL YOU — IPAD
+   SLIGHTLY LARGER + PERFECTLY CENTERED CARD
+========================================== */
+
+@media screen and (min-width: 769px) and (max-width: 1180px) {
+
+    /* Centre the login area */
+    body[data-theme="light"] .login-wrapper,
+    body[data-theme="dark"] .login-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: calc(100svh - 110px) !important;
+
+        margin: 0 auto !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
+
+    /* Remove previous positioning offsets */
+    body[data-theme="light"] .login-right,
+    body[data-theme="dark"] .login-right {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        transform: none !important;
+    }
+
+    /* Slightly enlarge login card */
+    body[data-theme="light"] .login-card,
+    body[data-theme="dark"] .login-card {
+        width: min(92vw, 520px) !important;
+        max-width: 520px !important;
+
+        margin: 0 auto !important;
+        transform: none !important;
+        position: relative !important;
+        left: 0 !important;
+
+        box-sizing: border-box;
+    }
+}
