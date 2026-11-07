@@ -3020,32 +3020,58 @@ and (orientation: landscape) {
 
 }
 
-/* =====================================================
-   EXCEL YOU — IPAD SIZE ADJUSTMENTS
-   Robot smaller + Login card slightly larger
-   Both light and dark themes
-===================================================== */
+/* ==========================================
+   EXCEL YOU — IPAD LOGIN-ONLY LAYOUT
+   Both Light and Dark Themes
+========================================== */
 
 @media screen
 and (min-width: 769px)
 and (max-width: 1180px) {
 
-    /* REDUCE ROBOT SIZE */
-    body[data-theme="light"] .login-center .main-avatar,
-    body[data-theme="dark"] .login-center .main-avatar {
-
-        width: clamp(220px, 29vw, 310px) !important;
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
+    /* Hide robot / centre hologram */
+    body[data-theme="light"] .login-center,
+    body[data-theme="dark"] .login-center {
+        display: none !important;
     }
 
-    /* SLIGHTLY ENLARGE LOGIN CARD */
+    /* Hide left feature area */
+    body[data-theme="light"] .login-left,
+    body[data-theme="dark"] .login-left {
+        display: none !important;
+    }
+
+    /* Centre the login card */
+    body[data-theme="light"] .login-wrapper,
+    body[data-theme="dark"] .login-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
+        padding: 25px 20px !important;
+        box-sizing: border-box;
+    }
+
+    body[data-theme="light"] .login-right,
+    body[data-theme="dark"] .login-right {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        transform: none !important;
+    }
+
     body[data-theme="light"] .login-card,
     body[data-theme="dark"] .login-card {
-
-        width: clamp(400px, 48vw, 490px) !important;
-        max-width: 490px !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+        transform: none !important;
         box-sizing: border-box;
     }
 }
