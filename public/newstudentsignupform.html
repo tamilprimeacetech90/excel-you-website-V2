@@ -31,6 +31,11 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+<link
+    rel="stylesheet"
+    href="/student/css/signup-popup.css"
+>
+
 </head>
 
 <body data-theme="dark">
@@ -357,6 +362,53 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     </footer>
 
     <script src="/student/js/newstudentsignupform.js"></script>
+
+
+<!-- =================================
+     EXCEL YOU — SIGNUP HUD POPUP
+================================== -->
+
+<div
+    id="signupHudPopup"
+    class="signup-hud-popup"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    aria-hidden="true"
+>
+    <div class="signup-hud-icon">
+        <span>!</span>
+    </div>
+
+    <div class="signup-hud-content">
+        <div class="signup-hud-title">
+            SYSTEM NOTIFICATION
+        </div>
+
+        <div
+            id="signupHudMessage"
+            class="signup-hud-message"
+        ></div>
+    </div>
+
+    <button
+        type="button"
+        id="signupHudClose"
+        class="signup-hud-close"
+        aria-label="Close notification"
+    >
+        &times;
+    </button>
+
+    <div class="signup-hud-progress">
+        <span></span>
+    </div>
+</div>
+
+
+<!-- New popup service -->
+<script src="/student/js/signup-popup.js"></script>
+
 
 </body>
 
