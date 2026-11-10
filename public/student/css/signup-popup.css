@@ -357,3 +357,15 @@ body[data-theme="light"] .signup-hud-close:hover {
     }
 
 }
+
+/* =================================
+   DESKTOP POPUP POSITION ADJUSTMENT
+================================= */
+
+@media (min-width: 769px) {
+
+    .signup-hud-popup {
+        top: 65px;
+    }
+
+}
