@@ -1616,3 +1616,455 @@ footer{
     }
 
 }
+
+
+/* ==========================================
+   EXCEL YOU — iPAD VERTICAL CENTER ALIGNMENT
+   ========================================== */
+
+@media screen and (min-width: 993px) and (max-width: 1180px) {
+
+    .signup-wrapper {
+        min-height: calc(100svh - 70px) !important;
+        align-items: center !important;
+    }
+
+}
+
+
+
+
+/* ==========================================
+   EXCEL YOU — RESPONSIVE SIGNUP CARD
+   MOBILE + ALL IPAD SIZES
+   DESKTOP DESIGN UNTOUCHED
+========================================== */
+
+
+/* ==========================================
+   TABLETS + IPADS
+========================================== */
+
+@media screen and (min-width: 769px) and (max-width: 1180px) {
+
+    /* Hide Avatar and Left Panel */
+
+    .center-panel,
+    .left-panel {
+        display: none !important;
+    }
+
+    /* Center Signup Wrapper */
+
+    .signup-wrapper {
+
+        display: grid !important;
+
+        grid-template-columns: minmax(0, 1fr) !important;
+
+        justify-items: center !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+
+        min-height: calc(100svh - 60px) !important;
+
+        margin: 0 auto !important;
+
+        padding: 25px 20px !important;
+
+        gap: 0 !important;
+
+    }
+
+    /* Center Signup Area */
+
+    .signup-right {
+
+        display: flex !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+    }
+
+    /* Device-Based Card Sizing */
+
+    .signup-card {
+
+        width: clamp(360px, 50vw, 520px) !important;
+
+        max-width: calc(100vw - 40px) !important;
+
+        padding: clamp(24px, 3vw, 32px) !important;
+
+        margin: auto !important;
+
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE PHONES
+========================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* Hide Avatar and Left Panel */
+
+    .center-panel,
+    .left-panel {
+        display: none !important;
+    }
+
+    /* Center Signup Wrapper */
+
+    .signup-wrapper {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+
+        min-height: calc(100svh - 60px) !important;
+
+        margin: 0 auto !important;
+
+        padding: 20px 16px !important;
+
+        gap: 0 !important;
+
+    }
+
+    /* Center Signup Area */
+
+    .signup-right {
+
+        display: flex !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+    }
+
+    /* Responsive Mobile Card */
+
+    .signup-card {
+
+        width: 100% !important;
+
+        max-width: min(420px, calc(100vw - 32px)) !important;
+
+        padding: clamp(18px, 4vw, 24px) !important;
+
+        margin: auto !important;
+
+    }
+
+}
+
+
+/* ==========================================
+   ALLOW SCROLLING WHEN NECESSARY
+========================================== */
+
+@media screen and (max-width: 1180px) {
+
+    body {
+
+        overflow-y: auto !important;
+
+    }
+
+}
+
+
+/* ==========================================
+   EXCEL YOU — RESTORE iPAD TOP NAVIGATION
+========================================== */
+
+@media screen and (min-width: 769px) and (max-width: 1180px) {
+
+    .topbar {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        position: relative;
+        z-index: 100 !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        align-items: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        gap: clamp(12px, 2vw, 28px) !important;
+    }
+
+    .nav-links a {
+        display: inline-block !important;
+        visibility: visible !important;
+    }
+
+    .topbar-right {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+}
+/* ==========================================
+   iPAD — KEEP TOP NAVIGATION VISIBLE
+========================================== */
+
+@media screen and (min-width:769px) and (max-width:1180px) {
+
+    .nav-links {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+}
+
+/* ==========================================
+   EXCEL YOU — TABLET NAVIGATION
+   iPad Mini: 744px and above
+========================================== */
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+    .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 22px;
+        gap: 12px;
+    }
+
+    .nav-links {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    .nav-links a {
+        display: inline-flex;
+        align-items: center;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .topbar .logo {
+        flex-shrink: 0;
+    }
+}
+
+
+
+
+/* ==========================================
+   MACBOOK PRO 16" — 1728 × 1117
+   PAGE POSITION + AVATAR + FOOTER
+========================================== */
+
+@media screen
+and (min-width: 1720px)
+and (max-width: 1740px)
+and (min-height: 1100px)
+and (max-height: 1130px) {
+
+    /* Full viewport height */
+    html,
+    body {
+        height: 100svh !important;
+        min-height: 100svh !important;
+    }
+
+    body {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+
+    /* Keep top navigation in its original position */
+    .topbar {
+        flex-shrink: 0 !important;
+    }
+
+    /* Center the three-column layout vertically */
+    .signup-wrapper {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+
+        align-items: center !important;
+
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+
+        transform: translateY(40px) !important;
+    }
+
+    /* Avatar horizontal alignment */
+    .center-panel {
+        width: 100% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .avatar-container {
+        width: 100% !important;
+        height: auto !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .main-avatar {
+        display: block !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .hologram-ring {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Caption */
+    .avatar-note {
+        width: 100% !important;
+        margin-top: 20px !important;
+        text-align: center !important;
+    }
+
+    /* Footer at actual bottom */
+    footer {
+        flex-shrink: 0 !important;
+        margin-top: auto !important;
+        padding-bottom: 15px !important;
+    }
+
+}
+
+/* TEMPORARY MACBOOK CSS TEST */
+
+@media screen
+@media screen
+and (device-width: 1372px)
+and (device-height: 858px)
+and (orientation: landscape) {
+
+    body::after {
+        content: "MACBOOK CSS ACTIVE";
+
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 999999;
+
+        padding: 10px 20px;
+
+        background: red;
+        color: white;
+
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+}
+
+/* =====================================
+   DARK THEME — CROSS-BROWSER AUTOFILL
+===================================== */
+
+/* Chrome, Edge, Safari and other WebKit browsers */
+body[data-theme="dark"] input[type="email"]:-webkit-autofill,
+body[data-theme="dark"] input[type="email"]:-webkit-autofill:hover,
+body[data-theme="dark"] input[type="email"]:-webkit-autofill:focus,
+body[data-theme="dark"] input[type="email"]:-webkit-autofill:active {
+
+    -webkit-box-shadow:
+        0 0 0 1000px #0b2048 inset !important;
+
+    -webkit-text-fill-color: #f8fafc !important;
+
+    caret-color: #f8fafc !important;
+}
+
+/* Firefox */
+body[data-theme="dark"] input[type="email"] {
+    color-scheme: dark;
+}
+
+/* Standard autofill styling where supported */
+body[data-theme="dark"] input[type="email"]:autofill {
+    background-color: #0b2048 !important;
+    color: #f8fafc !important;
+}
+/* =========================================
+   DARK THEME — ALL FIELDS AUTOFILL FIX
+   ========================================= */
+
+body[data-theme="dark"] input:-webkit-autofill,
+body[data-theme="dark"] input:-webkit-autofill:hover,
+body[data-theme="dark"] input:-webkit-autofill:focus,
+body[data-theme="dark"] input:-webkit-autofill:active,
+body[data-theme="dark"] textarea:-webkit-autofill,
+body[data-theme="dark"] select:-webkit-autofill {
+
+    -webkit-box-shadow:
+        0 0 0 1000px #0b2048 inset !important;
+
+    -webkit-text-fill-color: #f8fafc !important;
+
+    caret-color: #f8fafc !important;
+}
+
+/* Firefox and browsers supporting standard autofill */
+body[data-theme="dark"] input:autofill,
+body[data-theme="dark"] textarea:autofill,
+body[data-theme="dark"] select:autofill {
+
+    background-color: #0b2048 !important;
+    color: #f8fafc !important;
+}
+
+/* Dark color scheme for native form controls */
+body[data-theme="dark"] input,
+body[data-theme="dark"] textarea,
+body[data-theme="dark"] select {
+    color-scheme: dark;
+}
+
